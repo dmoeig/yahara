@@ -2,3 +2,18 @@
 
 @import "../../vendor/foundation/scss/normalize.scss";
 @import "../../vendor/foundation/scss/foundation.scss";
+
+
+img#logo {
+  height: 100px;
+  float: left;
+}
+
+// img.album-art {
+//   height: 200px;
+// }
+
+ul#nav{
+  @include inline-list;
+  float: right;
+}

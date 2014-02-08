@@ -50,6 +50,7 @@
     "originate": "~0.1.5",
     "loom": "~3.1.2",
     "connect-livereload": "~0.3.1",
-    "grunt-sass": "~0.10.0"
+    "grunt-sass": "~0.10.0",
+    "underscore": "~1.5.2"
   }
 }

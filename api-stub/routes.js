@@ -1,7 +1,21 @@
+_ = require('underscore')
+
 artists = [
-	{ 
-		"id": 1,  "name": "PHOX" 
-	}
+	{ "id": 1,  "name": "PHOX" },
+	{ "id": 2,  "name": "Beefus" },
+	{ "id": 3,  "name": "Ben Sidran" },
+	{ "id": 4,  "name": "Venus in Furs" },
+	{ "id": 5,  "name": "PHOX" }
+]
+
+album_titles = [
+	"A Momentary Lapse of Reason",
+	"Thriller",
+	"Back in Black",
+	"... And Justice for All",
+	"More Songs About Buildings and Food",
+	"Paranoid",
+	"Blood Sugar Sex Magick"
 ]
 
 tracks = [
@@ -21,16 +35,20 @@ tracks = [
 	}
 ]
 
-albums = [
-	{ 
-		"id": 1, 
-		"title": "Unblushing", 
-		"art": "http://localhost:8000/assets/images/1.jpg",
-		"main_artist": artists[0],
-		"artists": artists,
-		"tracks": tracks
-	}
-]
+catalog = function() {
+	var json = { "albums": [] };
+	_.range(1,24).forEach( function(id){
+		var	album = {};
+		album.title =  _.sample(album_titles);
+		album.main_artist = _.sample(artists);
+		album.artists = _.sample(artists,2);
+		album.id = id;
+		album.tracks = tracks;
+		album.art = "http://localhost:8000/assets/images/"+_.sample([1,2,3,4,5])+".jpg"
+		json.albums.push(album);
+	});
+	return json
+}
 
 module.exports = function(server) {
 
@@ -39,7 +57,7 @@ module.exports = function(server) {
 	server.namespace('/api', function() {
 
 		server.get('/catalog', function(req, res) {
-			res.json({ "albums": albums });
+			res.json(catalog());
 		});
 
 		server.post('/members', function(req, res) {

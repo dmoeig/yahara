@@ -12,3 +12,5 @@ Built using:
 - Node.js
 - Express
 - Bower
+
+Audio tracks stored in this repo is in the public domain

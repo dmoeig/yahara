@@ -1,15 +1,21 @@
-{{#link-to 'index'}}<h1>Yahara</h1>{{/link-to}}
+<div class="row">
+  <div class="small-12 large-6 columns">
+    {{#link-to 'index'}}<img id='logo' src="/assets/images/logo-horiz.png">{{/link-to}}
+  </div>
+  <div class="small-12 large-6 columns">
+    <ul id='nav'>
+      <li>{{#link-to 'index'}}Catalog{{/link-to}}</li>
+      <li>{{#link-to 'collection'}}My Collection{{/link-to}}</li>
+      <li><a href="#">Profile</a></li>
+    </ul>
+  </div>
+</div>
 
-<ul class="inline-list">
-  <li>{{#link-to 'index'}}Catalog{{/link-to}}</li>
-  <li>{{#link-to 'collection'}}My Collection{{/link-to}}</li>
-  <li><a href="#">Profile</a></li>
-</ul>
 
-{{outlet}}
-
-{{#link-to 'index'}}Catalog{{/link-to}}
-{{#link-to 'collection'}}Collection{{/link-to}}
-<a {{action 'openModal' }}>Profile</a>
+<div class="row">
+  <div class="small-12 columns">
+    {{outlet}}
+  </div>
+</div>
 
 {{outlet modal}}
