@@ -1,0 +1,15 @@
+{{#link-to 'index'}}<h1>Yahara</h1>{{/link-to}}
+
+<ul class="inline-list">
+  <li>{{#link-to 'index'}}Catalog{{/link-to}}</li>
+  <li>{{#link-to 'collection'}}My Collection{{/link-to}}</li>
+  <li><a href="#">Profile</a></li>
+</ul>
+
+{{outlet}}
+
+{{#link-to 'index'}}Catalog{{/link-to}}
+{{#link-to 'collection'}}Collection{{/link-to}}
+<a {{action 'openModal' }}>Profile</a>
+
+{{outlet modal}}

@@ -1,0 +1,5 @@
+{{#each album in albums}}
+  <img {{bind-attr src="album.art"}} height="100">
+  {{#link-to 'album' album}}<h4>{{album.title}}</h4>{{/link-to}}
+  {{#link-to 'artist' album.main_artist}}<h5>{{album.main_artist.name}}</h5>{{/link-to}}
+{{/each}}
