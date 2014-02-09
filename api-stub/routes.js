@@ -5,7 +5,8 @@ artists = [
 	{ "id": 2,  "name": "Beefus" },
 	{ "id": 3,  "name": "Ben Sidran" },
 	{ "id": 4,  "name": "Venus in Furs" },
-	{ "id": 5,  "name": "PHOX" }
+	{ "id": 5,  "name": "PHOX" },
+	{ "id": 6,  "name": "F.Stokes" }
 ]
 
 album_titles = [

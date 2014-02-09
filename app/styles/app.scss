@@ -9,9 +9,11 @@ img#logo {
   float: left;
 }
 
-// img.album-art {
-//   height: 200px;
-// }
+
+#modal { 
+  display:none; 
+  z-index:40001;
+}
 
 ul#nav{
   @include inline-list;

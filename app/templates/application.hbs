@@ -6,7 +6,7 @@
     <ul id='nav'>
       <li>{{#link-to 'index'}}Catalog{{/link-to}}</li>
       <li>{{#link-to 'collection'}}My Collection{{/link-to}}</li>
-      <li><a href="#">Profile</a></li>
+      <li>{{#link-to 'profile'}}Profile{{/link-to}}</li>
     </ul>
   </div>
 </div>
@@ -18,4 +18,5 @@
   </div>
 </div>
 
-{{outlet modal}}
+
+{{render 'modal'}}
