@@ -10,7 +10,9 @@
     "ic-ajax": "~0.3.0",
     "ember-testing-httpRespond": "~0.1.1",
     "soundmanager2": "*",
-    "foundation": "~5.1.1"
+    "foundation": "~5.1.1",
+    "ionicons": "~1.4.1",
+    "ember-model": "~0.0.11"
   },
   "resolutions": {
     "ember": "~1.4.0-beta.2"

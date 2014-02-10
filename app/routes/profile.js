@@ -6,6 +6,7 @@ export default Ember.Route.extend({
     else {
       transition.abort();
       this.controllerFor('modal').send('open');
+      this.controllerFor('modal').set('previousTransition', transition);
     }
   },
 

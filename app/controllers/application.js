@@ -1,3 +1,4 @@
 export default Ember.ObjectController.extend({
-  currentUser: null
+  token: null,
+  cardNumber: null
 });

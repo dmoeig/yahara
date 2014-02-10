@@ -2,11 +2,16 @@
 
 @import "../../vendor/foundation/scss/normalize.scss";
 @import "../../vendor/foundation/scss/foundation.scss";
+@import "../../vendor/ionicons/scss/ionicons.scss";
 
 
 img#logo {
   height: 100px;
   float: left;
+}
+
+#album img.art {
+  height: 100px;
 }
 
 
@@ -15,7 +20,39 @@ img#logo {
   z-index:40001;
 }
 
+#player {
+  border-top: solid 1px grey;
+  position:fixed;
+  left:0px;
+  bottom:0px;
+  height:80px;
+  width:100%;
+  background: white;
+
+  img.art {
+    height: 30px;
+  }
+
+}
+
 ul#nav{
   @include inline-list;
+  float: right;
+}
+
+tr.track{
+  cursor: pointer;
+}
+
+#player{
+  .controls{
+    float: right;
+  }
+  .info{
+    float: left;
+  }
+
+}
+.controls{
   float: right;
 }

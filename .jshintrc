@@ -7,7 +7,9 @@
     "Ember": true,
     "Em": true,
     "DS": true,
-    "$": true
+    "$": true,
+    "console": true,
+    "soundManager": true
   },
   "node" : false,
   "browser" : false,

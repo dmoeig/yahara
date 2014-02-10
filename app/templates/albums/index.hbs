@@ -1,0 +1,11 @@
+<ul class="small-block-grid-2 medium-block-grid-4 large-block-grid-5">
+  {{#each}}
+    <li>
+      {{#link-to 'albums.show' this}}
+        <img class='album-art' {{bind-attr src="art"}} height="100">
+        <h5>{{title}}</h5>
+      {{/link-to}}
+      {{#link-to 'artist' album.main_artist}}<h6>{{main_artist.name}}</h6>{{/link-to}}
+    </li>
+  {{/each}}
+</ul>
