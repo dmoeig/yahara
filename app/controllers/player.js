@@ -9,7 +9,7 @@ export default Ember.ObjectController.extend({
     },
 
     play: function(album, track){
-      if (this.get('track') {
+      if (this.get('track')) {
         this.get('track').stop();
       }
       this.set('album', album);
