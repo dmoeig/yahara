@@ -1,58 +1,57 @@
 /* Put your CSS here */
 
+$h1-font-size: rem-calc(44);
+$h2-font-size: rem-calc(37);
+$h3-font-size: rem-calc(1);
+$h4-font-size: rem-calc(2);
+$h5-font-size: rem-calc(18);
+$h6-font-size: 1rem;
+
 @import "../../vendor/foundation/scss/normalize.scss";
 @import "../../vendor/foundation/scss/foundation.scss";
 @import "../../vendor/ionicons/scss/ionicons.scss";
 
+@import "fonts";
+@import "colors";
+@import "header";
 
-img#logo {
-  height: 100px;
-  float: left;
+
+// Catalog
+#catalog {
+  border-top: solid 2px $light-grey;
+  padding-top: 10px;
+
+  img.art {
+    -webkit-box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.69);
+    -moz-box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.69);
+    box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.69);
+  }
+
+  a.album{
+    color: $green;
+  }
+
+  a.artist{
+    color: $grey;
+  }
 }
 
-#album img.art {
-  height: 100px;
-}
 
 
+// Modal
 #modal { 
   display:none; 
   z-index:40001;
 }
 
-#player {
-  border-top: solid 1px grey;
-  position:fixed;
-  left:0px;
-  bottom:0px;
-  height:80px;
-  width:100%;
-  background: white;
 
-  img.art {
-    height: 30px;
-  }
-
-}
-
-ul#nav{
-  @include inline-list;
-  float: right;
-}
-
+// Album Show
 tr.track{
   cursor: pointer;
 }
 
-#player{
-  .controls{
-    float: right;
+#album {
+  img.art {
+    height: 100px;
   }
-  .info{
-    float: left;
-  }
-
-}
-.controls{
-  float: right;
 }

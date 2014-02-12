@@ -1,23 +1,23 @@
-<div class="row">
-  <div class="small-12 large-6 columns">
-    {{#link-to 'albums'}}<img id='logo' src="/assets/images/logo-horiz.png">{{/link-to}}
-  </div>
-  <div class="small-12 large-6 columns">
-    <ul id='nav'>
-      <li>{{#link-to 'albums'}}Catalog{{/link-to}}</li>
-      <li>{{#link-to 'collection'}}My Collection{{/link-to}}</li>
-      <li>{{#link-to 'profile'}}Profile{{/link-to}}</li>
-    </ul>
-  </div>
-</div>
-
-
-<div class="row">
-  <div class="small-12 columns">
-    {{outlet}}
-  </div>
-</div>
-
 {{render 'player'}}
+
+<div id="content">
+  <div class="row">
+    <div class="small-12 large-6 columns">
+      {{#link-to 'albums'}}<img id='logo' src="/assets/images/logo-horiz.png">{{/link-to}}
+    </div>
+    <div class="small-12 large-6 columns">
+      <ul id='nav'>
+        <li>{{#link-to 'albums'}}Catalog{{/link-to}}</li>
+        <li>{{#link-to 'collection'}}My Collection{{/link-to}}</li>
+        <li>{{#link-to 'profile'}}Profile{{/link-to}}</li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-12 columns">
+      {{outlet}}
+    </div>
+  </div>
+</div>
 
 {{render 'modal'}}

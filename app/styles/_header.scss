@@ -1,0 +1,46 @@
+// Player
+#player {
+  height: 60px; 
+  background: white;
+  box-shadow: 0 3px 3px -3px $grey;
+
+  img.art {
+    height: 30px;
+  }
+
+  .controls{
+    float: right;
+  }
+  .info{
+    float: left;
+  }
+
+}
+
+
+img#logo {
+  height: 100px;
+  float: left;
+}
+
+ul#nav{
+  padding-top: 10px;
+
+  @include inline-list;
+  float: right;
+  text-transform:uppercase;
+  font-family: $sans;
+  color: $blue;
+
+  & a {
+    padding: 5px;
+    border-radius: 5px;
+    color: $grey;
+  }
+
+  & a.active {
+    color: white;
+    background-color: $blue;
+  }
+}
+
