@@ -5,24 +5,37 @@
     <h5>{{main_artist.name}}</h5>
   </div>
   <div class="small-12 large-6 columns">
-    <table>
-      <tbody>
-        {{#each track in tracks}}
-          {{!-- '../this' resolves to the outer context - the album record --}}
-          <tr class="track" {{action 'playPause' ../this track}}>
-            <td>{{track.position}}</td>
-            <td>{{track.title}}</td>
-            <td>{{format-duration track.duration}}</td>
-            <td>
-              {{#if track.playing }}
-                <i class="icon ion-pause"></i>
-              {{else}}
-                <i class="icon ion-play"></i>
-              {{/if}}
-            </td>
-          </tr>
-        {{/each}}
-      </tbody>
-    </table>
+
+    {{#y-block title="Add to Your Collection"}}
+      <p>Your collection</p>
+    {{/y-block}}
+    {{#y-block title="Download"}}
+      <p>Download it</p>
+    {{/y-block}}
+    {{#y-block title="Track List" expanded="true"}}
+      <table>
+        <tbody>
+          {{#each track in tracks}}
+            {{!-- '../this' resolves to the outer context - the album record --}}
+            <tr class="track" {{action 'playPause' ../this track}}>
+              <td>{{track.position}}</td>
+              <td>{{track.title}}</td>
+              <td>{{format-duration track.duration}}</td>
+              <td>
+                {{#if track.playing }}
+                  <i class="icon ion-pause"></i>
+                {{else}}
+                  <i class="icon ion-play"></i>
+                {{/if}}
+              </td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    {{/y-block}}
+    {{#y-block title="Options to Purchase"}}
+      <p>Purchase here!</p>
+    {{/y-block}}
+
   </div>
 </div>
