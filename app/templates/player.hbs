@@ -1,19 +1,17 @@
-{{#if track}}
-  <div id="player">
-    <div class="row">
-      <div class="small-12 columns">
-        <div class="info">
-          <img class='art' {{bind-attr src="album.art"}}>
-          <p>{{album.title}} - {{album.main_artist.name}} - {{track.title}}</p>
-        </div>
-        <div class="controls">
-          {{#if track.playing }}
-            <i class="icon ion-pause"></i>
-          {{else}}
-            <i class="icon ion-play"></i>
-          {{/if}}
-        </div>
+<div id="player">
+  <div class="row">
+    <div class="small-12 columns">
+      <div class="info">
+        <img class='art' {{bind-attr src="album.art"}}>
+        <p>{{album.title}} - {{album.main_artist.name}} - {{track.title}}</p>
+      </div>
+      <div class="controls">
+        {{#if track.playing }}
+          <i class="icon ion-pause"></i>
+        {{else}}
+          <i class="icon ion-play"></i>
+        {{/if}}
       </div>
     </div>
   </div>
-{{/if}}
+</div>
