@@ -1,9 +1,21 @@
 <div id="player">
   <div class="row">
-    <div class="small-12 columns">
+    <div class="small-4 columns show-for-medium-up">
+      {{#if previousTrack }}
+        <div class="info">
+          <img class='art' {{bind-attr src="album.art"}}>
+          {{album.title}}
+          {{album.main_artist.name}}
+          {{previousTrack.title}}
+        </div>
+      {{/if}}
+    </div>
+    <div class="small-4 columns">
       <div class="info">
         <img class='art' {{bind-attr src="album.art"}}>
-        <p>{{album.title}} - {{album.main_artist.name}} - {{track.title}}</p>
+        {{album.title}}
+        {{album.main_artist.name}}
+        {{track.title}}
       </div>
       <div class="controls">
         {{#if track.playing }}
@@ -12,6 +24,16 @@
           <i class="icon ion-play"></i>
         {{/if}}
       </div>
+    </div>
+    <div class="small-4 columns show-for-medium-up">
+      {{#if nextTrack }}
+        <div class="info">
+          <img class='art' {{bind-attr src="album.art"}}>
+          {{album.title}}
+          {{album.main_artist.name}}
+          {{nextTrack.title}}
+        </div>
+      {{/if}}
     </div>
   </div>
 </div>

@@ -21,18 +21,46 @@ album_titles = [
 
 tracks = [
 	{
-		"id":456,
+		"id":1,
 		"position":1,
-		"title":"Blackened",
+		"title":"Track 1",
 		"duration":320,
 		"media_uri":"http://localhost:8000/api/album/1/track/1"
 	},
 	{
-		"id":457,
+		"id":2,
 		"position":2,
-		"title":"...and Justice for All",
+		"title":"Track 2",
 		"duration":385,
 		"media_uri":"http://localhost:8000/api/album/1/track/2"
+	},
+	{
+		"id":3,
+		"position":3,
+		"title":"Track 3",
+		"duration":320,
+		"media_uri":"http://localhost:8000/api/album/1/track/3"
+	},
+	{
+		"id":4,
+		"position":4,
+		"title":"Track 4",
+		"duration":385,
+		"media_uri":"http://localhost:8000/api/album/1/track/4"
+	},
+	{
+		"id":5,
+		"position":5,
+		"title":"Track 5",
+		"duration":320,
+		"media_uri":"http://localhost:8000/api/album/1/track/5"
+	},
+	{
+		"id":6,
+		"position":6,
+		"title":"Track 6",
+		"duration":385,
+		"media_uri":"http://localhost:8000/api/album/1/track/6"
 	}
 ]
 

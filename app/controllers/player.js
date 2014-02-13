@@ -3,6 +3,18 @@ export default Ember.ObjectController.extend({
   album: null,
   track: null,
 
+  nextTrack: (function(){
+    if (this.get('album')) {
+      return this.get('album.tracks').findBy('position', this.get('track.position') + 1)
+    }
+  }).property('track'),
+
+  previousTrack: (function(){
+    if (this.get('album')) {
+      return this.get('album.tracks').findBy('position', this.get('track.position') - 1)
+    }
+  }).property('track'),
+
   actions: {
     pause: function(){
       this.get('track').pause();
@@ -12,8 +24,7 @@ export default Ember.ObjectController.extend({
       if (this.get('track')) {
         this.get('track').stop();
       }
-      this.set('album', album);
-      this.set('track', track);
+      this.setProperties({'album': album, 'track': track});
       track.play();
     }
   }
