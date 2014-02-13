@@ -1,16 +1,16 @@
 <div id="album" class="row">
   <div class="small-12 large-6 columns">
     <img class='art' {{bind-attr src="art"}}>
-    <h2 class="album">{{title}}</h3>
+    <h3 class="album">{{title}}</h3>
     <h3 class= "artist">{{main_artist.name}}</h3>
     <h3 class= "record-label">Record Label</h3>
     <h3 class="heading">Review</h3>
-    <p>Called Madison, Wisconsin's "musical success story of 2013", PHOX formed when Zach Johnston began writing songs while living in San Francisco. He worked with singer Monica Martin on getting the band, a group of friends that all grew up in Baraboo, together while playing a series of shows around Madison. </p>
-    <p> The band released their EP Confetti in early 2013, for which they created a video component for each track. The rest of 2013 brought their success to the next level with a Daytrotter session, postitive press, a spot at South by Southwest and a national tour opening for Blitzen Trapper. The band played Lollapalooza as a last-minute addition in August 2013, drawing a large crowd despite their midday spot. In September 2013 PHOX opened for The Lumineers at Apple's iTunes Festival in London. The band is currently managed by Onto Entertainment and heading back to the studio to work on a full-length album.</p>
-    <p>- Pearl Pho at The Isthmus</p>
+    <p>Called Madison, Wisconsin's "musical success story of 2013", <span class="artist">PHOX</span> formed when <span class="artist">Zach Johnston</span> began writing songs while living in San Francisco. He worked with singer <span class="artist">Monica Martin</span> on getting the band, a group of friends that all grew up in Baraboo, together while playing a series of shows around Madison. </p>
+    <p> The band released their <a href="#">EP Confetti</a> in early 2013, for which they created a video component for each track. The rest of 2013 brought their success to the next level with a <a href="#">Daytrotter</a> session, postitive press, a spot at South by Southwest and a national tour opening for <span class="artist">Blitzen Trapper</span>. The band played <a href="#">Lollapalooza</a> as a last-minute addition in August 2013, drawing a large crowd despite their midday spot. In September 2013 <span class="artist">PHOX</span> opened for <span class="artist">The Lumineers</span> at Apple's iTunes Festival in London. The band is currently managed by Onto Entertainment and heading back to the studio to work on a full-length album.</p>
+    <p>- Pearl Pho at <span class="content-creator">The Isthmus</span></p>
     <h3 class="subheading">Press</h3>
-    <p><a href="#">“Crazy like a PHOX: Buzzed-about band goes from Baraboo to London and beyond”</a> on Madison.com</p>
-    <p><a href="#">“PHOX on the run: The Madison band sharpen their instincts on their first big tour”</a> on The Daily Page</p>
+    <p><a href="#">“Crazy like a PHOX: Buzzed-about band goes from Baraboo to London and beyond”</a> on <span class="content-creator">Madison.com</span></p>
+    <p><a href="#">“PHOX on the run: The Madison band sharpen their instincts on their first big tour”</a> on <span class="content-creator">The Daily Page</span></p>
     <h3 class="heading">Also Recommended</h3>
     <p> **LIST OF ALBUMS**</p>
     <h3 class="heading float-it-left">Upcoming Shows</h3>
@@ -27,7 +27,10 @@
       <p>Your collection</p>
     {{/y-block}}
     {{#y-block title="Download"}}
-      <p>Download it</p>
+      <p>MP3</p>
+      <p>FLAC</p>
+      <p>AAC</p>
+      <p>ALAC</p>
     {{/y-block}}
     {{#y-block title="Track List" expanded="true"}}
       <table>
