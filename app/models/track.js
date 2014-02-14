@@ -9,6 +9,11 @@ var Track = Ember.Model.extend({
 
   playing: false,
   sound: null,
+  currentPosition: 0,
+
+  pct: function(){
+    debugger
+  }.property('currentPosition'),
 
   play: function (){
     var track = this;
@@ -28,11 +33,23 @@ var Track = Ember.Model.extend({
     this.get('sound').stop();
   },
 
+  resume: function(){
+    this.set('playing', true);
+    this.get('sound').play();
+  },
+
   loadSound: function(){
     var track = this;
     return ic.ajax(this.get('media_uri')).then(function(data){
-      track.set('sound', soundManager.createSound(data));
+      track.set('sound', soundManager.createSound({
+        url: data.url,
+        whileplaying: function(){ track.updatePosition();}
+      }));
     });
+  },
+
+  updatePosition: function(){
+    this.set('currentPosition', this.get('sound').position)
   }
 
 });

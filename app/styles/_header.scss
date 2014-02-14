@@ -1,18 +1,51 @@
+// Variables
+$header-height: 60px;
+
 // Player
 #player {
-  height: 60px; 
+  width: auto;
+  height: $header-height;
   background: white;
   box-shadow: 0 3px 3px -3px $grey;
   margin-bottom: 15px;
+  font-weight: normal;
+  font-size: 12px;
+
+  .position {
+    background-color: $grey;
+    border-radius: 4px;
+    width: 50%;
+    float: right;
+
+    & > div {
+     background-color: $light-grey;
+     width: 40%;
+     height: 4px;
+     border-radius: 4px;
+    }
+  }
+
+  .album {
+    margin-top: 10px;
+  }
+
+  .album img {
+    float: left;
+    margin-right: 15px;
+  }
+
+  .info {
+    height: 40px;
+  }
+
   img.art {
     height: 30px;
   }
 
-  .controls{
-    float: right;
-  }
-  .info{
+  .third {
     float: left;
+    width: 33%;
+    height: $header-height;
   }
 
 }

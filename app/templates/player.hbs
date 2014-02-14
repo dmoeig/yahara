@@ -1,39 +1,44 @@
-<div id="player">
-  <div class="row">
-    <div class="small-4 columns show-for-medium-up">
+{{#if track}}
+  <div id="player">
+    <div class="third show-for-medium-up">
       {{#if previousTrack }}
-        <div class="info">
+        <div class="album">
           <img class='art' {{bind-attr src="album.art"}}>
-          {{album.title}}
-          {{album.main_artist.name}}
+          <div class='title'>{{album.title}}</div>
+          <div class='artist'>{{album.main_artist.name}}</div>
           {{previousTrack.title}}
         </div>
       {{/if}}
     </div>
-    <div class="small-4 columns">
-      <div class="info">
+    <div class="third main-player">
+      <div class="album">
         <img class='art' {{bind-attr src="album.art"}}>
-        {{album.title}}
-        {{album.main_artist.name}}
+        <div class='title'>{{album.title}}</div>
+        <div class='artist'>{{album.main_artist.name}}</div>
         {{track.title}}
       </div>
       <div class="controls">
+        <i class="icon ion-ios7-rewind"></i>
         {{#if track.playing }}
-          <i class="icon ion-pause"></i>
+          <i class="icon ion-ios7-pause" {{action "toggle"}}></i>
         {{else}}
-          <i class="icon ion-play"></i>
+          <i class="icon ion-ios7-play" {{action "toggle"}}></i>
         {{/if}}
+        <i class="icon ion-ios7-fastforward"></i>
+        <div class="position">
+          <div style="width: 25%"></div>
+        </div>
       </div>
     </div>
-    <div class="small-4 columns show-for-medium-up">
+    <div class="third show-for-medium-up">
       {{#if nextTrack }}
-        <div class="info">
+        <div class="album">
           <img class='art' {{bind-attr src="album.art"}}>
-          {{album.title}}
-          {{album.main_artist.name}}
+          <div class='title'>{{album.title}}</div>
+          <div class='artist'>{{album.main_artist.name}}</div>
           {{nextTrack.title}}
         </div>
       {{/if}}
     </div>
   </div>
-</div>
+{{/if}}

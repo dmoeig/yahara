@@ -30,6 +30,7 @@ p {
   color:$grey;
 }
 
+
 .album {
   color: $orange;
 }
@@ -67,22 +68,17 @@ p {
   clear:both;
 }
 
-// Catalog
-#catalog {
-  border-top: solid 2px $light-grey;
-  padding-top: 20px;
-
-  img.art {
-    -webkit-box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.69);
-    -moz-box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.69);
-    box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.69);
-    display:inline-block;
-  }
+img.art {
+  -webkit-box-shadow: 0px 0px 7px 1px $grey;
+  -moz-box-shadow: 0px 0px 7px 1px $grey;
+  box-shadow: 0px 0px 7px 1px $grey;
+  margin-bottom: 4px;
+  display:inline-block;
 }
 
 // Modal
-#modal { 
-  display:none; 
+#modal {
+  display:none;
   z-index:40001;
 }
 
@@ -105,5 +101,6 @@ tr.track{
   img.art {
     height: 170px;
     float:left;
+    margin-right: 10px;
   }
 }

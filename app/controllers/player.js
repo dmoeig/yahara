@@ -20,6 +20,15 @@ export default Ember.ObjectController.extend({
       this.get('track').pause();
     },
 
+    toggle: function(){
+      if (this.get('track.playing')) {
+        this.get('track').pause();
+      }
+      else {
+        this.get('track').resume();
+      }
+    },
+
     play: function(album, track){
       if (this.get('track')) {
         this.get('track').stop();

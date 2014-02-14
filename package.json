@@ -51,6 +51,7 @@
     "loom": "~3.1.2",
     "connect-livereload": "~0.3.1",
     "grunt-sass": "~0.10.0",
-    "underscore": "~1.5.2"
+    "underscore": "~1.5.2",
+    "js-yaml": "3.0.1"
   }
 }

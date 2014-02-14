@@ -1,7 +1,8 @@
 module.exports = {
   app: {
     src: [
-      'app/**/*.js'
+      'app/**/*.js',
+      'api-stub/**/*.js'
     ],
     options: { jshintrc: '.jshintrc' }
   },

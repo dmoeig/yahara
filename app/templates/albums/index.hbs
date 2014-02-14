@@ -3,10 +3,10 @@
     {{#each}}
       <li class="album">
         {{#link-to 'albums.show' this classNames="album"}}
-          <img class='art' {{bind-attr src="art"}} height="100">
+          <img class='art' {{bind-attr src="art"}}>
           {{title}}
         {{/link-to}}
-        {{#link-to 'artist' album.main_artist classNames="artist"}}
+        {{#link-to 'artist' album.main_artist classNames="artist clearfix"}}
           {{main_artist.name}}
         {{/link-to}}
       </li>
