@@ -28,7 +28,6 @@ a:hover {
 
 p {
   color:$grey;
-
 }
 
 .album {
@@ -55,7 +54,6 @@ p {
   font-size: .8rem;
 }
 
-
 .orange-icon {
   color:$orange;
   padding:6px;
@@ -78,10 +76,9 @@ p {
     -webkit-box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.69);
     -moz-box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.69);
     box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.69);
+    display:inline-block;
   }
 }
-
-
 
 // Modal
 #modal { 
@@ -91,6 +88,10 @@ p {
 
 
 // Album Show
+
+.album-info-block {
+  margin-left: 185px;
+}
 
 table {
   width:100%;
@@ -102,7 +103,7 @@ tr.track{
 
 #album {
   img.art {
-    height: 100px;
+    height: 170px;
     float:left;
   }
 }
