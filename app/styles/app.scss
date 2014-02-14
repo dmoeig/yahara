@@ -18,6 +18,10 @@ $h6-font-size: 1rem;
 
 // Global
 
+content {
+  margin-top: 10px;
+}
+
 a {
   color:$orange;
 }
@@ -26,7 +30,7 @@ a:hover {
   color:$dark-grey;
 }
 
-p {
+p, tr {
   color:$grey;
 }
 
@@ -84,7 +88,6 @@ img.art {
 
 
 // Album Show
-
 .album-info-block {
   margin-left: 185px;
 }
@@ -104,3 +107,4 @@ tr.track{
     margin-right: 10px;
   }
 }
+
