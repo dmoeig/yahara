@@ -11,8 +11,8 @@ var Track = Ember.Model.extend({
   sound: null,
   currentPosition: 0,
 
-  pct: function(){
-    debugger
+  pctStyle: function(){
+    return "width: " + (this.get('currentPosition')/1000)/this.get('duration')*100 + "%"
   }.property('currentPosition'),
 
   play: function (){
@@ -43,13 +43,15 @@ var Track = Ember.Model.extend({
     return ic.ajax(this.get('media_uri')).then(function(data){
       track.set('sound', soundManager.createSound({
         url: data.url,
-        whileplaying: function(){ track.updatePosition();}
+        whileplaying: function(){
+          track.updatePosition();
+        }
       }));
     });
   },
 
   updatePosition: function(){
-    this.set('currentPosition', this.get('sound').position)
+    this.set('currentPosition', this.get('sound').position);
   }
 
 });

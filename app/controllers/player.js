@@ -5,13 +5,13 @@ export default Ember.ObjectController.extend({
 
   nextTrack: (function(){
     if (this.get('album')) {
-      return this.get('album.tracks').findBy('position', this.get('track.position') + 1)
+      return this.get('album.tracks').findBy('position', this.get('track.position') + 1);
     }
   }).property('track'),
 
   previousTrack: (function(){
     if (this.get('album')) {
-      return this.get('album.tracks').findBy('position', this.get('track.position') - 1)
+      return this.get('album.tracks').findBy('position', this.get('track.position') - 1);
     }
   }).property('track'),
 
