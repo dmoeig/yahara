@@ -38,19 +38,7 @@
       <table>
         <tbody>
           {{#each track in tracks}}
-            {{!-- '../this' resolves to the outer context - the album record --}}
-            <tr class="track" {{action 'playPause' ../this track}}>
-              <td>{{track.position}}</td>
-              <td>{{track.title}}</td>
-              <td>{{format-duration track.duration}}</td>
-              <td>
-                {{#if track.playing }}
-                  <i class="icon ion-pause"></i>
-                {{else}}
-                  <i class="icon ion-play"></i>
-                {{/if}}
-              </td>
-            </tr>
+            {{render 'list/track' track}}
           {{/each}}
         </tbody>
       </table>

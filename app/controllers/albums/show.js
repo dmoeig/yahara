@@ -3,12 +3,12 @@ export default Ember.ObjectController.extend({
   player: Ember.computed.alias("controllers.player"),
 
   actions: {
-    playPause: function (album, track){
+    playPause: function (track){
       if (track.get('playing')) {
         this.get('player').send('pause');
       }
       else {
-        this.get('player').send('play', album, track);
+        this.get('player').send('play', track);
       }
     }
   }

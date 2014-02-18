@@ -29,11 +29,11 @@ export default Ember.ObjectController.extend({
       }
     },
 
-    play: function(album, track){
+    play: function(track){
       if (this.get('track')) {
         this.get('track').stop();
       }
-      this.setProperties({'album': album, 'track': track});
+      this.setProperties({'track': track});
       track.play();
     }
   }
