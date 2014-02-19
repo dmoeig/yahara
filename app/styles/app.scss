@@ -110,6 +110,32 @@ tr.track{
 }
 
 #album {
+  @include grid-row();
+
+  & > .meta-data {
+    @include grid-column(12);
+
+    @media #{$medium-up} {
+      @include grid-column($columns:6, $float: left);
+    }
+  }
+
+  & > .actions {
+    @include grid-column(12);
+
+    @media #{$medium-up} {
+      @include grid-column($columns:6, $float: right);
+    }
+  }
+
+  & > .info {
+    @include grid-column(12);
+
+    @media #{$medium-up} {
+      @include grid-column($columns:6, $float: left);
+    }
+  }
+
   img.art {
     height: 170px;
     float:left;

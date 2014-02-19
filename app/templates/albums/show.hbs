@@ -1,39 +1,26 @@
-<div id="album" class="row">
-  <div class="small-12 large-6 columns">
-    <img class='art' {{bind-attr src="art"}}>
-    <div class="album-info-block">
-      <h3 class="album">{{title}}</h3>
-      <h3 class= "artist">{{main_artist.name}}</h3>
-      {{!-- <h3 class= "record-label">Record Label</h3> --}}
-    </div>
-    <h3 class="heading clearfix">Review</h3>
-    <p>Called Madison, Wisconsin's "musical success story of 2013", <span class="artist">PHOX</span> formed when <span class="artist">Zach Johnston</span> began writing songs while living in San Francisco. He worked with singer <span class="artist">Monica Martin</span> on getting the band, a group of friends that all grew up in Baraboo, together while playing a series of shows around Madison. </p>
-    <p> The band released their <a href="#">EP Confetti</a> in early 2013, for which they created a video component for each track. The rest of 2013 brought their success to the next level with a <a href="#">Daytrotter</a> session, postitive press, a spot at South by Southwest and a national tour opening for <span class="artist">Blitzen Trapper</span>. The band played <a href="#">Lollapalooza</a> as a last-minute addition in August 2013, drawing a large crowd despite their midday spot. In September 2013 <span class="artist">PHOX</span> opened for <span class="artist">The Lumineers</span> at Apple's iTunes Festival in London. The band is currently managed by Onto Entertainment and heading back to the studio to work on a full-length album.</p>
-    <p>- Pearl Pho at <span class="content-creator">The Isthmus</span></p>
-    <h3 class="subheading">Press</h3>
-    <p><a href="#">“Crazy like a PHOX: Buzzed-about band goes from Baraboo to London and beyond”</a> on <span class="content-creator">Madison.com</span></p>
-    <p><a href="#">“PHOX on the run: The Madison band sharpen their instincts on their first big tour”</a> on <span class="content-creator">The Daily Page</span></p>
-    <h3 class="heading">Also Recommended</h3>
-    <p> **LIST OF ALBUMS**</p>
-    <h3 class="heading float-it-left">Upcoming Shows</h3>
-    <i class ="orange-icon ion-social-rss"></i>
-    <i class ="orange-icon ion-android-arrow-up-right"></i>
-    <p class ="clearfix">MAR 04 Sacramento, CA, at Harlow’s
-    <br>MAR 05 Los Angeles, CA, at The Echo
-    <br>MAR 07 San Diego, CA, at Irenic</p>
+<div id="album">
+
+  <div class="meta-data">
+    {{#y-block title="Album" expanded='true'}}
+      <img class='art' {{bind-attr src="art"}}>
+      <div class="album-info-block">
+        <h3 class="album">{{title}}</h3>
+        <h3 class= "artist">{{main_artist.name}}</h3>
+      </div>
+    {{/y-block}}
   </div>
-
-  <div class="small-12 large-6 columns">
-
+  <div class='actions'>
     {{#y-block title="Add to Your Collection"}}
       <p>Your collection</p>
     {{/y-block}}
+
     {{#y-block title="Download"}}
       <p>MP3</p>
       <p>FLAC</p>
       <p>AAC</p>
       <p>ALAC</p>
     {{/y-block}}
+
     {{#y-block title="Track List" expanded="true"}}
       <table>
         <tbody>
@@ -43,6 +30,7 @@
         </tbody>
       </table>
     {{/y-block}}
+
     {{#y-block title="Options to Purchase"}}
       <div>
         <a href="#">Murfie</a>
@@ -51,6 +39,27 @@
         <a href="#">Bandcamp</a>
       </div>
     {{/y-block}}
+  </div>
+  <div class='info'>
+    {{#y-block title="Review" expanded='true' column='left-col'}}
+      <p>Called Madison, Wisconsin's "musical success story of 2013", <span class="artist">PHOX</span> formed when <span class="artist">Zach Johnston</span> began writing songs while living in San Francisco. He worked with singer <span class="artist">Monica Martin</span> on getting the band, a group of friends that all grew up in Baraboo, together while playing a series of shows around Madison. </p>
+      <p> The band released their <a href="#">EP Confetti</a> in early 2013, for which they created a video component for each track. The rest of 2013 brought their success to the next level with a <a href="#">Daytrotter</a> session, postitive press, a spot at South by Southwest and a national tour opening for <span class="artist">Blitzen Trapper</span>. The band played <a href="#">Lollapalooza</a> as a last-minute addition in August 2013, drawing a large crowd despite their midday spot. In September 2013 <span class="artist">PHOX</span> opened for <span class="artist">The Lumineers</span> at Apple's iTunes Festival in London. The band is currently managed by Onto Entertainment and heading back to the studio to work on a full-length album.</p>
+      <p>- Pearl Pho at <span class="content-creator">The Isthmus</span></p>
+      <h3 class="subheading">Press</h3>
+      <p><a href="#">“Crazy like a PHOX: Buzzed-about band goes from Baraboo to London and beyond”</a> on <span class="content-creator">Madison.com</span></p>
+      <p><a href="#">“PHOX on the run: The Madison band sharpen their instincts on their first big tour”</a> on <span class="content-creator">The Daily Page</span></p>
+    {{/y-block}}
 
+    {{#y-block title="Also Recommended" expanded='true' column='left-col'}}
+      <p> **LIST OF ALBUMS**</p>
+    {{/y-block}}
+
+    {{#y-block title="Upcoming Show" expanded='true' column='left-col'}}
+      <i class ="orange-icon ion-social-rss"></i>
+      <i class ="orange-icon ion-android-arrow-up-right"></i>
+      <p>MAR 04 Sacramento, CA, at Harlow’s
+      <br>MAR 05 Los Angeles, CA, at The Echo
+      <br>MAR 07 San Diego, CA, at Irenic</p>
+    {{/y-block}}
   </div>
 </div>

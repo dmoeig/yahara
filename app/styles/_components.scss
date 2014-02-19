@@ -1,5 +1,5 @@
 .y-block {
-  h3 {
+  & > h3 {
     color: white;
     background-color: $green;
     padding: 5px;
@@ -10,3 +10,27 @@
     }
   }
 }
+
+// .y-block {
+//   &.left-col {
+//     @include grid-column(
+//         // Control the number of columns
+//         $columns:4,
+//         // Specify how many columns to push this element past
+//         $push:6,
+//         // Specify how many columns to pull this element past
+//         $pull:6,
+//       );
+//   }
+
+//   &.right-col {
+//     @include grid-column(
+//         // Control the number of columns
+//         $columns:4,
+//         // Specify how many columns to push this element past
+//         $push:6,
+//         // Specify how many columns to pull this element past
+//         $pull:6,
+//       );
+//   }
+// }
