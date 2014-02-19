@@ -38,6 +38,12 @@ p, tr {
   font-size: .8em;
 }
 
+ul#catalog {
+  @media #{$small-only} { @include block-grid(2); }
+  @media #{$medium-only} { @include block-grid(3); }
+  @media #{$large-up} { @include block-grid(5); }
+}
+
 
 .album {
   color: $orange;
