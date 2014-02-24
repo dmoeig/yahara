@@ -10,6 +10,7 @@ var apiStub = require('./api-stub/server');
 var url = require('url')
 var proxy = require('proxy-middleware')
 var util = require('gulp-util');
+var stylish = require('jshint-stylish');
 
 gulp.task('default', ['clean', 'server', 'watch']);
 
@@ -69,7 +70,7 @@ gulp.task('templates', function(){
 gulp.task('jshint', function() {
   gulp.src('app/**/*.js')
     .pipe(jshint())
-    .pipe(jshint.reporter('default'));
+    .pipe(jshint.reporter(stylish));
 });
 
 gulp.task('watch', function () {

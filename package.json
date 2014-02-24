@@ -14,7 +14,8 @@
     "gulp-sass": "~0.7.1",
     "js-yaml": "~3.0.1",
     "express-namespace": "~0.1.1",
-    "proxy-middleware": "~0.5.0"
+    "proxy-middleware": "~0.5.0",
+    "jshint-stylish": "~0.1.5"
   },
   "devDependencies": {},
   "license": "All Rights Reserved"
