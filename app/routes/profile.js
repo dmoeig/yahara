@@ -1,4 +1,4 @@
-export default Ember.Route.extend({
+Yahara.PofileRoute = Ember.Route.extend({
   beforeModel: function(transition) {
     if (this.controllerFor('application').get('currentUser')) {
 

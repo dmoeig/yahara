@@ -1,20 +1,26 @@
 {
-  "name": "ember-app-kit",
+  "name": "yahara",
+  "version": "0.0.1",
+  "authors": [
+    "Steve Faulkner <southpolesteve@gmail.com>"
+  ],
+  "description": "The Yahara Project",
+  "license": "All Rights Reserved",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
   "dependencies": {
-    "handlebars": "~1.1.2",
-    "jquery": ">=1.9.1",
-    "qunit": "~1.12.0",
-    "ember": "~1.4.0-beta.2",
-    "ember-data": "~1.0.0-beta.6",
-    "ember-resolver": "git://github.com/stefanpenner/ember-jj-abrams-resolver.git#master",
-    "ic-ajax": "~0.3.0",
-    "ember-testing-httpRespond": "~0.1.1",
-    "soundmanager2": "*",
-    "foundation": "~5.1.1",
-    "ionicons": "~1.4.1",
+    "ember": "~1.4.0",
     "ember-model": "~0.0.11"
   },
-  "resolutions": {
-    "ember": "~1.4.0-beta.2"
+  "devDependencies": {
+    "soundmanager2": "*",
+    "foundation": "~5.1.1",
+    "ionicons": "~1.4.1"
   }
 }

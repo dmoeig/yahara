@@ -1,18 +1,17 @@
-import Adapter from "appkit/adapters/yahara";
-
-var Track = Ember.Model.extend({
+Yahara.Track = Ember.Model.extend({
   id: Ember.attr(),
   title: Ember.attr(),
   position: Ember.attr(Number),
   duration: Ember.attr(Number),
   media_uri: Ember.attr(),
+  album: Ember.belongsTo('Yahara.Album', {key: 'album_id'}),
 
   playing: false,
   sound: null,
   currentPosition: 0,
 
   pctStyle: function(){
-    return "width: " + (this.get('currentPosition')/1000)/this.get('duration')*100 + "%"
+    return "width: " + (this.get('currentPosition')/1000)/this.get('duration')*100 + "%";
   }.property('currentPosition'),
 
   play: function (){
@@ -40,7 +39,7 @@ var Track = Ember.Model.extend({
 
   loadSound: function(){
     var track = this;
-    return ic.ajax(this.get('media_uri')).then(function(data){
+    return $.ajax(this.get('media_uri')).then(function(data){
       track.set('sound', soundManager.createSound({
         url: data.url,
         whileplaying: function(){
@@ -56,8 +55,6 @@ var Track = Ember.Model.extend({
 
 });
 
-Track.url = "/api/catalog";
-Track.collectionKey = "albums";
-Track.adapter = Adapter.create();
-
-export default Track;
+Yahara.Track.url = "/api/catalog";
+Yahara.Track.collectionKey = "albums";
+Yahara.Track.adapter = Yahara.Adapter.create();

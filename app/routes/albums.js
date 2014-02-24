@@ -1,7 +1,5 @@
-import Album from "appkit/models/album";
-
-export default Ember.Route.extend({
+Yahara.AlbumsRoute = Ember.Route.extend({
   model: function() {
-    return Album.fetch();
+    return Yahara.Album.fetch();
   }
 });

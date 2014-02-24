@@ -12,9 +12,9 @@
     </div>
     <div class="third main-player">
       <div class="album">
-        <img class='art' {{bind-attr src="album.art"}}>
-        <div class='title'>{{album.title}}</div>
-        <div class='artist'>{{album.main_artist.name}}</div>
+        <img class='art' {{bind-attr src="track.album.art"}}>
+        <div class='title'>{{track.album.title}}</div>
+        <div class='artist'>{{track.album.main_artist.name}}</div>
         {{track.title}}
       </div>
       <div class="controls">

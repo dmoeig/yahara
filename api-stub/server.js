@@ -55,7 +55,7 @@ data.map(function(album){
     return find_or_create_genre(genre_name);
   });
 
-  album.art = "http://localhost:8000/assets/images/art/"+album.id+".jpg"
+  album.album_art = "http://localhost:8000/assets/images/art/"+album.id+".jpg"
 
   album.tracks = album.tracks.map(function(track_title){
     var track = {};
@@ -76,8 +76,8 @@ module.exports = function(server) {
   // have to be repeated for each end point.
   server.namespace('/api', function() {
 
-    server.get('/catalog', function(req, res) {
-      res.json({"albums": data});
+    server.get('/catalog/yahara', function(req, res) {
+      res.json(data);
     });
 
     server.post('/members', function(req, res) {

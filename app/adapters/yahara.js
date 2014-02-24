@@ -1,6 +1,4 @@
-var get = Ember.get;
-
-var Adapter = Ember.Adapter.extend({
+Yahara.Adapter = Ember.Adapter.extend({
   find: function(record, id) {
     var url = this.buildURL(record.constructor, id),
         self = this;
@@ -12,7 +10,7 @@ var Adapter = Ember.Adapter.extend({
   },
 
   didFind: function(record, id, data) {
-    var rootKey = get(record.constructor, 'rootKey'),
+    var rootKey = Ember.get(record.constructor, 'rootKey'),
         dataToLoad = rootKey ? data[rootKey] : data;
 
     record.load(id, dataToLoad);
@@ -29,8 +27,16 @@ var Adapter = Ember.Adapter.extend({
   },
 
   didFindAll: function(klass, records, data) {
-    var collectionKey = get(klass, 'collectionKey'),
+    var collectionKey = Ember.get(klass, 'collectionKey'),
         dataToLoad = collectionKey ? data[collectionKey] : data;
+
+    // HACK. Generalize this.
+    dataToLoad.map( function(album){
+      album.tracks.map(function(track){
+        track.album_id = album.id;
+      });
+    });
+
     records.load(klass, dataToLoad);
   },
 
@@ -45,7 +51,7 @@ var Adapter = Ember.Adapter.extend({
   },
 
   didFindQuery: function(klass, records, params, data) {
-      var collectionKey = get(klass, 'collectionKey'),
+      var collectionKey = Ember.get(klass, 'collectionKey'),
           dataToLoad = collectionKey ? data[collectionKey] : data;
 
       records.load(klass, dataToLoad);
@@ -62,16 +68,16 @@ var Adapter = Ember.Adapter.extend({
   },
 
   didCreateRecord: function(record, data) {
-    var rootKey = get(record.constructor, 'rootKey'),
-        primaryKey = get(record.constructor, 'primaryKey'),
+    var rootKey = Ember.get(record.constructor, 'rootKey'),
+        primaryKey = Ember.get(record.constructor, 'primaryKey'),
         dataToLoad = rootKey ? data[rootKey] : data;
     record.load(dataToLoad[primaryKey], dataToLoad);
     record.didCreateRecord();
   },
 
   saveRecord: function(record) {
-    var primaryKey = get(record.constructor, 'primaryKey'),
-        url = this.buildURL(record.constructor, get(record, primaryKey)),
+    var primaryKey = Ember.get(record.constructor, 'primaryKey'),
+        url = this.buildURL(record.constructor, Ember.get(record, primaryKey)),
         self = this;
 
     return this.ajax(url, record.toJSON(), "PUT").then(function(data) {  // TODO: Some APIs may or may not return data
@@ -85,8 +91,8 @@ var Adapter = Ember.Adapter.extend({
   },
 
   deleteRecord: function(record) {
-    var primaryKey = get(record.constructor, 'primaryKey'),
-        url = this.buildURL(record.constructor, get(record, primaryKey)),
+    var primaryKey = Ember.get(record.constructor, 'primaryKey'),
+        url = this.buildURL(record.constructor, Ember.get(record, primaryKey)),
         self = this;
 
     return this.ajax(url, record.toJSON(), "DELETE").then(function(data) {  // TODO: Some APIs may or may not return data
@@ -103,8 +109,8 @@ var Adapter = Ember.Adapter.extend({
   },
 
   buildURL: function(klass, id) {
-    var urlRoot = get(klass, 'url');
-    var urlSuffix = get(klass, 'urlSuffix') || '';
+    var urlRoot = Ember.get(klass, 'url');
+    var urlSuffix = Ember.get(klass, 'urlSuffix') || '';
     if (!urlRoot) { throw new Error('Ember.RESTAdapter requires a `url` property to be specified'); }
 
     if (!Ember.isEmpty(id)) {
@@ -154,5 +160,3 @@ var Adapter = Ember.Adapter.extend({
    });
   }
 });
-
-export default Adapter;

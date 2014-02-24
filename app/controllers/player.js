@@ -1,4 +1,4 @@
-export default Ember.ObjectController.extend({
+Yahara.PlayerController = Ember.ObjectController.extend({
 
   album: null,
   track: null,
