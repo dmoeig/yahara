@@ -1,13 +1,11 @@
 <div id="album">
 
   <div class="meta-data">
-    {{#y-block title="Album" expanded='true'}}
-      <img class='art' {{bind-attr src="art"}}>
-      <div class="album-info-block">
-        <h3 class="album">{{title}}</h3>
-        <h3 class= "artist">{{main_artist.name}}</h3>
-      </div>
-    {{/y-block}}
+    <img class='art' {{bind-attr src="art"}}>
+    <div class="album-info-block">
+      <h3 class="album">{{title}}</h3>
+      <h3 class= "artist">{{main_artist.name}}</h3>
+    </div>
   </div>
   <div class='actions'>
     {{#y-block title="Add to Your Collection"}}

@@ -1,4 +1,4 @@
-export default Ember.Route.extend({
+Yahara.AlbumsIndexRoute = Ember.Route.extend({
   model: function() {
     return this.modelFor('albums');
   }

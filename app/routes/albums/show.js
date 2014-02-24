@@ -1,7 +1,16 @@
-import Album from "appkit/models/album";
-
-export default Ember.Route.extend({
+Yahara.AlbumsShowRoute = Ember.Route.extend({
   model: function(params) {
-    return Album.find(params.id);
+    return Yahara.Album.find(params.id);
+  },
+
+  actions: {
+    playPause: function (track){
+      if (track.get('playing')) {
+        this.controllerFor('player').send('pause');
+      }
+      else {
+        this.controllerFor('player').send('play', track);
+      }
+    }
   }
 });

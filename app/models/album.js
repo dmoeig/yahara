@@ -1,18 +1,14 @@
-import Adapter from "appkit/adapters/yahara";
-import Track from  "appkit/models/track";
-import Artist from "appkit/models/artist";
-
-var Album = Ember.Model.extend({
+Yahara.Album = Ember.Model.extend({
   id: Ember.attr(),
   title: Ember.attr(),
-  art: Ember.attr(),
-  tracks: Ember.hasMany(Track, {key: 'tracks', embedded: true}),
-  main_artist: Ember.belongsTo(Artist, {key: 'main_artist', embedded: true}),
-  artists: Ember.hasMany(Artist, {key: 'artists', embedded: true})
+  album_art: Ember.attr(),
+  tracks: Ember.hasMany('Yahara.Track', {key: 'tracks', embedded: true}),
+  main_artist: Ember.attr(),
+  artists: Ember.hasMany('Yahara.Artist', {key: 'artists', embedded: true}),
+
+  art: Ember.computed.alias('album_art')
 });
 
-Album.url = "/api/catalog";
-Album.collectionKey = "albums";
-Album.adapter = Adapter.create();
 
-export default Album;
+Yahara.Album.url = "/api/catalog/yahara";
+Yahara.Album.adapter = Yahara.Adapter.create();

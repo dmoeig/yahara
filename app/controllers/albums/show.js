@@ -1,4 +1,4 @@
-export default Ember.ObjectController.extend({
+Yahara.AlbumsShowController = Ember.ObjectController.extend({
   needs: ['player'],
   player: Ember.computed.alias("controllers.player"),
 

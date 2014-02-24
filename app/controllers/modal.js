@@ -1,4 +1,4 @@
-export default Ember.ObjectController.extend({
+Yahara.ModalController = Ember.ObjectController.extend({
 
   previousTransition: null,
 

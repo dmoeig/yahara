@@ -1,4 +1,4 @@
-export default Ember.Handlebars.makeBoundHelper(function(seconds) {
+Ember.Handlebars.helper('format-duration', function(seconds) {
   var h, m, s;
   h = Math.floor(seconds / 3600);
   m = Math.floor(seconds % 3600 / 60);

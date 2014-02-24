@@ -1,4 +1,4 @@
-export default Ember.Route.extend({
+Yahara.ApplicationRoute = Ember.Route.extend({
   actions: {
       openModal: function() {
         return this.render('modal', {
@@ -6,7 +6,7 @@ export default Ember.Route.extend({
           outlet: 'modal'
         });
       },
-      
+
       closeModal: function() {
         return this.disconnectOutlet({
           outlet: 'modal',

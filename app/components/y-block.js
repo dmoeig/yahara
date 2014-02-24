@@ -1,4 +1,4 @@
-export default Ember.Component.extend({
+Yahara.YBlockComponent = Ember.Component.extend({
   classNames: ['y-block'],
 
   expanded: false,

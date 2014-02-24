@@ -1,6 +1,4 @@
-var Router = Ember.Router.extend(); // ensure we don't share routes between all Router instances
-
-Router.map(function() {
+Yahara.Router.map(function() {
   this.resource('albums', { path: '/' }, function () {
     this.route('show', {path: ':id'});
   });
@@ -9,5 +7,3 @@ Router.map(function() {
   this.route('collection');
   this.route('profile');
 });
-
-export default Router;
