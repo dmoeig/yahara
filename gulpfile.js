@@ -11,6 +11,7 @@ var url = require('url')
 var proxy = require('proxy-middleware')
 var util = require('gulp-util');
 var stylish = require('jshint-stylish');
+var lr;
 
 gulp.task('default', ['clean', 'server', 'watch']);
 
@@ -29,6 +30,10 @@ gulp.task('server', ['templates', 'javascript', 'css'], function () {
   };
 
   app.listen(8000);
+
+
+  lr = require('tiny-lr')();
+  lr.listen(35729);
 });
 
 
@@ -77,6 +82,14 @@ gulp.task('watch', function () {
   gulp.watch('app/**/*.js', ['javascript']);
   gulp.watch('app/**/*.hbs', ['templates']);
   gulp.watch('app/**/*.scss', ['css']);
-});
+  gulp.watch('build/*', function (event){
 
-// TODO: API Proxy https://www.npmjs.org/package/proxy-middleware
+    var fileName = require('path').relative(__dirname, event.path);
+
+    lr.changed({
+      body: {
+        files: [fileName]
+      }
+    });
+  });
+});
