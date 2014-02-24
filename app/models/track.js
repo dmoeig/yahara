@@ -9,6 +9,7 @@ Yahara.Track = Ember.Model.extend({
   playing: false,
   sound: null,
   currentPosition: 0,
+  finished: false,
 
   pctStyle: function(){
     return "width: " + (this.get('currentPosition')/1000)/this.get('duration')*100 + "%";
@@ -21,6 +22,14 @@ Yahara.Track = Ember.Model.extend({
       track.set('playing', true);
     });
   },
+
+  nextTrack: function(){
+    return this.get('album.tracks').findBy('position', this.get('position') + 1);
+  }.property('album'),
+
+  previousTrack: function(){
+    return this.get('album.tracks').findBy('position', this.get('position') - 1);
+  }.property('album'),
 
   pause: function(){
     this.set('playing', false);
@@ -44,6 +53,9 @@ Yahara.Track = Ember.Model.extend({
         url: data.url,
         whileplaying: function(){
           track.updatePosition();
+        },
+        onfinish: function(){
+          track.set('finished', true);
         }
       }));
     });

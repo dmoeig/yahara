@@ -1,40 +1,31 @@
 Yahara.PlayerController = Ember.ObjectController.extend({
 
-  album: null,
-  track: null,
-
-  nextTrack: (function(){
-    if (this.get('album')) {
-      return this.get('album.tracks').findBy('position', this.get('track.position') + 1);
+  trackFinished: function(){
+    if (this.get('content.finished')){
+      this.send('play', this.get('content.nextTrack'));
     }
-  }).property('track'),
-
-  previousTrack: (function(){
-    if (this.get('album')) {
-      return this.get('album.tracks').findBy('position', this.get('track.position') - 1);
-    }
-  }).property('track'),
+  }.observes('content.finished'),
 
   actions: {
     pause: function(){
-      this.get('track').pause();
+      this.get('content').pause();
     },
 
     toggle: function(){
-      if (this.get('track.playing')) {
-        this.get('track').pause();
+      if (this.get('playing')) {
+        this.get('content').pause();
       }
       else {
-        this.get('track').resume();
+        this.get('content').resume();
       }
     },
 
     play: function(track){
-      if (this.get('track')) {
-        this.get('track').stop();
+      if (this.get('content') !== null) {
+        this.get('content').stop();
       }
-      this.setProperties({'track': track});
-      track.play();
+      this.set('content', track);
+      this.get('content').play();
     }
   }
 });
