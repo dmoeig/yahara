@@ -1,41 +1,41 @@
-{{#if track}}
+{{#if content}}
   <div id="player" class="row">
     <div class="third show-for-medium-up">
       {{#if previousTrack }}
         <div class="album">
-          <img class='art' {{bind-attr src="album.art"}}>
-          <div class='title'>{{album.title}}</div>
-          <div class='artist'>{{album.main_artist.name}}</div>
+          <img class='art' {{bind-attr src="previousTrack.album.art"}}>
+          <div class='title'>{{previousTrack.album.title}}</div>
+          <div class='artist'>{{previousTrack.album.main_artist.name}}</div>
           {{previousTrack.title}}
         </div>
       {{/if}}
     </div>
     <div class="third main-player">
       <div class="album">
-        <img class='art' {{bind-attr src="track.album.art"}}>
-        <div class='title'>{{track.album.title}}</div>
-        <div class='artist'>{{track.album.main_artist.name}}</div>
-        {{track.title}}
+        <img class='art' {{bind-attr src="album.art"}}>
+        <div class='title'>{{album.title}}</div>
+        <div class='artist'>{{album.main_artist.name}}</div>
+        {{title}}
       </div>
       <div class="controls">
-        <i class="icon ion-ios7-rewind"></i>
-        {{#if track.playing }}
+        <i class="icon ion-ios7-rewind" {{action "play" previousTrack}}></i>
+        {{#if playing }}
           <i class="icon ion-ios7-pause" {{action "toggle"}}></i>
         {{else}}
           <i class="icon ion-ios7-play" {{action "toggle"}}></i>
         {{/if}}
-        <i class="icon ion-ios7-fastforward"></i>
+        <i class="icon ion-ios7-fastforward" {{action "play" nextTrack}}></i>
         <div class="position">
-          <div {{bindAttr style="track.pctStyle"}}></div>
+          <div {{bind-attr style="pctStyle"}}></div>
         </div>
       </div>
     </div>
     <div class="third show-for-medium-up">
       {{#if nextTrack }}
         <div class="album">
-          <img class='art' {{bind-attr src="album.art"}}>
-          <div class='title'>{{album.title}}</div>
-          <div class='artist'>{{album.main_artist.name}}</div>
+          <img class='art' {{bind-attr src="nextTrack.album.art"}}>
+          <div class='title'>{{nextTrack.album.title}}</div>
+          <div class='artist'>{{nextTrack.album.main_artist.name}}</div>
           {{nextTrack.title}}
         </div>
       {{/if}}
