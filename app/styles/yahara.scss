@@ -1,10 +1,8 @@
 // Make sure the charset is set appropriately
 @charset "UTF-8";
 
-
 // Normalize the CSS
 @import "../../vendor/foundation/scss/normalize.scss";
-
 
 // Foundation Imports
 @import "../../vendor/foundation/scss/foundation/components/block-grid";
@@ -55,36 +53,11 @@
 
 @import "fonts";
 @import "colors";
+@import "global";
 @import "header";
 @import "components";
-
-// Global
-
-a {
-  color: $orange;
-  text-decoration: none;
-
-  &:hover {
-    color: $dark-grey;
-  }
-}
-
-*, p, li, h1, h2, h3, h4, h5, h6 {
-  font-family: $sans;
-  line-height: 1.4;
-  font-weight: 300;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  margin: 0px;
-  padding: 0px;
-}
-
-p, tr {
-  color: $grey;
-  font-size: .8em;
-}
-
+@import "player";
+@import "album/show";
 
 // Catalog
 ul#catalog {
@@ -100,8 +73,6 @@ ul#catalog {
     @include clearfix;
   }
 }
-
-
 
 
 li.album {
@@ -133,7 +104,7 @@ li.album {
   padding:6px;
 }
 
-img.art {
+#content img.art {
   -webkit-box-shadow: 0px 0px 8px 2px $light-grey;
   -moz-box-shadow: 0px 0px 8px 2px $light-grey;
   box-shadow: 0px 0px 8px 2px $light-grey;
@@ -145,79 +116,4 @@ img.art {
 #modal {
   display:none;
   z-index:40001;
-}
-
-
-// Album Show
-.album-info-block {
-  margin-left: 185px;
-}
-
-table {
-  width:100%;
-}
-
-table tr td {
-  color:$grey;
-  font-size: 1em;
-}
-
-tr.track{
-  cursor: pointer;
-}
-
-#album {
-  @include grid-row();
-
-  & > .meta-data {
-    @include grid-column(12);
-
-    @media #{$medium-up} {
-      @include grid-column($columns:6);
-    }
-  }
-
-  & > .actions {
-    @include grid-column(12);
-
-    @media #{$medium-up} {
-      @include grid-column($columns:6, $float: right);
-    }
-  }
-
-  & > .info {
-    @include grid-column(12);
-
-    @media #{$medium-up} {
-      @include grid-column($columns:6, $float: left);
-    }
-  }
-
-  img.art {
-    height: 170px;
-    float:left;
-    margin-right: 10px;
-  }
-}
-
-.meta-data{
-  .y-block{
-
-  }
-}
-
-.actions {
-  .y-block {
-    background-color: $lightest-grey;
-  }
-  p {
-    padding-left:10px;
-  }
-}
-
-.info {
-  h3.header {
-      color: $blue;
-      background-color: white;
-  }
 }

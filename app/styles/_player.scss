@@ -1,0 +1,64 @@
+$player-height: 70px;
+
+#player {
+  @include grid-row();
+
+  height: $player-height;
+  background: white;
+  font-weight: normal;
+  font-size: 12px;
+
+  .album {
+    margin: 0 auto;
+  }
+
+  .album img {
+    float: left;
+  }
+
+  .info {
+    height: 40px;
+  }
+
+  img.art {
+    height: 40px;
+  }
+
+  .previous-track {
+    @include grid-column(4);
+    @media #{$small-only} { display: none; }
+  }
+  .current-track {
+    @include grid-column(4);
+    @media #{$small-only} { @include grid-column(12); }
+  }
+  .next-track {
+    @include grid-column(4);
+    @media #{$small-only} { display: none; }
+  }
+  .controls {
+    font-size: 1.5em;
+    color: $grey;
+    width: 80px;
+  }
+  .position {
+    background-color: $grey;
+    border-radius: 4px;
+    margin-top: 10px;
+    width: 35%;
+    float: left;
+
+    & > div {
+     background-color: $light-grey;
+     width: 40%;
+     height: 4px;
+     border-radius: 4px;
+    }
+  }
+}
+
+#player-shadow {
+  box-shadow: 0 3px 3px -3px $grey;
+  height: 7px;
+  margin-bottom: 15px;
+}

@@ -1,6 +1,6 @@
 {{#if content}}
-  <div id="player" class="row">
-    <div class="third show-for-medium-up">
+  <div id="player">
+    <div class="previous-track">
       {{#if previousTrack }}
         <div class="album">
           <img class='art' {{bind-attr src="previousTrack.album.art"}}>
@@ -8,9 +8,11 @@
           <div class='artist'>{{previousTrack.album.main_artist.name}}</div>
           {{previousTrack.title}}
         </div>
+      {{else}}
+        &nbsp;
       {{/if}}
     </div>
-    <div class="third main-player">
+    <div class="current-track">
       <div class="album">
         <img class='art' {{bind-attr src="album.art"}}>
         <div class='title'>{{album.title}}</div>
@@ -25,12 +27,12 @@
           <i class="icon ion-ios7-play" {{action "toggle"}}></i>
         {{/if}}
         <i class="icon ion-ios7-fastforward" {{action "play" nextTrack}}></i>
-        <div class="position">
-          <div {{bind-attr style="pctStyle"}}></div>
-        </div>
+      </div>
+      <div class="position">
+        <div {{bind-attr style="pctStyle"}}></div>
       </div>
     </div>
-    <div class="third show-for-medium-up">
+    <div class="next-track">
       {{#if nextTrack }}
         <div class="album">
           <img class='art' {{bind-attr src="nextTrack.album.art"}}>
@@ -38,9 +40,11 @@
           <div class='artist'>{{nextTrack.album.main_artist.name}}</div>
           {{nextTrack.title}}
         </div>
+      {{else}}
+        &nbsp;
       {{/if}}
     </div>
   </div>
-  <div id="nav-bar-drop-shadow">
+  <div id="player-shadow">
   </div>
 {{/if}}

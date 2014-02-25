@@ -1,0 +1,37 @@
+a {
+  color: $orange;
+  text-decoration: none;
+
+  &:hover {
+    color: $dark-grey;
+  }
+}
+
+*, p, li, h1, h2, h3, h4, h5, h6 {
+  font-family: $sans;
+  line-height: 1.4;
+  font-weight: 300;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0px;
+  padding: 0px;
+}
+
+p, tr {
+  color: $grey;
+  font-size: .8em;
+}
+
+table {
+  width:100%;
+}
+
+table tr td {
+  color:$grey;
+  font-size: 1em;
+}
+
+tr.track{
+  cursor: pointer;
+}

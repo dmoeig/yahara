@@ -1,70 +1,28 @@
-// Variables
-$header-height: 60px;
-
-// Player
-#player {
-  width: auto;
-  height: $header-height;
-  background: white;
-  font-weight: normal;
-  font-size: 12px;
-
-  .position {
-    background-color: $grey;
-    border-radius: 4px;
-    width: 35%;
-    float:right;
-
-    & > div {
-     background-color: $light-grey;
-     width: 40%;
-     height: 4px;
-     border-radius: 4px;
-    }
-  }
-
-  .album {
-    margin-top: 10px;
-  }
-
-  .album img {
-    float: left;
-    margin-right: 15px;
-  }
-
-  .info {
-    height: 40px;
-  }
-
-  img.art {
-    height: 30px;
-  }
-
-  .third {
-    float: left;
-    width: 33%;
-    height: $header-height;
-  }
-  .controls {
-    font-size: 1.5em;
-    color: $grey;
-  }
-
+#header {
+  @include grid-row();
+  margin-bottom: 1em;
+  border-bottom: 2px solid $light-grey;
 }
 
-#nav-bar-drop-shadow {
-  box-shadow: 0 3px 3px -3px $grey;
-  height: 7px;
-  margin-bottom: 15px;
+#logo {
+  @include grid-column(6);
+}
+
+#nav {
+  @include grid-column(6);
 }
 
 
-img#logo {
+#logo img {
   height: 100px;
   float: left;
 }
 
-ul#nav{
+input#search {
+  float: right;
+}
+
+#nav > ul{
   padding-top: 10px;
 
   @include inline-list;

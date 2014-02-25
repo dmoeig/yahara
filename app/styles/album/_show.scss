@@ -1,0 +1,59 @@
+.album-info-block {
+  margin-left: 185px;
+}
+
+#album {
+  @include grid-row();
+
+  & > .meta-data {
+    @include grid-column(12);
+
+    @media #{$medium-up} {
+      @include grid-column($columns:6);
+    }
+  }
+
+  & > .actions {
+    @include grid-column(12);
+
+    @media #{$medium-up} {
+      @include grid-column($columns:6, $float: right);
+    }
+  }
+
+  & > .info {
+    @include grid-column(12);
+
+    @media #{$medium-up} {
+      @include grid-column($columns:6, $float: left);
+    }
+  }
+
+  img.art {
+    height: 170px;
+    float:left;
+    margin-right: 10px;
+  }
+}
+
+.meta-data{
+  .y-block{
+
+  }
+}
+
+.actions {
+  .y-block {
+    background-color: $lightest-grey;
+  }
+  p {
+    padding-left:10px;
+  }
+}
+
+.info {
+  h3.header {
+      color: $blue;
+      background-color: white;
+  }
+}

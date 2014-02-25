@@ -1,17 +1,18 @@
 {{render 'player'}}
 
 <div id="content">
-  <div class="row">
-    <div class="small-12 large-6 columns">
-      {{#link-to 'albums'}}<img id='logo' src="/assets/images/logo-horiz.png">{{/link-to}}
+  <div id="header">
+    <div id='logo' class="small-12 large-6 columns">
+      {{#link-to 'albums'}}<img src="/assets/images/logo-horiz.png">{{/link-to}}
     </div>
-    <div class="small-12 large-6 columns">
-      <ul id='nav'>
+    <div id='nav' class="small-12 large-6 columns">
+      <ul>
         <li>{{#link-to 'albums'}}Catalog{{/link-to}}</li>
         <li>{{#link-to 'collection'}}My Collection{{/link-to}}</li>
         <li>{{#link-to 'profile'}}Profile{{/link-to}}</li>
       </ul>
     </div>
+    <input id='search' placeholder='Search'>
   </div>
   <div class="row">
     <div class="small-12 columns">
