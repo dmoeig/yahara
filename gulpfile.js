@@ -11,11 +11,11 @@ var url = require('url')
 var proxy = require('proxy-middleware')
 var util = require('gulp-util');
 var stylish = require('jshint-stylish');
-var lr;
+var lr = require('tiny-lr')();
 
 gulp.task('default', ['clean', 'server', 'watch']);
 
-gulp.task('server', ['templates', 'javascript', 'css'], function () {
+gulp.task('server', ['build'], function () {
   var app = express();
 
   app.use('/vendor', express.static(__dirname + '/vendor'));
@@ -31,25 +31,24 @@ gulp.task('server', ['templates', 'javascript', 'css'], function () {
 
   app.listen(8000);
 
-
-  lr = require('tiny-lr')();
   lr.listen(35729);
 });
 
+gulp.task('build', ['templates', 'javascript', 'css'], function () {});
 
 gulp.task('clean', function() {
-  gulp.src('build/', {read: false})
+  return gulp.src('build/', {read: false})
       .pipe(clean());
 });
 
 gulp.task('css', function () {
-  gulp.src('app/styles/yahara.scss')
-    .pipe(sass())
+  return gulp.src('app/styles/yahara.scss')
+    .pipe(sass({errLogToConsole: true}))
     .pipe(gulp.dest('build'));
 });
 
 gulp.task('javascript', ['jshint'], function() {
-  gulp.src(['app/app.js',
+  return gulp.src(['app/app.js',
       'app/router.js',
       'app/adapters/*.js',
       'app/components/*.js',
@@ -60,11 +59,11 @@ gulp.task('javascript', ['jshint'], function() {
       'app/routes/**/*.js'
     ])
     .pipe(concat('yahara.js'))
-    .pipe(gulp.dest('build'))
+    .pipe(gulp.dest('build'));
 });
 
 gulp.task('templates', function(){
-  gulp.src(['app/templates/**/*.hbs'])
+  return gulp.src(['app/templates/**/*.hbs'])
     .pipe(handlebars({
       outputType: 'browser'
      }))
@@ -73,7 +72,7 @@ gulp.task('templates', function(){
 });
 
 gulp.task('jshint', function() {
-  gulp.src('app/**/*.js')
+  return gulp.src('app/**/*.js')
     .pipe(jshint())
     .pipe(jshint.reporter(stylish));
 });
