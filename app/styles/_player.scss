@@ -1,19 +1,20 @@
-$player-height: 70px;
-
 #player {
   @include grid-row();
 
-  height: $player-height;
+  dislay:block;
   background: white;
   font-weight: normal;
   font-size: 12px;
+  margin-bottom: 10px;
 
   .album {
     margin: 0 auto;
+    padding-top:10px;
   }
 
   .album img {
     float: left;
+    padding: 0px 10px 0px 15px;
   }
 
   .info {
@@ -37,16 +38,19 @@ $player-height: 70px;
     @media #{$small-only} { display: none; }
   }
   .controls {
-    font-size: 1.5em;
+    font-size: 1.8em;
     color: $grey;
     width: 80px;
+  }
+  .ion-ios7-rewind, .ion-ios7-play, .ion-ios7-fastfoward, .ion-ios7-pause {
+    padding: 0px 2px;
   }
   .position {
     background-color: $grey;
     border-radius: 4px;
-    margin-top: 10px;
-    width: 35%;
-    float: left;
+    margin-top: -18px;
+    width: 120px;
+    margin-left: 95px;
 
     & > div {
      background-color: $light-grey;
