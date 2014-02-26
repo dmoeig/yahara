@@ -17,7 +17,8 @@
     "proxy-middleware": "~0.5.0",
     "jshint-stylish": "~0.1.5",
     "gulp-util": "~2.2.14",
-    "tiny-lr": "0.0.5"
+    "tiny-lr": "0.0.5",
+    "run-sequence": "~0.3.6"
   },
   "devDependencies": {},
   "license": "All Rights Reserved"

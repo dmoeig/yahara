@@ -2,7 +2,7 @@ Yahara.Track = Ember.Model.extend({
   id: Ember.attr(),
   title: Ember.attr(),
   position: Ember.attr(Number),
-  duration: Ember.attr(Number),
+  length: Ember.attr(Number),
   media_uri: Ember.attr(),
   album: Ember.belongsTo('Yahara.Album', {key: 'album_id'}),
 
@@ -12,7 +12,7 @@ Yahara.Track = Ember.Model.extend({
   finished: false,
 
   pctStyle: function(){
-    return "width: " + (this.get('currentPosition')/1000)/this.get('duration')*100 + "%";
+    return "width: " + (this.get('currentPosition')/1000)/this.get('length')*100 + "%";
   }.property('currentPosition'),
 
   play: function (){

@@ -61,7 +61,7 @@ data.map(function(album){
     var track = {};
     track.id = next_track_id;
     track.title = track_title;
-    track.duration = duration();
+    track.length = duration();
     track.position = next_track_position;
     track.media_uri = "http://localhost:8000/api/album/"+album.id+"/track/"+track.position
     next_track_position++;

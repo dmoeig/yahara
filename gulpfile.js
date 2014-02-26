@@ -11,11 +11,14 @@ var url = require('url')
 var proxy = require('proxy-middleware')
 var util = require('gulp-util');
 var stylish = require('jshint-stylish');
+var sequence = require('run-sequence');
 var lr = require('tiny-lr')();
 
-gulp.task('default', ['clean', 'server', 'watch']);
+gulp.task('default', function(callback) {
+  return sequence('clean', ['templates', 'javascript', 'css'], 'server', 'watch', callback);
+});
 
-gulp.task('server', ['build'], function () {
+gulp.task('server', function () {
   var app = express();
 
   app.use('/vendor', express.static(__dirname + '/vendor'));
@@ -30,15 +33,12 @@ gulp.task('server', ['build'], function () {
   };
 
   app.listen(8000);
-
   lr.listen(35729);
 });
 
-gulp.task('build', ['templates', 'javascript', 'css'], function () {});
-
 gulp.task('clean', function() {
   return gulp.src('build/', {read: false})
-      .pipe(clean());
+    .pipe(clean());
 });
 
 gulp.task('css', function () {
