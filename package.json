@@ -18,7 +18,9 @@
     "jshint-stylish": "~0.1.5",
     "gulp-util": "~2.2.14",
     "tiny-lr": "0.0.5",
-    "run-sequence": "~0.3.6"
+    "run-sequence": "~0.3.6",
+    "hat": "0.0.3",
+    "moment": "~2.5.1"
   },
   "devDependencies": {},
   "license": "All Rights Reserved"

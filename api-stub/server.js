@@ -1,71 +1,36 @@
 var yaml = require('js-yaml');
 var fs   = require('fs');
+var hat  = require('hat');
+var moment = require('moment');
 
 var data = yaml.safeLoad(fs.readFileSync('api-stub/data.yml', 'utf8'));
-
-var next_album_id = 1;
-var next_track_id = 1;
-var next_genre_id = 1;
-var next_artist_id = 1;
-var genre_identity_map = {};
-var artist_identity_map = {};
 
 var duration = function(){
   return 120 + Math.floor(Math.random() * (240 - 120 + 1));
 };
 
-var find_or_create_genre = function(name){
-  if (genre_identity_map[name]) {
-    return genre_identity_map[name];
-  }
-  else {
-    var genre = {};
-    genre.name = name;
-    genre.id = next_genre_id;
-    next_genre_id++;
-    genre_identity_map[name] = genre;
-    return genre;
-  }
-
-};
-
-var find_or_create_artist = function(name){
-  if (artist_identity_map[name]) {
-    return artist_identity_map[name];
-  }
-  else {
-    var artist = {};
-    artist.name = name;
-    artist.id = next_artist_id;
-    next_artist_id++;
-    artist_identity_map[name] = artist;
-    return artist;
-  }
-
-};
+var new_uuid = hat.rack();
 
 data.map(function(album){
   var next_track_position = 1;
-  album.id = next_album_id;
-  next_album_id++;
+  var uuid = new_uuid();
 
-  album.main_artist = find_or_create_artist(album.main_artist);
+  album.asset_type = "album"
+  album.mprint = {
+    active: uuid,
+    origin: uuid,
+    predecessor: uuid
+  }
 
-  album.genres = album.genres.map(function(genre_name){
-    return find_or_create_genre(genre_name);
-  });
-
-  album.album_art = "http://localhost:8000/assets/images/art/"+album.id+".jpg"
-
+  album.created = moment().unix();
+  album.album_art = "http://localhost:8000/assets/images/art/1.jpg"
   album.tracks = album.tracks.map(function(track_title){
     var track = {};
-    track.id = next_track_id;
     track.title = track_title;
     track.length = duration();
     track.position = next_track_position;
-    track.media_uri = "http://localhost:8000/api/album/"+album.id+"/track/"+track.position
+    track.media_uri = "http://localhost:8000/api/album/1/track/"+track.position
     next_track_position++;
-    next_track_id++;
     return track;
   });
 });
