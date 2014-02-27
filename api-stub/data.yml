@@ -240,69 +240,72 @@
     - Experimental
     - Classical
     - Avant-Garde
--
-  main_artist: El-Tin Fun
-  title: Ghosts on Television
-  release_year: 2012
-  tracks:
-    - Taking Off And Landing On The Right Foot
-    - Antiquated Hearts
-    - Rock Away (With You)
-    - Dinosaur Water
-    - The Last Frost
-    - Eat It Up
-    - Are You Colorblind??
-    - All The Time
-    - Redlight|Greenlight
-    - Poorly Painted House
-    - Static Cloud
-  genres:
-    - Indie
-    - Rock
-    - Pop
--
-  main_artist: "Weather Duo & Jaap Blonk"
-  title: Live at Audio for the Arts
-  release_year: 2012
-  tracks:
-    - "set 1: duo: WD"
-    - "set 2: trio: WD + JB"
-  genres:
-    - Avant-Garde
-    - Experimental
--
-  main_artist: Fambly Fun!
-  title: Best Xmas Ever!
-  release_year: 2011
-  tracks:
-    - We Wish You A Fuckin’ Christmas
-    - Christmas, Oh!
-    - Prezints!
-    - Jingle Hex
-    - Choo Choo
-    - Little Drummer Bounce
-    - Best Xmas Ever!
-  genres:
-    - Hip-Hop
-    - Comedy
-    - Holiday
--
-  main_artist: Amai
-  title: Sweet
-  release_year: 2011
-  tracks:
-    - ralgo (re-freshed)
-    - garutachi
-    - blueX(fair)WEATHER
-    - counting raindrops”eprerelease”
-    - lips…^1.3
-    - sun among midori
-    - cosmicdustXX.01
-    - quiet comely
-    - setunai
-  genres:
-    - Electronic
-    - Hip-Hop
+
+
+
+# -
+#   main_artist: El-Tin Fun
+#   title: Ghosts on Television
+#   release_year: 2012
+#   tracks:
+#     - Taking Off And Landing On The Right Foot
+#     - Antiquated Hearts
+#     - Rock Away (With You)
+#     - Dinosaur Water
+#     - The Last Frost
+#     - Eat It Up
+#     - Are You Colorblind??
+#     - All The Time
+#     - Redlight|Greenlight
+#     - Poorly Painted House
+#     - Static Cloud
+#   genres:
+#     - Indie
+#     - Rock
+#     - Pop
+# -
+#   main_artist: "Weather Duo & Jaap Blonk"
+#   title: Live at Audio for the Arts
+#   release_year: 2012
+#   tracks:
+#     - "set 1: duo: WD"
+#     - "set 2: trio: WD + JB"
+#   genres:
+#     - Avant-Garde
+#     - Experimental
+# -
+#   main_artist: Fambly Fun!
+#   title: Best Xmas Ever!
+#   release_year: 2011
+#   tracks:
+#     - We Wish You A Fuckin’ Christmas
+#     - Christmas, Oh!
+#     - Prezints!
+#     - Jingle Hex
+#     - Choo Choo
+#     - Little Drummer Bounce
+#     - Best Xmas Ever!
+#   genres:
+#     - Hip-Hop
+#     - Comedy
+#     - Holiday
+# -
+#   main_artist: Amai
+#   title: Sweet
+#   release_year: 2011
+#   tracks:
+#     - ralgo (re-freshed)
+#     - garutachi
+#     - blueX(fair)WEATHER
+#     - counting raindrops”eprerelease”
+#     - lips…^1.3
+#     - sun among midori
+#     - cosmicdustXX.01
+#     - quiet comely
+#     - setunai
+#   genres:
+#     - Electronic
+#     - Hip-Hop
 
 
 
