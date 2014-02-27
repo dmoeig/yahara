@@ -2,6 +2,10 @@
   margin-left: 185px;
 }
 
+.download-filetype-images {
+  padding-right:10px;
+}
+
 #album {
   @include grid-row();
 
@@ -48,6 +52,13 @@
   }
   p {
     padding-left:10px;
+    line-height: 1.7;
+  }
+  .icon {
+    color:white;
+  }
+  .ion-play {
+    color: $grey;
   }
 }
 
