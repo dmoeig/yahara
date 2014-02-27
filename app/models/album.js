@@ -4,9 +4,12 @@ Yahara.Album = Ember.Model.extend({
   album_art: Ember.attr(),
   tracks: Ember.hasMany('Yahara.Track', {key: 'tracks', embedded: true}),
   main_artist: Ember.attr(),
-  artists: Ember.hasMany('Yahara.Artist', {key: 'artists', embedded: true}),
+  art: Ember.computed.alias('album_art'),
 
-  art: Ember.computed.alias('album_art')
+  slug: function(){
+    return (this.get('title')+"-"+this.get('main_artist')).dasherize();
+  }.property('title', 'main_artist')
+
 });
 
 

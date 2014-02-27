@@ -5,7 +5,7 @@
         <div class="album">
           <img class='art' {{bind-attr src="previousTrack.album.art"}}>
           <div class='title'>{{previousTrack.album.title}}</div>
-          <div class='artist'>{{previousTrack.album.main_artist.name}}</div>
+          <div class='artist'>{{previousTrack.album.main_artist}}</div>
           {{previousTrack.title}}
         </div>
       {{else}}
@@ -16,7 +16,7 @@
       <div class="album">
         <img class='art' {{bind-attr src="album.art"}}>
         <div class='title'>{{album.title}}</div>
-        <div class='artist'>{{album.main_artist.name}}</div>
+        <div class='artist'>{{album.main_artist}}</div>
         {{title}}
       </div>
       <div class="controls">
@@ -37,7 +37,7 @@
         <div class="album">
           <img class='art' {{bind-attr src="nextTrack.album.art"}}>
           <div class='title'>{{nextTrack.album.title}}</div>
-          <div class='artist'>{{nextTrack.album.main_artist.name}}</div>
+          <div class='artist'>{{nextTrack.album.main_artist}}</div>
           {{nextTrack.title}}
         </div>
       {{else}}

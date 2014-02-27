@@ -1,6 +1,6 @@
 Yahara.AlbumsShowRoute = Ember.Route.extend({
   model: function(params) {
-    return Yahara.Album.find(params.id);
+    return this.modelFor('albums').findBy('slug', params.slug);
   },
 
   actions: {
