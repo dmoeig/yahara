@@ -32,9 +32,9 @@ Yahara.Adapter = Ember.Adapter.extend({
 
     // HACK. Generalize this.
     dataToLoad.map( function(album){
-      album.id = album.mprint.active
+      album.id = album.mprint.active;
       album.tracks.map(function(track){
-        track.album_id = album.id
+        track.album_id = album.id;
       });
     });
 
