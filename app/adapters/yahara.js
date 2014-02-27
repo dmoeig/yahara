@@ -30,7 +30,7 @@ Yahara.Adapter = Ember.Adapter.extend({
     var collectionKey = Ember.get(klass, 'collectionKey'),
         dataToLoad = collectionKey ? data[collectionKey] : data;
 
-    // HACK. Generalize this.
+    // HACK to massage JSON into something loadable by ember with relationships. Generalize this.
     dataToLoad.map( function(album){
       album.id = album.mprint.active;
       album.tracks.map(function(track){

@@ -7,7 +7,7 @@ Yahara.Album = Ember.Model.extend({
   art: Ember.computed.alias('album_art'),
 
   slug: function(){
-    return (this.get('title')+"-"+this.get('main_artist')).dasherize();
+    return (this.get('title')+"-"+this.get('main_artist')).dasherize(); // Use parameterize() here when it lands in Ember beta
   }.property('title', 'main_artist')
 
 });
