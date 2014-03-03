@@ -10,10 +10,12 @@ var duration = function(){
 };
 
 var new_uuid = hat.rack();
+var next_album_id = 0;
 
 data.map(function(album){
   var next_track_position = 1;
   var uuid = new_uuid();
+  next_album_id++;
 
   album.asset_type = "album"
   album.mprint = {
@@ -23,7 +25,7 @@ data.map(function(album){
   }
 
   album.created = moment().unix();
-  album.album_art = "http://localhost:8000/assets/images/art/1.jpg"
+  album.album_art = "http://localhost:8000/assets/images/art/"+ next_album_id + ".jpg"
   album.tracks = album.tracks.map(function(track_title){
     var track = {};
     track.title = track_title;
