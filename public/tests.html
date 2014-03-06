@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Yahara Music Library</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="/vendor/qunit/qunit/qunit.css">
+
+    <script src="/vendor/jquery/jquery.js"></script>
+    <script src="/vendor/soundmanager2/script/soundmanager2.js"></script>
+    <script src="/vendor/handlebars/handlebars.js"></script>
+    <script src="/vendor/ember/ember.js"></script>
+    <script src="/vendor/ember-model/ember-model.js"></script>
+    <script src="/ember-extensions.js"></script>
+    <script src="/templates.js"></script>
+    <script src="/yahara.js"></script>
+    <script type="text/javascript">
+      Yahara.rootElement = '#ember-testing';
+      Yahara.setupForTesting();
+      Yahara.injectTestHelpers();
+    </script>
+
+  </head>
+  <body>
+  </body>
+</html>
+  <link rel="stylesheet" href="/resources/qunit.css">
+</head>
+<body>
+  <div id="qunit"></div>
+  <div id="qunit-fixture"></div>
+  <div id="ember-testing-container"><div id="ember-testing"></div></div>
+  <script src="/vendor/qunit/qunit/qunit.js"></script>
+  <script src="/tests.js"></script>
+</body>
