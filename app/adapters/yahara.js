@@ -110,7 +110,7 @@ Yahara.Adapter = Ember.Adapter.extend({
   },
 
   buildURL: function(klass, id) {
-    var urlRoot = Ember.get(klass, 'url');
+    var urlRoot = ENV.HOST + Ember.get(klass, 'url');
     var urlSuffix = Ember.get(klass, 'urlSuffix') || '';
     if (!urlRoot) { throw new Error('Ember.RESTAdapter requires a `url` property to be specified'); }
 

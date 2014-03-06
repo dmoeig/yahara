@@ -19,6 +19,8 @@
     "ember-model": "~0.0.11",
     "soundmanager2": "*",
     "foundation": "~5.1.1",
-    "ionicons": "~1.4.1"
+    "ionicons": "~1.4.1",
+    "qunit": "~1.14.0",
+    "ic-ajax": "~1.0.0"
   }
 }

@@ -15,7 +15,7 @@ var sequence = require('run-sequence');
 var lr = require('tiny-lr')();
 
 gulp.task('default', function(callback) {
-  return sequence('clean', ['templates', 'javascript', 'css'], 'server', 'watch', callback);
+  return sequence('clean', ['templates', 'javascript', 'css', 'html'], 'server', 'watch', callback);
 });
 
 gulp.task('server', function () {
@@ -24,14 +24,11 @@ gulp.task('server', function () {
   app.use('/vendor', express.static(__dirname + '/vendor'));
   app.use(express.static(__dirname + '/public'));
   app.use(express.static(__dirname + '/build'));
-
-  if (util.env.e === 'production') {
-    app.use('/api', proxy(url.parse('https://yahara-api.herokuapp.com/')));
-  }
-  else {
+  app.use(express.logger());
+  app.use(express.urlencoded());
+  if (util.env.e !== 'production') {
     apiStub(app);
-  };
-
+  }
   app.listen(8000);
   lr.listen(35729);
 });
@@ -48,7 +45,11 @@ gulp.task('css', function () {
 });
 
 gulp.task('javascript', ['jshint'], function() {
-  return gulp.src(['app/app.js',
+  var env = util.env.e || "development"
+
+  return gulp.src([
+      'app/environments/' + env + '.js',
+      'app/app.js',
       'app/router.js',
       'app/adapters/*.js',
       'app/components/*.js',
@@ -77,10 +78,16 @@ gulp.task('jshint', function() {
     .pipe(jshint.reporter(stylish));
 });
 
+gulp.task('html', function() {
+  return gulp.src('app/index.html')
+    .pipe(gulp.dest('build/'));
+});
+
 gulp.task('watch', function () {
   gulp.watch('app/**/*.js', ['javascript']);
   gulp.watch('app/**/*.hbs', ['templates']);
   gulp.watch('app/**/*.scss', ['css']);
+  gulp.watch('app/**/*.html', ['html']);
   gulp.watch('build/*', function (event){
 
     var fileName = require('path').relative(__dirname, event.path);

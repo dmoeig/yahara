@@ -48,7 +48,7 @@ Yahara.Track = Ember.Model.extend({
 
   loadSound: function(){
     var track = this;
-    return $.ajax(this.get('media_uri')).then(function(data){
+    return Em.$.ajax(this.get('media_uri')).then(function(data){
       track.set('sound', soundManager.createSound({
         url: data.url,
         whileplaying: function(){
