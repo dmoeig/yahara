@@ -1,8 +1,11 @@
 #header {
   @include grid-row();
+}
+
+#divider {
   margin-bottom: 1em;
-  border-bottom: 2px solid $light-grey;
-  padding-bottom: 10px;
+  height: 2px;
+  background-color: $light-grey;
 }
 
 #logo {

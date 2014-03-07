@@ -10,7 +10,7 @@
         <li>{{#link-to 'albums'}}Catalog{{/link-to}}</li>
         <li>{{#link-to 'collection'}}My Collection{{/link-to}}</li>
         {{#if authorized }}
-          <li><a href="#/login" {{action 'signOut'}}>Logout</a></li>
+          <li><a href="#/logout" {{action 'signOut'}}>Logout</a></li>
         {{else}}
           <li><a href="#/login" {{action 'openModal'}}>Login</a></li>
         {{/if}}
@@ -20,9 +20,11 @@
   </div>
   <div class="row">
     <div class="small-12 columns">
-      {{outlet}}
+      <div id="divider">
+      </div>
     </div>
   </div>
+  {{outlet}}
 </div>
 
 {{render 'modal'}}
