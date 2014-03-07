@@ -63,5 +63,8 @@
   h3.header {
       color: $blue;
       background-color: white;
+      @media #{$medium-up} {
+        padding-left: 0px;
+      }
   }
 }
