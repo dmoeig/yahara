@@ -2,11 +2,9 @@
   @include grid-row();
 
   dislay:block;
-  background: white;
   font-weight: normal;
   font-size: 12px;
   margin-bottom: 10px;
-
   .album {
     margin: 0 auto;
     padding-top:10px;
@@ -29,14 +27,18 @@
   .previous-track {
     @include grid-column(4);
     @media #{$small-only} { display: none; }
+    -webkit-mask-image: -webkit-gradient(linear, left top, right top, color-stop(0.00, rgba(0,0,0,.6)), color-stop(0.35, rgba(0,0,0,.6)), color-stop(0.50, rgba(0,0,0,.2)), color-stop(0.75, rgba(0,0,0,.2)), color-stop(1.00, rgba(0,0,0,.2)));
   }
   .current-track {
     @include grid-column(4);
     @media #{$small-only} { @include grid-column(12); }
+
   }
   .next-track {
     @include grid-column(4);
     @media #{$small-only} { display: none; }
+    -webkit-mask-image: -webkit-gradient(linear, right top, left top, color-stop(0.00, rgba(0,0,0,.6)), color-stop(0.35, rgba(0,0,0,.6)), color-stop(0.50, rgba(0,0,0,.2)), color-stop(0.75, rgba(0,0,0,.2)), color-stop(1.00, rgba(0,0,0,.2)));
+
   }
   .controls {
     font-size: 1.8em;
