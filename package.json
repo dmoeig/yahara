@@ -20,7 +20,7 @@
     "tiny-lr": "0.0.5",
     "run-sequence": "~0.3.6",
     "hat": "0.0.3",
-    "moment": "~2.5.1",
+    "moment": "~2.5.1"
   },
   "devDependencies": {
     "karma-script-launcher": "~0.1.0",
