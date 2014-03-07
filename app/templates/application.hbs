@@ -9,7 +9,11 @@
       <ul>
         <li>{{#link-to 'albums'}}Catalog{{/link-to}}</li>
         <li>{{#link-to 'collection'}}My Collection{{/link-to}}</li>
-        <li>{{#link-to 'profile'}}Profile{{/link-to}}</li>
+        {{#if authorized }}
+          <li><a href="#/login" {{action 'signOut'}}>Logout</a></li>
+        {{else}}
+          <li><a href="#/login" {{action 'openModal'}}>Login</a></li>
+        {{/if}}
       </ul>
     <input id='search' placeholder='Search'>
     </div>

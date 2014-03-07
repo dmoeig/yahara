@@ -47,12 +47,23 @@ module.exports = function(server) {
       res.json(data);
     });
 
-    server.post('/members', function(req, res) {
-      res.json({ "token": "aTokenForTesting" });
-    });
-
     server.get('/album/:id/track/:position', function(req, res) {
       res.json({ url: "http://localhost:8000/assets/audio/song.mp3" });
+    });
+
+    server.post('/userforcard', function(req,res){
+      console.log(req.body);
+      if (req.body.cardnumber === "fail"){
+        res.status(401).json({"code":"InvalidCredentials","message":"unable to validate the supplied card number"});
+      }
+      else {
+        res.json({
+          "created": moment().unix(),
+          "private_info":  {
+            "token": "aTokenForTesting"
+          }
+        });
+      }
     });
   });
 

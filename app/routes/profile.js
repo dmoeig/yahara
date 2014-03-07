@@ -1,6 +1,6 @@
 Yahara.PofileRoute = Ember.Route.extend({
   beforeModel: function(transition) {
-    if (this.controllerFor('application').get('currentUser')) {
+    if (this.controllerFor('application').get('currentUser.authorized')) {
 
     }
     else {

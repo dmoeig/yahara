@@ -17,5 +17,5 @@ Yahara.Album = Ember.Model.extend({
 });
 
 
-Yahara.Album.url = "/api/catalog/yahara";
+Yahara.Album.url = "/catalog/yahara";
 Yahara.Album.adapter = Yahara.Adapter.create();

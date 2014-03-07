@@ -1,17 +1,20 @@
 Yahara.ApplicationRoute = Ember.Route.extend({
-  actions: {
-      openModal: function() {
-        return this.render('modal', {
-          into: 'application',
-          outlet: 'modal'
-        });
-      },
 
-      closeModal: function() {
-        return this.disconnectOutlet({
-          outlet: 'modal',
-          parentView: 'application'
-        });
-      }
+  model: function(){
+    return Yahara.currentUser;
+  },
+
+  actions: {
+    openModal: function() {
+      return this.controllerFor('modal').send('open');
+    },
+
+    closeModal: function() {
+      return this.controllerFor('modal').send('close');
+    },
+
+    signOut: function() {
+      return this.controller.get('model').set('token', null);
     }
+  }
 });
