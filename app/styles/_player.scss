@@ -8,8 +8,11 @@
   .album {
     margin: 0 auto;
     padding-top:10px;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
-
   .album img {
     float: left;
     padding: 0px 36px 0px 17px;
