@@ -11,6 +11,10 @@ Yahara.AlbumsShowRoute = Ember.Route.extend({
       else {
         this.controllerFor('player').send('play', track);
       }
+    },
+
+    collect: function(){
+      console.log('Will collect an album');
     }
   }
 });

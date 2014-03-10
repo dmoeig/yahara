@@ -6,15 +6,19 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-
     <link rel="stylesheet" href="/vendor/qunit/qunit/qunit.css">
+    <link rel="stylesheet" href="/yahara.css">
+
+    <script type="text/javascript">
+      var ENV = {};
+    </script>
 
     <script src="/vendor/jquery/jquery.js"></script>
     <script src="/vendor/soundmanager2/script/soundmanager2.js"></script>
     <script src="/vendor/handlebars/handlebars.js"></script>
     <script src="/vendor/ember/ember.js"></script>
     <script src="/vendor/ember-model/ember-model.js"></script>
+    <script src="/vendor/ic-ajax/dist/globals/main.js"></script>
     <script src="/ember-extensions.js"></script>
     <script src="/templates.js"></script>
     <script src="/yahara.js"></script>
@@ -23,17 +27,13 @@
       Yahara.setupForTesting();
       Yahara.injectTestHelpers();
     </script>
-
   </head>
   <body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+    <div id="ember-testing-container"><div id="ember-testing"></div></div>
+    <script src="/vendor/qunit/qunit/qunit.js"></script>
+    <script src="/tests.js"></script>
   </body>
 </html>
-  <link rel="stylesheet" href="/resources/qunit.css">
 </head>
-<body>
-  <div id="qunit"></div>
-  <div id="qunit-fixture"></div>
-  <div id="ember-testing-container"><div id="ember-testing"></div></div>
-  <script src="/vendor/qunit/qunit/qunit.js"></script>
-  <script src="/tests.js"></script>
-</body>

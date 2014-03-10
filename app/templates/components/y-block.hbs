@@ -1,12 +1,14 @@
 <h3 class="header" {{action "toggle"}}>
   {{title}}
-  <span class='icon'>
-    {{#if expanded}}
-      -
-    {{else}}
-      +
-    {{/if}}
-  </span>
+  {{#unless action}}
+    <span class='icon'>
+      {{#if expanded}}
+        -
+      {{else}}
+        +
+      {{/if}}
+    </span>
+  {{/unless}}
 </h3>
 {{#if expanded}}
   {{yield}}
