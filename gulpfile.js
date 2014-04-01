@@ -54,7 +54,7 @@ gulp.task('javascript', ['jshint'], function() {
       'app/adapters/*.js',
       'app/components/*.js',
       'app/models/*.js',
-      'app/controllers/*.js',
+      'app/controllers/**/*.js',
       'app/views/*.js',
       'app/helpers/*.js',
       'app/routes/**/*.js'

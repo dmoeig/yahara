@@ -51,8 +51,14 @@ module.exports = function(server) {
       res.json({ url: "http://localhost:8000/assets/audio/song.mp3" });
     });
 
+    server.post('/collection', function(req, res) {
+      if (req.body.token === null){
+        res.status(401).json({"code":"InvalidCredentials"});
+      }
+      res.json(req.body);
+    });
+
     server.post('/userforcard', function(req,res){
-      console.log(req.body);
       if (req.body.cardnumber === "fail"){
         res.status(401).json({"code":"InvalidCredentials","message":"unable to validate the supplied card number"});
       }

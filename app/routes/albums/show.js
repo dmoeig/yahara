@@ -14,7 +14,17 @@ Yahara.AlbumsShowRoute = Ember.Route.extend({
     },
 
     collect: function(){
-      console.log('Will collect an album');
+      if (Yahara.currentUser.get('authorized')) {
+        var album = this.modelFor('application').toJSON();
+
+        ic.ajax.request({
+          type: "POST",
+          url: ENV.HOST + "/collection",
+          data: album
+        });
+      } else {
+        this.send('openModal');
+      }
     }
   }
 });

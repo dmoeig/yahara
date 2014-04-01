@@ -1,1 +1,3 @@
-Yahara.ApplicationController = Ember.ObjectController.extend({});
+Yahara.ApplicationController = Ember.ObjectController.extend({
+  searchString: null
+});
