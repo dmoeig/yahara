@@ -8,8 +8,8 @@
     <div id='nav' class="small-12 large-6 columns">
       <ul>
         <li>{{#link-to 'albums'}}Catalog{{/link-to}}</li>
-        <li>{{#link-to 'collection'}}My Collection{{/link-to}}</li>
         {{#if authorized }}
+          <li>{{#link-to 'collection'}}My Collection{{/link-to}}</li>
           <li><a href="#/logout" {{action 'signOut'}}>Logout</a></li>
         {{else}}
           <li><a href="#/login" {{action 'openModal'}}>Login</a></li>

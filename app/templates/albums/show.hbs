@@ -7,8 +7,10 @@
     </div>
   </div>
   <div class='actions'>
-    {{#y-block title="Add to Your Collection" action="collect"}}
-    {{/y-block}}
+    {{#unless inCollection}}
+      {{#y-block title="Add to Your Collection" action="collect"}}
+      {{/y-block}}
+    {{/unless}}
 
     {{#y-block title="Download"}}
       <p>
@@ -36,6 +38,11 @@
         <p><a href="#">Bandcamp</a></p>
       </div>
     {{/y-block}}
+
+    {{#if inCollection}}
+      {{#y-block title="Remove from Your Collection" action="remove"}}
+      {{/y-block}}
+    {{/if}}
   </div>
   <div class='info'>
     {{#y-block title="Review" expanded='true' column='left-col'}}

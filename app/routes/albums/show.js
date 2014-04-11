@@ -14,13 +14,18 @@ Yahara.AlbumsShowRoute = Ember.Route.extend({
     },
 
     collect: function(){
-      if (Yahara.currentUser.get('authorized')) {
-        var album = this.modelFor('application').toJSON();
-
+      user = Yahara.currentUser
+      route = this
+      if (user.get('authorized')) {
+        var album = this.modelFor(this.routeName);
         ic.ajax.request({
           type: "POST",
           url: ENV.HOST + "/collection",
-          data: album
+          data: { 'mprint': album.get('id') }
+        }).then(function(data){
+          route.controllerFor('application').get('model.collection').addObjects(data.map(function(album){
+            return album.mprint.active;
+          }));
         });
       } else {
         this.send('openModal');
