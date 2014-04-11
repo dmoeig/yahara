@@ -1,5 +1,6 @@
 Yahara.YBlockComponent = Ember.Component.extend({
   classNames: ['y-block'],
+  classNameBindings: ['expanded:expanded'],
 
   action: null,
   expanded: false,
