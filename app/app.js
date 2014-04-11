@@ -1,7 +1,7 @@
 Yahara = Ember.Application.create();
 
 Yahara.CurrentUser = Ember.Object.extend({
-  token: null,
+  token: localStorage.token,
   cardnumber: null,
   authorized: Ember.computed.bool('token'),
   error: false,
