@@ -1,4 +1,4 @@
-<tr class="track" {{action 'playPause' track}}>
+<tr class="track" {{bind-attr class="playing:playing"}} {{action 'playPause' track}}>
   <td>{{position}}</td>
   <td>{{title}}</td>
   <td>{{format-duration length}}</td>

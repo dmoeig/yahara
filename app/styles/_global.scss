@@ -42,6 +42,9 @@ table tr td {
 
 tr.track{
   cursor: pointer;
+  &:hover, &.playing {
+    background-color: #e5f1dc;
+  }
 }
 
 li {
