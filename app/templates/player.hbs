@@ -32,6 +32,27 @@
         <div {{bind-attr style="pctStyle"}}></div>
       </div>
     </div>
+
+    <div class="current-track-mobile hide-for-not-mobile">
+      <div class="album-mobile">
+        <div class='title-mobile'>{{album.title}}</div>
+        <div class='artist-mobile'>{{album.main_artist}}</div>
+        {{title}}
+      </div>
+      <div class="controls-mobile">
+        <i class="icon ion-ios7-rewind" {{action "play" previousTrack}}></i>
+        {{#if playing }}
+          <i class="icon ion-ios7-pause" {{action "toggle"}}></i>
+        {{else}}
+          <i class="icon ion-ios7-play" {{action "toggle"}}></i>
+        {{/if}}
+        <i class="icon ion-ios7-fastforward" {{action "play" nextTrack}}></i>
+      </div>
+      <div class="position">
+        <div {{bind-attr style="pctStyle"}}></div>
+      </div>
+    </div>
+
     <div class="next-track">
       {{#if nextTrack }}
         <div class="album">

@@ -120,7 +120,6 @@ h3 {
   color: white;
 }
 
-
 #content img.art {
   -webkit-box-shadow: 0px 0px 8px 2px $light-grey;
   -moz-box-shadow: 0px 0px 8px 2px $light-grey;
@@ -128,7 +127,6 @@ h3 {
   margin-bottom: 4px;
   display:inline-block;
 }
-
 
 // Modal
 #modal {
@@ -206,4 +204,14 @@ button {
   display:inline-block;
   padding-left:10px;
   font-size: 1.5em;
+}
+
+.hide-for-mobile {
+  display:none;
+}
+
+@media screen and (min-width: 600px) {
+  .hide-for-not-mobile {
+    display: none;
+  }
 }
