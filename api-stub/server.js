@@ -55,7 +55,7 @@ module.exports = function(server) {
       if (req.body.token === null){
         res.status(401).json({"code":"InvalidCredentials"});
       }
-      res.json(req.body);
+      res.json(data);
     });
 
     server.post('/userforcard', function(req,res){

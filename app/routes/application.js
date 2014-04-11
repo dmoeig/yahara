@@ -14,7 +14,7 @@ Yahara.ApplicationRoute = Ember.Route.extend({
     },
 
     signOut: function() {
-      return this.controller.get('model').set('token', null);
+      return this.controller.get('model').signOut();
     }
   }
 });
