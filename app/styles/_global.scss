@@ -22,7 +22,7 @@ h1, h2, h3, h4, h5, h6 {
 
 p, tr {
   color: $grey;
-  font-size: .8em;
+  font-size: .9em;
   padding: 5px 0px;
   margin:0;
 }
@@ -30,6 +30,9 @@ p, tr {
 table {
   width:100%;
   margin-bottom: 0;
+  .ion-ios7-play, .ion-ios7-pause {
+    font-size: 1.4em;
+  }
 }
 
 table tr td {

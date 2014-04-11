@@ -13,6 +13,24 @@
     overflow: hidden;
     text-overflow: ellipsis;
   }
+  .album-mobile {
+    float:left;
+    display:inline;
+    padding-top:10px;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    .title-mobile {
+      float:left;
+      margin-right: 7px;
+    }
+    .artist-mobile {
+      float:left;
+      font-weight: bold;
+      margin-right: 7px;
+    }
+  }
   .album img {
     float: left;
     padding: 0px 36px 0px 17px;
@@ -35,7 +53,6 @@
   .current-track {
     @include grid-column(4);
     @media #{$small-only} { @include grid-column(12); }
-
   }
   .next-track {
     @include grid-column(4);
