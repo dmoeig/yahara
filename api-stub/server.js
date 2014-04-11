@@ -6,7 +6,7 @@ var moment = require('moment');
 var data = yaml.safeLoad(fs.readFileSync('api-stub/data.yml', 'utf8'));
 
 var duration = function(){
-  return 120 + Math.floor(Math.random() * (240 - 120 + 1));
+  return (120 + Math.floor(Math.random() * (240 - 120 + 1)))*1000;
 };
 
 var new_uuid = hat.rack();
@@ -31,7 +31,7 @@ data.map(function(album){
     track.title = track_title;
     track.length = duration();
     track.position = next_track_position;
-    track.media_uri = "http://localhost:8000/api/album/1/track/"+track.position
+    track.filename = track.position + ".mp3"
     next_track_position++;
     return track;
   });
@@ -47,7 +47,7 @@ module.exports = function(server) {
       res.json(data);
     });
 
-    server.get('/album/:id/track/:position', function(req, res) {
+    server.get('/stream/:mprint/:filename', function(req, res) {
       res.json({ url: "http://localhost:8000/assets/audio/song.mp3" });
     });
 
