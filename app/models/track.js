@@ -3,8 +3,12 @@ Yahara.Track = Ember.Model.extend({
   title: Ember.attr(),
   position: Ember.attr(Number),
   length: Ember.attr(Number),
-  media_uri: Ember.attr(),
+  filename: Ember.attr(),
   album: Ember.belongsTo('Yahara.Album', {key: 'album_id'}),
+
+  media_uri: function(){
+    return ENV.HOST + "/stream/" + this.get('album.id') + "/" + encodeURIComponent(this.get('filename')) + ".mp3?token="
+  }.property('file_name'),
 
   playing: false,
   sound: null,
@@ -48,7 +52,7 @@ Yahara.Track = Ember.Model.extend({
 
   loadSound: function(){
     var track = this;
-    return Em.$.ajax(this.get('media_uri')).then(function(data){
+    return Em.$.ajax(track.get('media_uri') + localStorage.token).then(function(data){
       track.set('sound', soundManager.createSound({
         url: data.url,
         whileplaying: function(){

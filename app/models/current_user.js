@@ -2,6 +2,7 @@ Yahara.CurrentUser = Ember.Object.extend({
   token: localStorage.token,
   cardnumber: null,
   authorized: Ember.computed.bool('token'),
+  notAuthorized: Ember.computed.not('authorized'),
   error: false,
   collection: Ember.A(),
 
@@ -20,7 +21,7 @@ Yahara.CurrentUser = Ember.Object.extend({
     var user = this;
     if (arguments.length == 1) {
       user.get('collection').addObjects(response.map(function(album){
-        return album.mprint.active;
+        return album.mprint.origin;
       }));
     }
     else {
@@ -30,7 +31,7 @@ Yahara.CurrentUser = Ember.Object.extend({
         data: user.getProperties('token')
       }).then(function(data){
         user.get('collection').addObjects(data.map(function(album){
-          return album.mprint.active;
+          return album.mprint.origin;
         }));
       }, function(error){
         console.error('There was a problem loading the collection');
