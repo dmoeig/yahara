@@ -1,6 +1,6 @@
 -
   title: Meat the Zombeatles!
-  main_artist: The Zombeatles
+  artist_name: The Zombeatles
   record_label: Beeftone
   release_year: 2009
   genres:
@@ -16,7 +16,7 @@
     - Hey Food
 -
   title: Mike Zirkel the Album
-  main_artist: The Gomers
+  artist_name: The Gomers
   release_year: 2008
   genres:
     - Pop/Rock
@@ -44,7 +44,7 @@
     - The Gomers Bid Ye Farewell
 -
   title: Songs and Dances of Madisonia
-  main_artist: The Reptile Palace Orchestra
+  artist_name: The Reptile Palace Orchestra
   composer: Seth S. Blair
   release_year: 2012
   genres:
@@ -66,7 +66,7 @@
     - Byala Roza
     - Zensko Camce
 -
-  main_artist: Gobi Bear
+  artist_name: Gobi Bear
   title: Mais Grande EP
   release_year: 2013
   genres:
@@ -79,7 +79,7 @@
     - My Mind
     - Lisbon
 -
-  main_artist: N. Human
+  artist_name: N. Human
   title: Is Is Is Not Is Not
   release_year: 2013
   genres:
@@ -88,7 +88,7 @@
   tracks:
     - "Is Is Is Not Is Not (Zanarkand, Live 11.17.2013)"
 -
-  main_artist: "Softly, Dear"
+  artist_name: "Softly, Dear"
   title: Portico
   release_year: 2013
   genres:
@@ -103,7 +103,7 @@
     - Sleep It Off
     - Melange (Phobos Remix)
 -
-  main_artist: Various Artists
+  artist_name: Various Artists
   title: "Us, Today // Lovely Socialite Split"
   release_year: 2013
   genres:
@@ -117,7 +117,7 @@
     - Logn Since Forgotten (NH Remix)
     - All Things At Once (NH Remix)
 -
-  main_artist: Myles Coyne
+  artist_name: Myles Coyne
   title: I Love You Mom
   release_year: 2012
   genres:
@@ -132,7 +132,7 @@
    - Another Side Of Myles
    - Chapter Three
 -
-  main_artist: Various Artists
+  artist_name: Various Artists
   title: Lost City Music Festival 2013 Compilation
   genres:
     - Pop
@@ -160,7 +160,7 @@
     - Static Clouds
     - Ramble On
 -
-  main_artist: William Z. Villain
+  artist_name: William Z. Villain
   title: William Z. Villain EP
   release_year: 2013
   tracks:
@@ -176,7 +176,7 @@
     - Experimental
     - Gypsy-Rock
 -
-  main_artist: Pushmi-Pullyu
+  artist_name: Pushmi-Pullyu
   title: Never Love A Stranger
   release_year: 2013
   tracks:
@@ -198,7 +198,7 @@
   - Ambient
   - Indie
 -
-  main_artist: bell monks
+  artist_name: bell monks
   title: let the waves carry us
   release_year: 2012
   tracks:
@@ -217,7 +217,7 @@
     - Ambient
     - Rock
 -
-  main_artist: The Brothers Grimm
+  artist_name: The Brothers Grimm
   title: Redolent Spires
   release_year: 2012
   tracks:
@@ -244,7 +244,7 @@
 
 
 # -
-#   main_artist: El-Tin Fun
+#   artist_name: El-Tin Fun
 #   title: Ghosts on Television
 #   release_year: 2012
 #   tracks:
@@ -264,7 +264,7 @@
 #     - Rock
 #     - Pop
 # -
-#   main_artist: "Weather Duo & Jaap Blonk"
+#   artist_name: "Weather Duo & Jaap Blonk"
 #   title: Live at Audio for the Arts
 #   release_year: 2012
 #   tracks:
@@ -274,7 +274,7 @@
 #     - Avant-Garde
 #     - Experimental
 # -
-#   main_artist: Fambly Fun!
+#   artist_name: Fambly Fun!
 #   title: Best Xmas Ever!
 #   release_year: 2011
 #   tracks:
@@ -290,7 +290,7 @@
 #     - Comedy
 #     - Holiday
 # -
-#   main_artist: Amai
+#   artist_name: Amai
 #   title: Sweet
 #   release_year: 2011
 #   tracks:

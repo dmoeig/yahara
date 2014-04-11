@@ -1,5 +1,9 @@
 <div class="row">
   <div class="small-12 columns">
-    <p>This is my collection</p>
+    <ul id='catalog'>
+      {{#each album in content}}
+        {{render 'list/album' album}}
+      {{/each}}
+    </ul>
   </div>
 </div>

@@ -1,7 +1,14 @@
 Yahara.ApplicationRoute = Ember.Route.extend({
 
   model: function(){
-    return Yahara.currentUser;
+    return Yahara.CurrentUser.create();
+  },
+
+  setupController: function(controller, model){
+    if (model.get('authorized')) {
+      model.loadCollection();
+    }
+    this._super(controller, model);
   },
 
   actions: {

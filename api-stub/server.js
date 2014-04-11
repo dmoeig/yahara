@@ -58,6 +58,13 @@ module.exports = function(server) {
       res.json(data);
     });
 
+    server.get('/collection', function(req, res) {
+      if (req.body.token === null){
+        res.status(401).json({"code":"InvalidCredentials"});
+      }
+      res.json(data);
+    });
+
     server.post('/userforcard', function(req,res){
       if (req.body.cardnumber === "fail"){
         res.status(401).json({"code":"InvalidCredentials","message":"unable to validate the supplied card number"});
