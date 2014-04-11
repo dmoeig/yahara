@@ -77,6 +77,17 @@ ul#catalog {
   }
 }
 
+input#search {
+  background:none;
+}
+
+.spyglass {
+  float:right;
+  clear:both;
+  margin-top: -36px;
+  cursor: pointer;
+}
+
 
 li.album {
   color: $orange;
