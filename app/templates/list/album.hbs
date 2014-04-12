@@ -1,6 +1,7 @@
 <li class="album">
   {{#link-to 'albums.show' this classNames="album"}}
     <img class='art' {{bind-attr src="art"}}>
+    <div class="play-button"><img src="/assets/images/play_button.png"></div>
     {{title}}
   {{/link-to}}
   {{#link-to 'artist' album.artist_name classNames="artist"}}

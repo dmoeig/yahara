@@ -94,6 +94,20 @@ li.album {
   font-size: .9em;
 }
 
+.art img {
+  position: relative;
+  z-index: 999;
+}
+
+.play-button {
+  width: 60px;
+  height: 60px;
+  float:right;
+  margin-top: -65px;
+  position: relative;
+  z-index: 500;
+}
+
 h3 {
   color:$orange;
 }
