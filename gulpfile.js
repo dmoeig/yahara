@@ -15,6 +15,7 @@ var stylish = require('jshint-stylish');
 var sequence = require('run-sequence');
 var lr = require('tiny-lr')();
 var htmlreplace = require('gulp-html-replace');
+var gulpif = require('gulp-if')
 var minifyCSS = require('gulp-minify-css');
 var uglify = require('gulp-uglify')
 var rename = require('gulp-rename');
@@ -86,12 +87,12 @@ var appJsFiles = [
   ];
 
 var vendorJsFiles = [
-  "/vendor/jquery/jquery.min.js",
-  "/vendor/soundmanager2/script/soundmanager2-nodebug-jsmin.js",
-  "/vendor/handlebars/handlebars.runtime.min.js",
-  "/vendor/ember/ember.min.js",
-  "/vendor/ember-model/ember-model.js",
-  "/vendor/ic-ajax/dist/globals/main.js",
+  "vendor/jquery/dist/jquery.js",
+  "vendor/soundmanager2/script/soundmanager2-nodebug.js",
+  "vendor/handlebars/handlebars.runtime.js",
+  "vendor/ember/ember.prod.js",
+  "vendor/ember-model/ember-model.js",
+  "vendor/ic-ajax/dist/globals/main.js"
   ];
 
 gulp.task('javascript', ['jshint'], function() {
@@ -101,17 +102,16 @@ gulp.task('javascript', ['jshint'], function() {
 });
 
 gulp.task('javascript-production', function() {
-  return es.concat(gulp.src(vendorJsFiles), gulp.src(templateFiles)
-      .pipe(handlebars({
-        outputType: 'browser'
-      })),
-      gulp.src(appJsFiles))
+  return gulp.src(vendorJsFiles.concat(templateFiles).concat(appJsFiles))
+    .pipe(gulpif(/[.]hbs$/, handlebars({
+      outputType: 'browser'
+    })))
     .pipe(concat('yahara.min.js'))
     .pipe(uglify())
     .pipe(gulp.dest(dist_dir));
 });
 
-var templateFiles = ['app/templates/**/*.hbs'];
+var templateFiles = 'app/templates/**/*.hbs';
 
 gulp.task('templates', function(){
   return gulp.src(templateFiles)
@@ -120,6 +120,15 @@ gulp.task('templates', function(){
      }))
     .pipe(concat('templates.js'))
     .pipe(gulp.dest('build/'));
+});
+
+gulp.task('templates-production', function(){
+  return gulp.src(templateFiles)
+    .pipe(handlebars({
+      outputType: 'browser'
+     }))
+    .pipe(concat('templates.js'))
+    .pipe(gulp.dest('tmp/'));
 });
 
 gulp.task('jshint', function() {
