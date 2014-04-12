@@ -38,6 +38,6 @@
   "license": "All Rights Reserved",
   "scripts": {
     "start": "node production.js",
-    "postinstall": "bower install && gulp dist"
+    "postinstall": "bower install"
   }
 }
