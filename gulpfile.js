@@ -1,4 +1,5 @@
 var gulp = require('gulp');
+var es = require("event-stream")
 var express = require('express');
 var namespace = require('express-namespace');
 var concat = require('gulp-concat');
@@ -13,17 +14,25 @@ var util = require('gulp-util');
 var stylish = require('jshint-stylish');
 var sequence = require('run-sequence');
 var lr = require('tiny-lr')();
+var htmlreplace = require('gulp-html-replace');
+var minifyCSS = require('gulp-minify-css');
+var uglify = require('gulp-uglify')
+var rename = require('gulp-rename');
 var env = process.env.NODE_ENV || "development"
+var production = false
+var build_dir = "build/"
+var dist_dir = "dist/"
 
 gulp.task('default', function(callback) {
   return sequence('clean', 'build', 'server', 'watch', callback);
 });
 
 gulp.task('dist', function(callback) {
-  return sequence('clean', 'build', callback);
+  return sequence('clean-production', 'build-production', callback);
 });
 
 gulp.task('build', ['templates', 'javascript', 'css', 'html']);
+gulp.task('build-production', ['javascript-production','css-production', 'html-production']);
 
 gulp.task('server', function () {
   var app = express();
@@ -40,37 +49,72 @@ gulp.task('server', function () {
   lr.listen(35729);
 });
 
-gulp.task('clean', function() {
-  return gulp.src('build/', {read: false})
+gulp.task('clean-production', function() {
+  return gulp.src(dist_dir, {read: false})
     .pipe(clean());
 });
 
+
+var cssFiles = 'app/styles/yahara.scss'
+
 gulp.task('css', function () {
-  return gulp.src('app/styles/yahara.scss')
+  return gulp.src(cssFiles)
     .pipe(sass({errLogToConsole: true}))
-    .pipe(gulp.dest('build'));
+    .pipe(gulp.dest(build_dir));
 });
+
+gulp.task('css-production', function () {
+  return gulp.src(cssFiles)
+    .pipe(sass({errLogToConsole: true}))
+    .pipe(minifyCSS())
+    .pipe(rename('yahara.min.css'))
+    .pipe(gulp.dest(dist_dir));
+});
+
+var appJsFiles = [
+    'app/ember-extensions.js',
+    'app/environments/' + env + '.js',
+    'app/app.js',
+    'app/router.js',
+    'app/adapters/*.js',
+    'app/components/*.js',
+    'app/models/*.js',
+    'app/controllers/**/*.js',
+    'app/views/*.js',
+    'app/helpers/*.js',
+    'app/routes/**/*.js'
+  ];
+
+var vendorJsFiles = [
+  "/vendor/jquery/jquery.min.js",
+  "/vendor/soundmanager2/script/soundmanager2-nodebug-jsmin.js",
+  "/vendor/handlebars/handlebars.runtime.min.js",
+  "/vendor/ember/ember.min.js",
+  "/vendor/ember-model/ember-model.js",
+  "/vendor/ic-ajax/dist/globals/main.js",
+  ];
 
 gulp.task('javascript', ['jshint'], function() {
-  return gulp.src([
-      'app/ember-extensions.js',
-      'app/environments/' + env + '.js',
-      'app/app.js',
-      'app/router.js',
-      'app/adapters/*.js',
-      'app/components/*.js',
-      'app/models/*.js',
-      'app/controllers/**/*.js',
-      'app/views/*.js',
-      'app/helpers/*.js',
-      'app/routes/**/*.js'
-    ])
+  return gulp.src(appJsFiles)
     .pipe(concat('yahara.js'))
-    .pipe(gulp.dest('build'));
+    .pipe(gulp.dest(build_dir));
 });
 
+gulp.task('javascript-production', function() {
+  return es.concat(gulp.src(vendorJsFiles), gulp.src(templateFiles)
+      .pipe(handlebars({
+        outputType: 'browser'
+      })),
+      gulp.src(appJsFiles))
+    .pipe(concat('yahara.min.js'))
+    .pipe(uglify())
+    .pipe(gulp.dest(dist_dir));
+});
+
+var templateFiles = ['app/templates/**/*.hbs'];
+
 gulp.task('templates', function(){
-  return gulp.src(['app/templates/**/*.hbs'])
+  return gulp.src(templateFiles)
     .pipe(handlebars({
       outputType: 'browser'
      }))
@@ -84,9 +128,20 @@ gulp.task('jshint', function() {
     .pipe(jshint.reporter(stylish));
 });
 
+var htmlFiles = 'app/index.html'
+
 gulp.task('html', function() {
-  return gulp.src('app/index.html')
-    .pipe(gulp.dest('build/'));
+  return gulp.src(htmlFiles)
+    .pipe(gulp.dest(build_dir));
+});
+
+gulp.task('html-production', function() {
+  return gulp.src(htmlFiles)
+    .pipe(htmlreplace({
+        'css': 'yahara.min.css',
+        'js': 'yahara.min.js'
+    }))
+    .pipe(gulp.dest(dist_dir));
 });
 
 gulp.task('watch', function () {
