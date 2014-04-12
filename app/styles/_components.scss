@@ -5,17 +5,16 @@
     background-color: $green;
     padding: 5px 5px 5px 10px;
     margin-top: 1px;
-    border-radius: 5px;
     text-transform: uppercase;
     .icon {
       float: right;
-      color: white;
+      font-size: 1.7em;
+      margin-top: -7px;
     }
   }
 }
 
 .y-block.expanded {
   & > h3.header {
-    border-radius: 5px 5px 0px 0px;
   }
 }
