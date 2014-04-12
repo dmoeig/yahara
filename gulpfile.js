@@ -50,6 +50,11 @@ gulp.task('server', function () {
   lr.listen(35729);
 });
 
+gulp.task('clean', function() {
+  return gulp.src(build_dir, {read: false})
+    .pipe(clean());
+});
+
 gulp.task('clean-production', function() {
   return gulp.src(dist_dir, {read: false})
     .pipe(clean());
