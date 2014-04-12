@@ -4,15 +4,6 @@ Yahara.AlbumsShowRoute = Ember.Route.extend({
   },
 
   actions: {
-    playPause: function (track){
-      if (track.get('playing')) {
-        this.controllerFor('player').send('pause');
-      }
-      else {
-        this.controllerFor('player').send('play', track);
-      }
-    },
-
     collect: function(){
       var user = this.controllerFor('application').get('model');
       var route = this;

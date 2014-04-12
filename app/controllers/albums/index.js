@@ -14,16 +14,5 @@ Yahara.AlbumsIndexController = Ember.ArrayController.extend({
       return this.get('content');
     }
     return this.get('content');
-  }.property('content', 'searchString'),
-
-  actions: {
-    playPause: function (track){
-      if (track.get('playing')) {
-        this.get('player').send('pause');
-      }
-      else {
-        this.get('player').send('play', track);
-      }
-    }
-  }
+  }.property('content', 'searchString')
 });

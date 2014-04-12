@@ -4,18 +4,6 @@ test("Yahara", function(){
   ok(Yahara instanceof Ember.Application, "The Yahara app is an Ember application")
 });
 
-module("Template Helpers");
-Ember.Handlebars.helpers.intFormat._rawFunction(value),
-
-test("format-duration", function(){
-  visit("/")
-    .fillIn("input#search", "mike")
-    .andThen(function() {
-      equal(find("li.album").length, 1, "The page only has one album");
-      equal(find("li.album a.album").text().trim(), "Mike Zirkel the Album", "The correct album is showing");
-  });
-});
-
 module("Search Features", {
   setup: function() {
     localStorage.clear();

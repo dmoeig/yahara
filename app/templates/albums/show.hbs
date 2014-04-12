@@ -5,7 +5,7 @@
       <h3 class="album">{{title}}</h3>
       <h3 class= "artist">{{artist_name}}</h3>
     </div>
-    <div class="play-button"><img src="/assets/images/play_button.png"></div>
+    <div class="play-button" {{action "playPause" firstTrack}}><img src="/assets/images/play_button.png"></div>
   </div>
   <div class='actions'>
     {{#unless inCollection}}

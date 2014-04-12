@@ -5,7 +5,10 @@ Yahara.Album = Ember.Model.extend({
   tracks: Ember.hasMany('Yahara.Track', {key: 'tracks', embedded: true}),
   artist_name: Ember.attr(),
   mprint: Ember.attr(),
-  rights: Ember.attr(),
+
+  firstTrack: function(){
+    return this.get('tracks.firstObject')
+  }.property('tracks.@each'),
 
   art: Ember.computed.alias('album_art'),
 
