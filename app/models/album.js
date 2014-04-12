@@ -7,7 +7,7 @@ Yahara.Album = Ember.Model.extend({
   mprint: Ember.attr(),
 
   firstTrack: function(){
-    return this.get('tracks.firstObject')
+    return this.get('tracks.firstObject');
   }.property('tracks.@each'),
 
   art: Ember.computed.alias('album_art'),

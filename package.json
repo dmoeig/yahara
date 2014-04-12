@@ -35,5 +35,9 @@
     "karma": "~0.10.9",
     "gulp-karma": "0.0.2"
   },
-  "license": "All Rights Reserved"
+  "license": "All Rights Reserved",
+  "scripts": {
+    "start": "node production.js",
+    "postinstall": "bower install && gulp dist"
+  }
 }

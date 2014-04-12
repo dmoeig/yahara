@@ -13,10 +13,17 @@ var util = require('gulp-util');
 var stylish = require('jshint-stylish');
 var sequence = require('run-sequence');
 var lr = require('tiny-lr')();
+var env = process.env.NODE_ENV || "development"
 
 gulp.task('default', function(callback) {
-  return sequence('clean', ['templates', 'javascript', 'css', 'html'], 'server', 'watch', callback);
+  return sequence('clean', 'build', 'server', 'watch', callback);
 });
+
+gulp.task('dist', function(callback) {
+  return sequence('clean', 'build', callback);
+});
+
+gulp.task('build', ['templates', 'javascript', 'css', 'html']);
 
 gulp.task('server', function () {
   var app = express();
@@ -26,7 +33,7 @@ gulp.task('server', function () {
   app.use(express.static(__dirname + '/build'));
   app.use(express.logger());
   app.use(express.urlencoded());
-  if (util.env.e !== 'production') {
+  if (env !== 'production') {
     apiStub(app);
   }
   app.listen(8000);
@@ -45,9 +52,8 @@ gulp.task('css', function () {
 });
 
 gulp.task('javascript', ['jshint'], function() {
-  var env = util.env.e || "development"
-
   return gulp.src([
+      'app/ember-extensions.js',
       'app/environments/' + env + '.js',
       'app/app.js',
       'app/router.js',
