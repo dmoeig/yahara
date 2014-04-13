@@ -1,14 +1,18 @@
 Yahara.ApplicationRoute = Ember.Route.extend({
 
   model: function(){
-    return Yahara.CurrentUser.create();
+    return Ember.RSVP.hash({
+      user: Yahara.CurrentUser.create(),
+      albums: Yahara.Album.fetch()
+    })
   },
 
   setupController: function(controller, model){
-    if (model.get('authorized')) {
-      model.loadCollection();
+    if (model.user.get('authorized')) {
+      model.user.loadCollection();
     }
-    this._super(controller, model);
+    controller.set('content', model.user);
+    controller.set('albums', model.user)
   },
 
   actions: {
@@ -20,7 +24,7 @@ Yahara.ApplicationRoute = Ember.Route.extend({
         this.controllerFor('player').send('play', track);
       }
     },
-    
+
     openModal: function() {
       return this.controllerFor('modal').send('open');
     },

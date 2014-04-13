@@ -4,7 +4,7 @@
     <div class="play-button" {{action "playPause" firstTrack}}><img src="/assets/images/play_button.png"></div>
     {{title}}
   {{/link-to}}
-  {{#link-to 'artist' album.artist_name classNames="artist"}}
+  {{#link-to 'artist' album.artistSlug classNames="artist"}}
     {{artist_name}}
   {{/link-to}}
 </li>

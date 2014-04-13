@@ -1,3 +1,7 @@
 #artist{
   @include grid-row();
+
+  .artist-header{
+    @include grid-column(12);
+  }
 }

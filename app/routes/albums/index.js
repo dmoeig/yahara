@@ -1,5 +1,5 @@
 Yahara.AlbumsIndexRoute = Ember.Route.extend({
   model: function() {
-    return this.modelFor('albums');
+    return this.modelFor('application').albums;
   }
 });
