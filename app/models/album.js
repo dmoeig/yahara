@@ -1,6 +1,8 @@
 Yahara.Album = Ember.Model.extend({
   id: Ember.attr(),
   title: Ember.attr(),
+  record_label: Ember.attr(),
+  release_year: Ember.attr(),
   album_art: Ember.attr(),
   tracks: Ember.hasMany('Yahara.Track', {key: 'tracks', embedded: true}),
   artist_name: Ember.attr(),

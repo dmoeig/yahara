@@ -4,7 +4,7 @@ Yahara.ApplicationRoute = Ember.Route.extend({
     return Ember.RSVP.hash({
       user: Yahara.CurrentUser.create(),
       albums: Yahara.Album.fetch()
-    })
+    });
   },
 
   setupController: function(controller, model){
@@ -12,7 +12,7 @@ Yahara.ApplicationRoute = Ember.Route.extend({
       model.user.loadCollection();
     }
     controller.set('content', model.user);
-    controller.set('albums', model.user)
+    controller.set('albums', model.user);
   },
 
   actions: {
