@@ -127,15 +127,6 @@ gulp.task('templates', function(){
     .pipe(gulp.dest('build/'));
 });
 
-gulp.task('templates-production', function(){
-  return gulp.src(templateFiles)
-    .pipe(handlebars({
-      outputType: 'browser'
-     }))
-    .pipe(concat('templates.js'))
-    .pipe(gulp.dest('tmp/'));
-});
-
 gulp.task('jshint', function() {
   return gulp.src('app/**/*.js')
     .pipe(jshint())
