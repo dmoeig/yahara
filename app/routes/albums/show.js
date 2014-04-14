@@ -23,11 +23,15 @@ Yahara.AlbumsShowRoute = Ember.Route.extend({
 
     remove: function(){
       var user = this.controllerFor('application').get('model');
-      var route = this;
       var album = this.modelFor(this.routeName);
+      var collection = user.get('collection');
+      var collection_album = collection.find(function(calbum){
+        return calbum.mprint.origin === album.get('mprint.origin');
+      });
+
       ic.ajax.request({
         type: "DELETE",
-        url: ENV.HOST + "/collection/"+album.get('id')+ "?token=" + user.get('token')
+        url: ENV.HOST + "/collection/"+collection_album.mprint.active + "?token=" + user.get('token')
       }).then(function(data){
         user.loadCollection(data);
       });
