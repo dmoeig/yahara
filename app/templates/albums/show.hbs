@@ -4,8 +4,11 @@
     <div class="album-info-block">
       <h3 class="album">{{title}}</h3>
       <h3 class= "artist">{{artist_name}}</h3>
-      <p>{{record_label}}</p>
-      <p>{{release_year}}</p>
+      <p>
+        {{record_label}}
+        <br>
+        {{release_date}}
+      </p>
     </div>
     <div class="play-button" {{action "playPause" firstTrack}}><img src="/assets/images/play_button.png"></div>
   </div>

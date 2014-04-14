@@ -7,7 +7,7 @@ Yahara.CurrentUser = Ember.Object.extend({
   collection: Ember.A(),
 
   init: function() {
-    this.set('token', localStorage.token)
+    this.set('token', localStorage.token);
   },
 
   signOut: function(){

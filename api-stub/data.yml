@@ -2,7 +2,7 @@
   title: Meat the Zombeatles!
   artist_name: The Zombeatles
   record_label: Beeftone
-  release_year: 2009
+  release_date: 2009
   genres:
     - Pop/Rock
   tracks:
@@ -17,7 +17,7 @@
 -
   title: Mike Zirkel the Album
   artist_name: The Gomers
-  release_year: 2008
+  release_date: 2008
   genres:
     - Pop/Rock
   record_label: Beeftone
@@ -46,7 +46,7 @@
   title: Songs and Dances of Madisonia
   artist_name: The Reptile Palace Orchestra
   composer: Seth S. Blair
-  release_year: 2012
+  release_date: 2012
   genres:
     - Pop/Rock
   record_label: Omnium
@@ -68,7 +68,7 @@
 -
   artist_name: Gobi Bear
   title: Mais Grande EP
-  release_year: 2013
+  release_date: 2013
   genres:
     - Electronic
     - Pop
@@ -81,7 +81,7 @@
 -
   artist_name: N. Human
   title: Is Is Is Not Is Not
-  release_year: 2013
+  release_date: 2013
   genres:
     - Ambient
     - Experimental
@@ -90,7 +90,7 @@
 -
   artist_name: "Softly, Dear"
   title: Portico
-  release_year: 2013
+  release_date: 2013
   genres:
     - Indie
     - Rock
@@ -105,7 +105,7 @@
 -
   artist_name: Various Artists
   title: "Us, Today // Lovely Socialite Split"
-  release_year: 2013
+  release_date: 2013
   genres:
     - Jazz
     - Rock
@@ -119,7 +119,7 @@
 -
   artist_name: Myles Coyne
   title: I Love You Mom
-  release_year: 2012
+  release_date: 2012
   genres:
     - Indie
     - Folk
@@ -137,7 +137,7 @@
   genres:
     - Pop
     - Rock
-  release_year: 2013
+  release_date: 2013
   tracks:
     - let the waves carry us
     - Nude Human 1 (Preview)
@@ -162,7 +162,7 @@
 -
   artist_name: William Z. Villain
   title: William Z. Villain EP
-  release_year: 2013
+  release_date: 2013
   tracks:
     - A Quick Question
     - WZV Intro
@@ -178,7 +178,7 @@
 -
   artist_name: Pushmi-Pullyu
   title: Never Love A Stranger
-  release_year: 2013
+  release_date: 2013
   tracks:
     - I’m In Love Again
     - Fried Chicken
@@ -200,7 +200,7 @@
 -
   artist_name: bell monks
   title: let the waves carry us
-  release_year: 2012
+  release_date: 2012
   tracks:
     - east of the lake
     - let the waves carry us
@@ -219,7 +219,7 @@
 -
   artist_name: The Brothers Grimm
   title: Redolent Spires
-  release_year: 2012
+  release_date: 2012
   tracks:
     - Dance 1 viola odorata
     - Dance 2 viola tricolor
@@ -246,7 +246,7 @@
 # -
 #   artist_name: El-Tin Fun
 #   title: Ghosts on Television
-#   release_year: 2012
+#   release_date: 2012
 #   tracks:
 #     - Taking Off And Landing On The Right Foot
 #     - Antiquated Hearts
@@ -266,7 +266,7 @@
 # -
 #   artist_name: "Weather Duo & Jaap Blonk"
 #   title: Live at Audio for the Arts
-#   release_year: 2012
+#   release_date: 2012
 #   tracks:
 #     - "set 1: duo: WD"
 #     - "set 2: trio: WD + JB"
@@ -276,7 +276,7 @@
 # -
 #   artist_name: Fambly Fun!
 #   title: Best Xmas Ever!
-#   release_year: 2011
+#   release_date: 2011
 #   tracks:
 #     - We Wish You A Fuckin’ Christmas
 #     - Christmas, Oh!
@@ -292,7 +292,7 @@
 # -
 #   artist_name: Amai
 #   title: Sweet
-#   release_year: 2011
+#   release_date: 2011
 #   tracks:
 #     - ralgo (re-freshed)
 #     - garutachi
