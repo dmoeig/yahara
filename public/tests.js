@@ -95,6 +95,6 @@ module("Modal Features", {
 test("is hidden by default", function(){
   visit("/")
     .andThen(function() {
-      equal(find("#modal").is(":visible"), false);
+      equal(find("#modal").is(":visible"), false, "The modal is hidden");
   });
 });
