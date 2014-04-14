@@ -2,12 +2,15 @@ var yaml = require('js-yaml');
 var fs   = require('fs');
 var hat  = require('hat');
 var moment = require('moment');
+var _ = require('underscore');
 
 var data = yaml.safeLoad(fs.readFileSync('api-stub/data.yml', 'utf8'));
 
 var duration = function(){
   return (120 + Math.floor(Math.random() * (240 - 120 + 1)))*1000;
 };
+
+var collection = []
 
 var new_uuid = hat.rack();
 var next_album_id = 0;
@@ -55,15 +58,27 @@ module.exports = function(server) {
       if (req.body.token === null){
         res.status(401).json({"code":"InvalidCredentials"});
       }
-      res.json(data);
+      collection.push(_.find(data, function(album){
+        return album.mprint.active === req.body.mprint
+      }));
+      res.json(collection);
     });
 
     server.get('/collection', function(req, res) {
       if (req.body.token === null){
         res.status(401).json({"code":"InvalidCredentials"});
       }
-      res.json(data);
+      res.json(collection);
     });
+
+    server.delete('/collection', function(req, res) {
+      if (req.body.token === null){
+        res.status(401).json({"code":"InvalidCredentials"});
+      }
+      res.json(collection);
+    });
+
+
 
     server.post('/userforcard', function(req,res){
       if (req.body.cardnumber === "fail"){

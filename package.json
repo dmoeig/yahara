@@ -38,7 +38,8 @@
     "karma": "~0.10.9",
     "gulp-karma": "0.0.2",
     "gulp-html-replace": "^1.1.0",
-    "gulp-if": "0.0.5"
+    "gulp-if": "0.0.5",
+    "underscore": "^1.6.0"
   },
   "license": "All Rights Reserved",
   "scripts": {
