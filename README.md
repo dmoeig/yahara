@@ -17,7 +17,7 @@ Making local music super awesome since 2014 :)
 2. visit http://localhost:8000 in a browser
 
 ## Deployment
-1. run `gulp dist`
+1. run `NODE_ENV=production gulp dist`
 2. commit changes
 3. push to github and push to heroku
 
