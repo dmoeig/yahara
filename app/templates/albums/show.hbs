@@ -13,10 +13,13 @@
     <div class="play-button" {{action "playPause" firstTrack}}><img src="/assets/images/play_button.png"></div>
   </div>
   <div class='actions'>
-    {{#unless inCollection}}
+    {{#if inCollection}}
+      {{#y-block title="Remove from Your Collection" action="remove"}}
+      {{/y-block}}
+    {{else}}
       {{#y-block title="Add to Your Collection" action="collect"}}
       {{/y-block}}
-    {{/unless}}
+    {{/if}}
 
     {{#y-block title="Download"}}
       <p>
@@ -44,11 +47,6 @@
         <p><a href="#">Bandcamp</a></p>
       </div>
     {{/y-block}}
-
-    {{#if inCollection}}
-      {{#y-block title="Remove from Your Collection" action="remove"}}
-      {{/y-block}}
-    {{/if}}
   </div>
   <div class='info'>
     {{#y-block title="Review" expanded='true' column='left-col'}}
