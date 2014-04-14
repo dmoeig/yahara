@@ -4,23 +4,18 @@
     <div class="album-info-block">
       <h3 class="album">{{title}}</h3>
       <h3 class= "artist">{{artist_name}}</h3>
-      <p>
-        {{record_label}}
-        <br>
-        {{release_date}}
-      </p>
     </div>
-    <div class="play-button" {{action "playPause" firstTrack}}><img src="/assets/images/play_button.png"></div>
+    <div class="play-button"><img src="/assets/images/play_button.png"></div>
   </div>
   <div class='actions'>
-    {{#if inCollection}}
-      {{#y-block title="Remove from Your Collection" action="remove"}}
+    {{#unless inCollection}}
+      {{#y-block title="Add to Your Collection" action="collect" class="add-button"}}
       {{/y-block}}
-    {{else}}
-      {{#y-block title="Add to Your Collection" action="collect"}}
+    {{/unless}}
+    {{#if inCollection}}
+      {{#y-block title="Remove from Your Collection" action="remove" class="add-button"}}
       {{/y-block}}
     {{/if}}
-
     {{#y-block title="Download"}}
       <p>
       <img class="download-filetype-images" src="/assets/images/download-icon.png">MP3
@@ -40,12 +35,36 @@
     {{/y-block}}
 
     {{#y-block title="Options to Purchase"}}
-      <div>
-        <p><a href="#">Murfie</a></p>
-      </div>
-      <div>
-        <p><a href="#">Bandcamp</a></p>
-      </div>
+      <table>
+        <tr>
+          <td></td>
+          <td>CD</td>
+          <td>Vinyl</td>
+          <td>Download</td>
+          <td>Streaming</td>
+        </tr>
+        <tr>
+          <td><a href="www.murfie.com">Murfie</a></td>
+          <td>$12.00</td>
+          <td>$12.00</td>
+          <td>Free with purchase</td>
+          <td>Free with purchase</td>
+        </tr>
+        <tr>
+          <td><a href="www.bandcamp.com">Bandcamp</a></td>
+          <td>$12.00</td>
+          <td>$12.00</td>
+          <td>Free with purchase</td>
+          <td>Free with purchase</td>
+        </tr>
+        <tr>
+          <td><a href="www.cdbaby.com">CDBaby</a></td>
+          <td>$12.00</td>
+          <td>$12.00</td>
+          <td>Free with purchase</td>
+          <td>Free with purchase</td>
+        </tr>
+      </table>
     {{/y-block}}
   </div>
   <div class='info'>

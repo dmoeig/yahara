@@ -48,8 +48,17 @@
 
 .actions {
   .y-block {
-    background-color: $lightest-grey;
+    background-color: $green;
+    p {
+      background-color:white;
+    }
   }
+  
+  .add-button {
+    background-color: $purple;
+    text-align: center;
+  }
+
   p {
     padding-left:10px;
     line-height: 1.7;
