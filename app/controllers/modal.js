@@ -23,7 +23,7 @@ Yahara.ModalController = Ember.ObjectController.extend({
         $('#modal').hide();
         currentUser.signIn(data.private_info.token);
       }, function(data){
-        console.error('The user could not be authenticated');
+        currentUser.set('error', true);
       });
     }
   }

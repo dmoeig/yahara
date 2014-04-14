@@ -10,9 +10,9 @@
         <li>{{#link-to 'albums'}}Catalog{{/link-to}}</li>
         {{#if authorized }}
           <li>{{#link-to 'collection'}}Your Collection{{/link-to}}</li>
-          <li><a href="#/logout" {{action 'signOut'}}>Logout</a></li>
+          <li><a href="/logout" {{action 'signOut'}}>Logout</a></li>
         {{else}}
-          <li><a href="#/login" {{action 'openModal'}}>Login</a></li>
+          <li><a href="/login" {{action 'openModal'}}>Login</a></li>
         {{/if}}
       </ul>
     {{input id='search' placeholder='SEARCH CATALOG' value=searchString}}

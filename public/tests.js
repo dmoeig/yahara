@@ -29,6 +29,35 @@ test("searching for an artist", function(){
   });
 });
 
+module("Login Features", {
+  setup: function() {
+    localStorage.clear();
+    Yahara.reset();
+  }
+});
+
+test("log in success", function(){
+  visit("/")
+    .click("a[href='/login']")
+    .fillIn("input#card-number", "1234567")
+    .click("button.login")
+    .andThen(function() {
+      equal(find("a[href='/logout']").length, 1, "The logout button is visible");
+      equal(find("a[href='/collection']").length, 1, "The my collection button is visible");
+  });
+});
+
+test("log in failure", function(){
+  visit("/")
+    .click("a[href='/login']")
+    .fillIn("input#card-number", "fail")
+    .click("button.login")
+    .andThen(function() {
+      equal(find("#modal").is(":visible"), true, "The modal is still visible");
+      equal(find(".flash-login").is(":visible"), true, "The error message is visible");
+  });
+});
+
 module("Album Features", {
   setup: function() {
     localStorage.clear();

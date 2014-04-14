@@ -1,10 +1,14 @@
 Yahara.CurrentUser = Ember.Object.extend({
-  token: localStorage.token,
+  token: null,
   cardnumber: null,
   authorized: Ember.computed.bool('token'),
   notAuthorized: Ember.computed.not('authorized'),
   error: false,
   collection: Ember.A(),
+
+  init: function() {
+    this.set('token', localStorage.token)
+  },
 
   signOut: function(){
     this.set('token', null);
