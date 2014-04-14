@@ -1,3 +1,5 @@
 Yahara.ApplicationController = Ember.ObjectController.extend({
-  searchString: null
+  searchString: null,
+  nextAction: null,
+  nextActionParams: null
 });
