@@ -41,8 +41,8 @@ Yahara.Adapter = Ember.Adapter.extend({
     records.load(klass, dataToLoad);
   },
 
-  ajax: function(url, params, method, settings) {
-    return this._ajax(url, params, (method || "GET"), settings);
+  ajax: function(url, params, method ) {
+    return this._ajax(url, params, (method || "GET"));
   },
 
   buildURL: function(klass, id) {
@@ -57,7 +57,7 @@ Yahara.Adapter = Ember.Adapter.extend({
     }
   },
 
-  _ajax: function(url, params, method, settings) {
+  _ajax: function(url, params, method) {
     return ic.ajax.request({
       url: url,
       method: method

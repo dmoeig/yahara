@@ -127,9 +127,31 @@ gulp.task('templates', function(){
     .pipe(gulp.dest('build/'));
 });
 
+jsHintFiles = ['app/**/*.js', '!app/app.js', '!app/environments/*.js']
+
 gulp.task('jshint', function() {
-  return gulp.src('app/**/*.js')
-    .pipe(jshint())
+  return gulp.src(jsHintFiles)
+    .pipe(jshint({
+      "curly": true,
+      "eqeqeq": true,
+      "eqnull": true,
+      "expr": true,
+      "latedef": true,
+      "noarg": true,
+      "node": true,
+      "predef": [
+        "Yahara",
+        "Ember",
+        "ic",
+        "localStorage",
+        "soundManager",
+        "ENV",
+        "$",
+        "window"
+      ],
+      "trailing": true,
+      "undef": true
+    }))
     .pipe(jshint.reporter(stylish));
 });
 

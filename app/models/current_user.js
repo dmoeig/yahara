@@ -27,9 +27,34 @@ Yahara.CurrentUser = Ember.Object.extend({
     this.loadCollection();
   },
 
+  collect: function(album){
+    var user = this;
+    ic.ajax.request({
+      type: "POST",
+      url: ENV.HOST + "/collection",
+      data: { 'mprint': album.get('id'), 'token': this.get('token') }
+    }).then(function(data){
+      user.loadCollection(data);
+    });
+  },
+
+  removeFromCollection: function(album){
+    var user = this;
+    var collection_album = this.get('collection').find(function(calbum){
+      return calbum.mprint.origin === album.get('mprint.origin');
+    });
+
+    ic.ajax.request({
+      type: "DELETE",
+      url: ENV.HOST + "/collection/"+collection_album.mprint.active + "?token=" + user.get('token')
+    }).then(function(data){
+      user.loadCollection(data);
+    });
+  },
+
   loadCollection: function(response){
     var user = this;
-    if (arguments.length == 1) {
+    if (arguments.length === 1) {
       user.get('collection').setObjects(response);
     }
     else {

@@ -5,7 +5,7 @@ Yahara.CollectionRoute = Ember.Route.extend({
     }
   },
 
-  setupController: function(controller, model){
+  setupController: function(controller){
     var albums = this.modelFor('application').albums;
     var collection_ids = this.controllerFor('application').get('collection_ids');
     var collection = albums.filter(function(album){

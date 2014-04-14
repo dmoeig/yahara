@@ -26,8 +26,6 @@ Yahara.ApplicationRoute = Ember.Route.extend({
         }
       }
       else {
-        this.controllerFor('application').set('nextAction', 'playPause');
-        this.controllerFor('application').set('nextActionParams', 'playPause');
         this.send('openModal');
       }
     },
@@ -43,6 +41,20 @@ Yahara.ApplicationRoute = Ember.Route.extend({
     signOut: function() {
       this.controller.get('model').signOut();
       this.transitionTo('application.index');
+    },
+
+    collect: function(album){
+      var user = this.controllerFor('application').get('model');
+      if (user.get('authorized')) {
+        user.collect(album);
+      } else {
+        this.send('openModal');
+      }
+    },
+
+    remove: function(album){
+      var user = this.controllerFor('application').get('model');
+      user.removeFromCollection(album);
     }
   }
 });

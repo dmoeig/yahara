@@ -14,10 +14,10 @@
   </div>
   <div class='actions'>
     {{#if inCollection}}
-      {{#y-block title="Remove from Your Collection" action="remove"}}
+      {{#y-block title="Remove from Your Collection" action="remove" parameter=model}}
       {{/y-block}}
     {{else}}
-      {{#y-block title="Add to Your Collection" action="collect"}}
+      {{#y-block title="Add to Your Collection" action="collect" parameter=model}}
       {{/y-block}}
     {{/if}}
 
