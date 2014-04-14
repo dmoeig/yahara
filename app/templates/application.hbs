@@ -5,14 +5,25 @@
     <div id='logo' class="small-12 large-6 columns">
       {{#link-to 'albums'}}<img src="/assets/images/logo-horiz.png">{{/link-to}}
     </div>
-    <div id='nav' class="small-12 large-6 columns">
-      <ul>
+    <div id="nav" class="small-12 large-6 columns">
+      <ul class="menu">
         <li>{{#link-to 'albums'}}Catalog{{/link-to}}</li>
         {{#if authorized }}
-          <li>{{#link-to 'collection'}}Your Collection{{/link-to}}</li>
-          <li><a href="/logout" {{action 'signOut'}}>Logout</a></li>
+        <li>{{#link-to 'collection'}}Your Collection{{/link-to}}</li>
+         <li><a href="/logout" {{action 'signOut'}}>Logout</a></li>
         {{else}}
-          <li><a href="/login" {{action 'openModal'}}>Login</a></li>
+         <li><a href="/login" {{action 'openModal'}}>Login</a></li>
+        {{/if}}
+      </ul>
+    </div>
+    <div id="mobile-nav" class="small-12 columns hide-for-not-mobile">
+      <ul class="mobile-menu">
+        <li>{{#link-to 'albums'}}Catalog{{/link-to}}</li>
+        {{#if authorized }}
+        <li>{{#link-to 'collection'}}Your Collection{{/link-to}}</li>
+         <li><a href="/logout" {{action 'signOut'}}>Logout</a></li>
+        {{else}}
+         <li><a href="/login" {{action 'openModal'}}>Login</a></li>
         {{/if}}
       </ul>
     </div>

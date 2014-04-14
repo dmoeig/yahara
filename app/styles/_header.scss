@@ -61,3 +61,37 @@ input#search {
     background-color: $blue;
   }
 }
+
+#mobile-nav {
+  background-color: $blue;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+#mobile-nav > ul {
+  padding-top: 10px;
+  margin-bottom: 10px;
+
+  @include inline-list;
+  float: right;
+  text-transform:uppercase;
+  font-family: $sans;
+  color: $blue;
+  margin-top: 20px;
+
+  & a {
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
+  }
+
+  & a.active {
+    color: $grey;
+    background-color: white;
+  }
+}
+
+
+
+
+
