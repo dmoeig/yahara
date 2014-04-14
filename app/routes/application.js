@@ -17,13 +17,18 @@ Yahara.ApplicationRoute = Ember.Route.extend({
 
   actions: {
     playPause: function (track){
-      if (this.controllerFor('application').get('authorized')){
-        if (track.get('playing')) {
-          this.controllerFor('player').send('pause');
-        }
-        else {
-          this.controllerFor('player').send('play', track);
-        }
+      var player = this.controllerFor('player');
+      var user = this.controller.get('model');
+
+      if (user.get('authorized')){
+        user.collect(track.get('album')).then(function(){
+          if (track.get('playing')) {
+            player.send('pause');
+          }
+          else {
+            player.send('play', track);
+          }
+        });
       }
       else {
         this.send('openModal');

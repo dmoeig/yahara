@@ -29,7 +29,7 @@ Yahara.CurrentUser = Ember.Object.extend({
 
   collect: function(album){
     var user = this;
-    ic.ajax.request({
+    return ic.ajax.request({
       type: "POST",
       url: ENV.HOST + "/collection",
       data: { 'mprint': album.get('id'), 'token': this.get('token') }
