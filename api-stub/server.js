@@ -58,10 +58,10 @@ module.exports = function(server) {
       if (req.body.token === null){
         res.status(401).json({"code":"InvalidCredentials"});
       }
-      collection.push(_.find(data, function(album){
+      response = collection.concat(_.find(data, function(album){
         return album.mprint.active === req.body.mprint
       }));
-      res.json(collection);
+      res.json(response);
     });
 
     server.get('/collection', function(req, res) {
