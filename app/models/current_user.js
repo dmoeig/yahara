@@ -6,6 +6,12 @@ Yahara.CurrentUser = Ember.Object.extend({
   error: false,
   collection: Ember.A(),
 
+  collection_ids: function(){
+    return this.get('collection').map(function(album){
+      return album.mprint.origin;
+    });
+  }.property('collection.@each'),
+
   init: function() {
     this.set('token', localStorage.token);
   },
@@ -24,9 +30,7 @@ Yahara.CurrentUser = Ember.Object.extend({
   loadCollection: function(response){
     var user = this;
     if (arguments.length == 1) {
-      user.get('collection').addObjects(response.map(function(album){
-        return album.mprint.origin;
-      }));
+      user.get('collection').setObjects(response);
     }
     else {
       ic.ajax.request({
@@ -34,9 +38,7 @@ Yahara.CurrentUser = Ember.Object.extend({
         url: ENV.HOST + "/collection",
         data: user.getProperties('token')
       }).then(function(data){
-        user.get('collection').addObjects(data.map(function(album){
-          return album.mprint.origin;
-        }));
+        user.get('collection').addObjects(data);
       }, function(error){
         console.error('There was a problem loading the collection');
       });

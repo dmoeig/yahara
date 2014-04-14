@@ -73,15 +73,23 @@ test("viewing an album", function(){
   });
 });
 
-test("collecting an album", function(){
+test("collecting and removing an album", function(){
   visit("/meat-the-zombeatles-the-zombeatles")
     .click("h3:contains('Add to Your Collection')")
     .fillIn("input#card-number", "1234567")
     .click("button.login")
     .click("h3:contains('Add to Your Collection')")
+    .click("a[href='/collection']")
     .andThen(function() {
-      ok(find("h3:contains('Remove from Your Collection')").length, "The album is in your collection");
-    });
+      equal(find("li.album").length, 1, "The page only has one album");
+      equal(find("li.album a.album").text().trim(), "Meat the Zombeatles!", "The correct album is showing");
+    })
+    .visit("/meat-the-zombeatles-the-zombeatles")
+    .click("h3:contains('Remove from Your Collection')")
+    .visit("/collection")
+    .andThen(function() {
+      equal(find("li.album").length, 0, "Collection is empty");
+    })
 });
 
 

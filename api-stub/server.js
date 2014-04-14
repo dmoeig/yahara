@@ -71,7 +71,7 @@ module.exports = function(server) {
       res.json(collection);
     });
 
-    server.delete('/collection', function(req, res) {
+    server.delete('/collection/:mprint', function(req, res) {
       if (req.body.token === null){
         res.status(401).json({"code":"InvalidCredentials"});
       }

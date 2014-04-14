@@ -19,6 +19,18 @@ Yahara.AlbumsShowRoute = Ember.Route.extend({
       } else {
         this.send('openModal');
       }
+    },
+
+    remove: function(){
+      var user = this.controllerFor('application').get('model');
+      var route = this;
+      var album = this.modelFor(this.routeName);
+      ic.ajax.request({
+        type: "DELETE",
+        url: ENV.HOST + "/collection/"+album.get('id')+ "?token=" + user.get('token')
+      }).then(function(data){
+        user.loadCollection(data);
+      });
     }
   }
 });
