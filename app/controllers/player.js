@@ -21,11 +21,13 @@ Yahara.PlayerController = Ember.ObjectController.extend({
     },
 
     play: function(track){
-      if (this.get('content') !== null) {
-        this.get('content').stop();
+      if (typeof track !== 'undefined') {
+        if (this.get('content') !== null) {
+          this.get('content').stop();
+        }
+        this.set('content', track);
+        this.get('content').play();
       }
-      this.set('content', track);
-      this.get('content').play();
     }
   }
 });

@@ -27,6 +27,7 @@ data.map(function(album){
     predecessor: uuid
   }
 
+  album.review = "OMG This is the best fake review of the best album evar!"
   album.created = moment().unix();
   album.album_art = "http://localhost:8000/assets/images/art/"+ next_album_id + ".jpg"
   album.tracks = album.tracks.map(function(track_title){
