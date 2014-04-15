@@ -42,8 +42,8 @@ test("log in success", function(){
     .fillIn("input#card-number", "1234567")
     .click("button.login")
     .andThen(function() {
-      equal(find("a[href='/logout']").length, 1, "The logout button is visible");
-      equal(find("a[href='/collection']").length, 1, "The my collection button is visible");
+      equal(find("a[href='/logout']:visible").length, 1, "The logout button is visible");
+      equal(find("a[href='/collection']:visible").length, 1, "The my collection button is visible");
   });
 });
 
