@@ -249,6 +249,10 @@ button {
   display:none;
 }
 
+table {
+  border:none;
+}
+
 @media screen and (min-width: 600px) {
   .hide-for-not-mobile {
     display: none;
