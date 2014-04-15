@@ -3,7 +3,6 @@
 
   font-weight: normal;
   font-size: 12px;
-  margin-bottom: 10px;
 
   .album {
     margin: 0 auto;
@@ -16,7 +15,7 @@
   }
 
   .album-mobile {
-    margin: 0 auto;
+    text-align: center;
     @media #{$medium-up} { display: none; }
   }
 
@@ -43,7 +42,6 @@
     @include grid-column(4);
     @media #{$small-only} {
       @include grid-column(12);
-      margin: 0 auto;
     }
   }
   .next-track {
@@ -55,18 +53,20 @@
   .controls {
     font-size: 1.8em;
     color: $grey;
-    width: 80px;
     z-index: 999;
+    text-align: center;
   }
-  .ion-ios7-rewind, .ion-ios7-play, .ion-ios7-fastfoward, .ion-ios7-pause {
-    padding: 0px 2px;
+  .ion-ios7-rewind, .ion-ios7-play, .ion-ios7-fastforward, .ion-ios7-pause {
+    display: inline-block;
+    padding: 3px;
   }
   .position {
+    display: inline-block;
     background-color: $grey;
     border-radius: 5px;
-    margin-top: -18px;
     width: 120px;
-    margin-left: 95px;
+    margin-bottom: 6px;
+    margin-left: 5px;
 
     & > div {
      background-color: $light-grey;

@@ -19,6 +19,9 @@
         <div class='artist'>{{album.artist_name}}</div>
         {{title}}
       </div>
+      <div class="album-mobile">
+        {{#link-to 'albums.show' album}}{{album.title}} - {{album.artist_name}} - {{title}}{{/link-to}}
+      </div>
       <div class="controls">
         <i class="icon ion-ios7-rewind" {{action "play" previousTrack}}></i>
         {{#if playing }}
@@ -27,9 +30,9 @@
           <i class="icon ion-ios7-play" {{action "toggle"}}></i>
         {{/if}}
         <i class="icon ion-ios7-fastforward" {{action "play" nextTrack}}></i>
-      </div>
-      <div class="position">
-        <div {{bind-attr style="pctStyle"}}></div>
+        <div class="position">
+          <div {{bind-attr style="pctStyle"}}></div>
+        </div>
       </div>
     </div>
 
