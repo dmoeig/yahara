@@ -10,16 +10,28 @@
 
 #logo {
   @include grid-column(6);
+  @media #{$small-only} {
+    @include grid-column(12);
+  }
 }
 
 #nav {
   @include grid-column(6);
+
+  @media #{$small-only} {
+    display: none;
+  }
 }
 
 
-#logo img {
-  max-width: 300px;
-  float: left;
+#logo {
+  @media #{$small-only} {
+    text-align: center
+  }
+
+  & img {
+    max-width: 300px;
+  }
 }
 
 input#search {
@@ -31,13 +43,26 @@ input#search {
   margin-bottom: 7px;
   border:1px solid;
   border-color: $light-grey;
-  background-color: $lightest-grey;
+  background: none;
   border-radius: 5px;
-  background: url("/assets/images/spyglass_grey.png") no-repeat right;
+
+  width: 300px;
+  @media #{$small-only} {
+    width: 100%;
+  }
+
+
+
+  &:focus {
+    outline:none;
+  }
 }
 
-#search:focus {
-  outline:none;
+.spyglass {
+  float:right;
+  clear:both;
+  margin-top: -36px;
+  cursor: pointer;
 }
 
 #nav > ul {
@@ -63,17 +88,18 @@ input#search {
 }
 
 #mobile-nav {
+  @media #{$medium-up} {
+    display: none;
+  }
+
   background-color: $blue;
   overflow: hidden;
+  margin: 0px auto;
   margin-bottom: 10px;
 }
 
 #mobile-nav > ul {
-  padding-top: 10px;
-  margin-bottom: 10px;
-
   @include inline-list;
-  float: right;
   text-transform:uppercase;
   font-family: $sans;
   color: $blue;
@@ -90,8 +116,3 @@ input#search {
     background-color: white;
   }
 }
-
-
-
-
-

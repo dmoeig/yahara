@@ -77,18 +77,6 @@ ul#catalog {
   }
 }
 
-input#search {
-  background:none;
-}
-
-.spyglass {
-  float:right;
-  clear:both;
-  margin-top: -36px;
-  cursor: pointer;
-}
-
-
 li.album {
   color: $orange;
   font-size: .9em;
@@ -228,6 +216,7 @@ button {
     margin-bottom: 7px;
     border: none;
     background-color: #fcd4d7;
+    background-color: #fcd4d7;
     border-radius: 5px;
 }
 
@@ -243,18 +232,4 @@ button {
   display:inline-block;
   padding-left:10px;
   font-size: 1.5em;
-}
-
-.hide-for-mobile {
-  display:none;
-}
-
-table {
-  border:none;
-}
-
-@media screen and (min-width: 600px) {
-  .hide-for-not-mobile {
-    display: none;
-  }
 }

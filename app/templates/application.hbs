@@ -2,10 +2,10 @@
 
 <div id="content">
   <div id="header">
-    <div id='logo' class="small-12 large-6 columns">
+    <div id='logo'>
       {{#link-to 'albums'}}<img src="/assets/images/logo-horiz.png">{{/link-to}}
     </div>
-    <div id="nav" class="small-12 large-6 columns">
+    <div id="nav">
       <ul class="menu">
         <li>{{#link-to 'albums'}}Catalog{{/link-to}}</li>
         {{#if authorized }}
@@ -16,7 +16,7 @@
         {{/if}}
       </ul>
     </div>
-    <div id="mobile-nav" class="small-12 columns hide-for-not-mobile">
+    <div id="mobile-nav" class="small-12 columns">
       <ul class="mobile-menu">
         <li>{{#link-to 'albums'}}Catalog{{/link-to}}</li>
         {{#if authorized }}

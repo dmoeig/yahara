@@ -16,7 +16,7 @@ Yahara.Track = Ember.Model.extend({
   finished: false,
 
   pctStyle: function(){
-    return "width: " + (this.get('currentPosition')/1000)/this.get('length')*100 + "%";
+    return "width: " + (this.get('currentPosition')/this.get('length'))*100 + "%";
   }.property('currentPosition'),
 
   play: function (){
