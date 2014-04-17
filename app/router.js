@@ -7,3 +7,7 @@ Yahara.Router.map(function() {
   this.route('collection');
   this.route('profile');
 });
+
+Yahara.Router.reopen({
+  location: 'auto'
+});
