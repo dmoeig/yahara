@@ -1,4 +1,5 @@
 var gulp = require('gulp');
+var http = require('http');
 var es = require("event-stream")
 var express = require('express');
 var namespace = require('express-namespace');
@@ -19,8 +20,9 @@ var gulpif = require('gulp-if')
 var minifyCSS = require('gulp-minify-css');
 var uglify = require('gulp-uglify')
 var rename = require('gulp-rename');
-var markdown = require('gulp-markdown');
 var fs = require('fs');
+var markdown = require('markdown').markdown;
+var request = require('request');
 
 var env = process.env.NODE_ENV || "development"
 var production = false
@@ -35,10 +37,11 @@ gulp.task('dist', function(callback) {
   return sequence('clean-production', 'build-production', callback);
 });
 
-gulp.task('build', ['templates', 'javascript', 'css', 'html', 'markdown']);
+gulp.task('build', ['templates', 'javascript', 'css', 'html']);
 gulp.task('build-production', ['javascript-production','css-production', 'html-production']);
 
 gulp.task('server', function () {
+
   var app = express();
 
   app.use('/vendor', express.static(__dirname + '/vendor'));
@@ -48,16 +51,31 @@ gulp.task('server', function () {
   app.use(express.urlencoded());
 
   app.get('/pages/:page', function(req, res){
-    var pageName = req.params.page
+    var pageName = req.params.page;
+    var options = {
+      url: 'https://api.github.com/repos/southpolesteve/yahara/contents/app/pages/' + pageName + '.md',
+      headers: {
+        'User-Agent': 'Yahara'
+      }
+    };
 
-    fs.readFile(__dirname +'/build/'+ pageName +'.html', 'utf8',function read(err, data) {
-      if (err) {
-          res.send(404)
+    request(options, function (error, response, body) {
+      if (!error && response.statusCode == 200) {
+        content = new Buffer(JSON.parse(body).content, 'base64').toString('ascii')
+        res.send({'html': markdown.toHTML(content)})
       }
       else {
-        res.send({'html': data})
+        fs.readFile(__dirname +'/app/pages/'+ pageName +'.md', 'utf8', function (err, data) {
+          if (err) {
+              res.send(404)
+          }
+          else {
+            res.send({'html': markdown.toHTML(data)})
+          }
+        });
       }
-    });
+    })
+
   });
 
   if (env !== 'production') {
@@ -76,22 +94,6 @@ gulp.task('clean', function() {
   return gulp.src(build_dir, {read: false})
     .pipe(clean());
 });
-
-
-var markdownFiles = 'app/pages/*.md'
-gulp.task('markdown', function() {
-  return gulp.src(build_dir, {read: false})
-    .pipe(clean());
-});
-
-var markdownFiles = 'app/pages/**/*.md'
-
-gulp.task('markdown', function() {
-  return gulp.src(markdownFiles)
-    .pipe(markdown())
-    .pipe(gulp.dest(build_dir));
-});
-
 
 var cssFiles = 'app/styles/yahara.scss'
 
