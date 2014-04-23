@@ -14,5 +14,14 @@ Yahara.AlbumsIndexController = Ember.ArrayController.extend({
       return this.get('content');
     }
     return this.get('content');
-  }.property('content', 'searchString')
+  }.property('content', 'searchString'),
+
+  mover: function(){
+    if (this.get('filteredContent.length') === 1){
+      this.transitionToRoute('albums.show', this.get('filteredContent.firstObject'));
+    }
+    else {
+      this.transitionToRoute('/');
+    }
+  }.observes('filteredContent.@each')
 });
