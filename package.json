@@ -41,7 +41,9 @@
     "gulp-if": "0.0.5",
     "underscore": "^1.6.0",
     "event-stream": "^3.1.2",
-    "gulp-rename": "^1.2.0"
+    "gulp-rename": "^1.2.0",
+    "gulp-replace": "^0.2.0",
+    "gulp-markdown": "^0.1.2"
   },
   "license": "All Rights Reserved",
   "scripts": {
