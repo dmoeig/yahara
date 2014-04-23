@@ -20,6 +20,7 @@ var minifyCSS = require('gulp-minify-css');
 var uglify = require('gulp-uglify')
 var rename = require('gulp-rename');
 var markdown = require('markdown').markdown;
+var request = require('request')
 var fs = require('fs');
 
 var env = process.env.NODE_ENV || "development"
