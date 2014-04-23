@@ -1,4 +1,6 @@
 var express = require('express');
+var request = require('request');
+var markdown = require('markdown').markdown;
 var app = express();
 var port = process.env.PORT || 8000
 var user = process.env.USER || 'yahara'
@@ -37,6 +39,10 @@ app.get('/pages/:page', function(req, res){
     }
   })
 
+});
+
+app.get('/*', function(req, res){
+  res.sendfile(__dirname + '/dist/index.html');
 });
 
 app.listen(port);
