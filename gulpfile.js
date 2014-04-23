@@ -44,6 +44,8 @@ gulp.task('server', function () {
   app.use('/vendor', express.static(__dirname + '/vendor'));
   app.use(express.static(__dirname + '/public'));
   app.use(express.static(__dirname + '/build'));
+  app.use(express.logger());
+  app.use(express.urlencoded());
 
   app.get('/pages/:page', function(req, res){
     var pageName = req.params.page
@@ -57,9 +59,6 @@ gulp.task('server', function () {
       }
     });
   });
-
-  app.use(express.logger());
-  app.use(express.urlencoded());
 
   if (env !== 'production') {
     apiStub(app);

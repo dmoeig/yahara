@@ -67,14 +67,14 @@ module("Album Features", {
 
 test("viewing an album", function(){
   visit("/")
-    .click("a[href='/meat-the-zombeatles-the-zombeatles']")
+    .click("a[href='/album/meat-the-zombeatles-the-zombeatles']")
     .andThen(function() {
       equal(find(".album").text(), "Meat the Zombeatles!", "The album title is visible");
   });
 });
 
 test("collecting and removing an album", function(){
-  visit("/meat-the-zombeatles-the-zombeatles")
+  visit("/album/meat-the-zombeatles-the-zombeatles")
     .click("h3:contains('Add to Your Collection')")
     .fillIn("input#card-number", "1234567")
     .click("button.login")
@@ -84,7 +84,7 @@ test("collecting and removing an album", function(){
       equal(find("li.album").length, 1, "The page only has one album");
       equal(find("li.album a.album").text().trim(), "Meat the Zombeatles!", "The correct album is showing");
     })
-    .visit("/meat-the-zombeatles-the-zombeatles")
+    .visit("/album/meat-the-zombeatles-the-zombeatles")
     .click("h3:contains('Remove from Your Collection')")
     .visit("/collection")
     .andThen(function() {
