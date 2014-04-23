@@ -19,6 +19,9 @@ var gulpif = require('gulp-if')
 var minifyCSS = require('gulp-minify-css');
 var uglify = require('gulp-uglify')
 var rename = require('gulp-rename');
+var markdown = require('gulp-markdown');
+var fs = require('fs');
+
 var env = process.env.NODE_ENV || "development"
 var production = false
 var build_dir = "build/"
@@ -32,7 +35,7 @@ gulp.task('dist', function(callback) {
   return sequence('clean-production', 'build-production', callback);
 });
 
-gulp.task('build', ['templates', 'javascript', 'css', 'html']);
+gulp.task('build', ['templates', 'javascript', 'css', 'html', 'markdown']);
 gulp.task('build-production', ['javascript-production','css-production', 'html-production']);
 
 gulp.task('server', function () {
@@ -41,11 +44,31 @@ gulp.task('server', function () {
   app.use('/vendor', express.static(__dirname + '/vendor'));
   app.use(express.static(__dirname + '/public'));
   app.use(express.static(__dirname + '/build'));
+
+  app.get('/pages/:page', function(req, res){
+    var pageName = req.params.page
+
+    fs.readFile(__dirname +'/build/'+ pageName +'.html', 'utf8',function read(err, data) {
+      if (err) {
+          res.send(404)
+      }
+      else {
+        res.send({'html': data})
+      }
+    });
+  });
+
   app.use(express.logger());
   app.use(express.urlencoded());
+
   if (env !== 'production') {
     apiStub(app);
   }
+
+  app.get('/*', function(req, res){
+    res.sendfile(__dirname + '/build/index.html');
+  });
+
   app.listen(8000);
   lr.listen(35729);
 });
@@ -55,9 +78,19 @@ gulp.task('clean', function() {
     .pipe(clean());
 });
 
-gulp.task('clean-production', function() {
-  return gulp.src(dist_dir, {read: false})
+
+var markdownFiles = 'app/pages/*.md'
+gulp.task('markdown', function() {
+  return gulp.src(build_dir, {read: false})
     .pipe(clean());
+});
+
+var markdownFiles = 'app/pages/**/*.md'
+
+gulp.task('markdown', function() {
+  return gulp.src(markdownFiles)
+    .pipe(markdown())
+    .pipe(gulp.dest(build_dir));
 });
 
 
@@ -172,6 +205,7 @@ gulp.task('html-production', function() {
 });
 
 gulp.task('watch', function () {
+  gulp.watch('app/pages/**/*.md', ['markdown']);
   gulp.watch('app/**/*.js', ['javascript']);
   gulp.watch('app/**/*.hbs', ['templates']);
   gulp.watch('app/**/*.scss', ['css']);
