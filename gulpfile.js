@@ -19,7 +19,7 @@ var gulpif = require('gulp-if')
 var minifyCSS = require('gulp-minify-css');
 var uglify = require('gulp-uglify')
 var rename = require('gulp-rename');
-var markdown = require('gulp-markdown');
+var markdown = require('markdown').markdown;
 var fs = require('fs');
 
 var env = process.env.NODE_ENV || "development"
@@ -35,7 +35,7 @@ gulp.task('dist', function(callback) {
   return sequence('clean-production', 'build-production', callback);
 });
 
-gulp.task('build', ['templates', 'javascript', 'css', 'html', 'markdown']);
+gulp.task('build', ['templates', 'javascript', 'css', 'html']);
 gulp.task('build-production', ['javascript-production','css-production', 'html-production']);
 
 gulp.task('server', function () {
@@ -48,16 +48,31 @@ gulp.task('server', function () {
   app.use(express.urlencoded());
 
   app.get('/pages/:page', function(req, res){
-    var pageName = req.params.page
+    var pageName = req.params.page;
+    var options = {
+      url: 'https://api.github.com/repos/southpolesteve/yahara/contents/app/pages/' + pageName + '.md',
+      headers: {
+        'User-Agent': 'Yahara'
+      }
+    };
 
-    fs.readFile(__dirname +'/build/'+ pageName +'.html', 'utf8',function read(err, data) {
-      if (err) {
-          res.send(404)
+    request(options, function (error, response, body) {
+      if (!error && response.statusCode == 200) {
+        content = new Buffer(JSON.parse(body).content, 'base64').toString('ascii')
+        res.send({'html': markdown.toHTML(content)})
       }
       else {
-        res.send({'html': data})
+        fs.readFile(__dirname +'/app/pages/'+ pageName +'.md', 'utf8', function (err, data) {
+          if (err) {
+              res.send(404)
+          }
+          else {
+            res.send({'html': markdown.toHTML(data)})
+          }
+        });
       }
-    });
+    })
+
   });
 
   if (env !== 'production') {
@@ -193,7 +208,6 @@ gulp.task('html-production', function() {
 });
 
 gulp.task('watch', function () {
-  gulp.watch('app/pages/**/*.md', ['markdown']);
   gulp.watch('app/**/*.js', ['javascript']);
   gulp.watch('app/**/*.hbs', ['templates']);
   gulp.watch('app/**/*.scss', ['css']);
