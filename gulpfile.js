@@ -77,21 +77,10 @@ gulp.task('clean', function() {
     .pipe(clean());
 });
 
-
-var markdownFiles = 'app/pages/*.md'
-gulp.task('markdown', function() {
-  return gulp.src(build_dir, {read: false})
+gulp.task('clean-production', function() {
+  return gulp.src(dist_dir, {read: false})
     .pipe(clean());
 });
-
-var markdownFiles = 'app/pages/**/*.md'
-
-gulp.task('markdown', function() {
-  return gulp.src(markdownFiles)
-    .pipe(markdown())
-    .pipe(gulp.dest(build_dir));
-});
-
 
 var cssFiles = 'app/styles/yahara.scss'
 
