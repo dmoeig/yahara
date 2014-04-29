@@ -1,4 +1,15 @@
 {
-  "app": "dist/index.html",
-  "appFolder": "dist"
+  "app": "/dist/index.html",
+  "appFolder": "/dist",
+  "folders": [
+    {
+      "source": "/public",
+      "path": "/"
+    },
+    {
+      "source": "/pages",
+      "path": "/pages",
+      "processor": "markdown"
+    }
+  ]
 }
