@@ -1,4 +1,4 @@
 {
-  "app": "/dist/index.html",
-  "appFolder": "/dist"
+  "app": "dist/index.html",
+  "appFolder": "dist"
 }
