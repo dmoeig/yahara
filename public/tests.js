@@ -15,8 +15,8 @@ test("searching for a title", function(){
   visit("/")
     .fillIn("input#search", "mike")
     .andThen(function() {
-      equal(find("li.album").length, 1, "The page only has one album");
-      equal(find("li.album a.album").text().trim(), "Mike Zirkel the Album", "The correct album is showing");
+      equal(currentURL(), '/album/mike-zirkel-the-album-the-gomers', "Transitioned to the album page")
+      equal(find("h3.album").text().trim(), "Mike Zirkel the Album", "The correct album is showing");
   });
 });
 
@@ -24,8 +24,8 @@ test("searching for an artist", function(){
   visit("/")
     .fillIn("input#search", "gomers")
     .andThen(function() {
-      equal(find("li.album").length, 1, "The page only has one album");
-      equal(find("li.album a.artist").text().trim(), "The Gomers", "The correct album is showing");
+      equal(currentURL(), '/album/mike-zirkel-the-album-the-gomers', "Transitioned to the album page")
+      equal(find("h3.artist").text().trim(), "The Gomers", "The correct album is showing");
   });
 });
 
