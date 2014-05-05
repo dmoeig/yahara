@@ -9,6 +9,10 @@
 #album {
   @include grid-row();
 
+  h4 {
+    color: $grey;
+  }
+
   & > .meta-data {
     @include grid-column(12);
 
@@ -53,7 +57,7 @@
       background-color:white;
     }
   }
-  
+
   .add-button {
     background-color: $purple;
     text-align: center;

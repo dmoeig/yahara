@@ -3,6 +3,7 @@ var fs   = require('fs');
 var hat  = require('hat');
 var moment = require('moment');
 var _ = require('underscore');
+var _s = require('underscore.string');
 
 var data = yaml.safeLoad(fs.readFileSync('api-stub/data.yml', 'utf8'));
 
@@ -30,6 +31,8 @@ data.map(function(album){
   album.review = "OMG This is the best fake review of the best album evar!"
   album.created = moment().unix();
   album.album_art = "http://localhost:8000/assets/images/art/"+ next_album_id + ".jpg"
+  album.artist_url = "http://localhost:8000/artists/" + _s.slugify(album.artist_name)
+  album.slug = _s.slugify(album.title + " " + album.artist_name)
   album.tracks = album.tracks.map(function(track_title){
     var track = {};
     track.title = track_title;

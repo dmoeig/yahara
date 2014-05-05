@@ -3,12 +3,15 @@
     <img class='art' {{bind-attr src="art"}}>
     <div class="album-info-block">
       <h3 class="album">{{title}}</h3>
-      <h3 class= "artist">{{artist_name}}</h3>
-      <p>
+      {{#link-to 'artist' artistSlug classNames="artist"}}
+        {{artist_name}}
+      {{/link-to}}
+      <h4>
         {{record_label}}
-        <br>
+      </h4>
+      <h4>
         {{release_date}}
-      </p>
+      </h4>
     </div>
     <div class="play-button" {{action "playPause" firstTrack}}><img src="/assets/images/play_button.png"></div>
   </div>

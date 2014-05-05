@@ -25,7 +25,7 @@ test("searching for an artist", function(){
     .fillIn("input#search", "gomers")
     .andThen(function() {
       equal(currentURL(), '/album/mike-zirkel-the-album-the-gomers', "Transitioned to the album page")
-      equal(find("h3.artist").text().trim(), "The Gomers", "The correct album is showing");
+      equal(find("a.artist").text().trim(), "The Gomers", "The correct album is showing");
   });
 });
 

@@ -45,7 +45,8 @@
     "requirejs": "^2.1.11",
     "run-sequence": "~0.3.6",
     "tiny-lr": "0.0.5",
-    "underscore": "^1.6.0"
+    "underscore": "^1.6.0",
+    "underscore.string": "^2.3.3"
   },
   "license": "All Rights Reserved",
   "scripts": {

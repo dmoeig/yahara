@@ -115,7 +115,6 @@ gulp.task('css-production', function () {
 });
 
 var appJsFiles = [
-    'app/ember-extensions.js',
     'app/environments/' + env + '.js',
     'app/app.js',
     'app/router.js',
