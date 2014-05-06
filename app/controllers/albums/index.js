@@ -7,8 +7,8 @@ Yahara.AlbumsIndexController = Ember.ArrayController.extend({
     var searchString = this.get('searchString');
     if (searchString) {
       return this.get('content').filter(function(album) {
-          return album.get('title').toLowerCase().indexOf(searchString.toLowerCase()) !== -1 ||
-                 album.get('artist_name').toLowerCase().indexOf(searchString.toLowerCase()) !== -1;
+          var regex = new RegExp('\\b'+ searchString, 'i')
+          return regex.test([album.get('title'), album.get('artist_name')].join(" "))
       });
     }
     else {
