@@ -26,11 +26,22 @@
 
 #logo {
   @media #{$small-only} {
-    text-align: center
+    text-align: center;
+    & .hamburger {
+      font-size: 70px;
+      float:left;
+      padding-right:15px;
+      vertical-align: middle;
+    }
   }
 
   & img {
     max-width: 300px;
+  }
+  @media #{$medium-up} {
+    .hamburger {
+      display: none;
+    }
   }
 }
 
