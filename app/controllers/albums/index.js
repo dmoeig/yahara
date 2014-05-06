@@ -1,6 +1,7 @@
 Yahara.AlbumsIndexController = Ember.ArrayController.extend({
   needs: ['application'],
   searchString: Ember.computed.alias('controllers.application.searchString'),
+  empty: Ember.computed.empty('filteredContent.[]'),
 
   filteredContent: function(){
     var searchString = this.get('searchString');
@@ -24,4 +25,5 @@ Yahara.AlbumsIndexController = Ember.ArrayController.extend({
       this.transitionToRoute('/');
     }
   }.observes('filteredContent.@each')
+
 });
