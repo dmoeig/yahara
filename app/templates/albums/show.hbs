@@ -23,11 +23,13 @@
       {{#y-block title="Add to Your Collection" action="collect" parameter=model class="add-button"}}
       {{/y-block}}
     {{/if}}
-    {{#y-block title="Download"}}
+    {{#y-block title="Download" class="download-block"}}
+      <p>
       <a href='#' {{action download 'mp3'}}><img class="download-filetype-images" src="/assets/images/download-icon.png">MP3</a>
       <a href='#' {{action download 'flac'}}><img class="download-filetype-images" src="/assets/images/download-icon.png">FLAC</a>
       <a href='#' {{action download 'aac'}}><img class="download-filetype-images" src="/assets/images/download-icon.png">AAC</a>
       <a href='#' {{action download 'alac'}}><img class="download-filetype-images" src="/assets/images/download-icon.png">ALAC</a>
+      </p>
     {{/y-block}}
 
     {{#y-block title="Track List" expanded="true"}}

@@ -3,7 +3,7 @@
 }
 
 .download-filetype-images {
-  padding-right:10px;
+  padding: 0 10px 0 15px;
 }
 
 #album {
@@ -61,6 +61,12 @@
   .add-button {
     background-color: $purple;
     text-align: center;
+  }
+
+  .download-block {
+    p {
+      background: white;
+    }
   }
 
   p {
