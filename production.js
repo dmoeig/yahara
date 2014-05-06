@@ -5,7 +5,7 @@ var fs = require('fs')
 
 var app = express();
 var port = process.env.PORT || 8000
-var user = process.env.USER || 'yahara'
+var user = process.env.HTTP_USER || 'yahara'
 var password = process.env.PASSWORD || 'notset'
 
 app.use(express.logger());
