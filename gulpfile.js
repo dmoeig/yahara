@@ -76,9 +76,7 @@ gulp.task('server', function () {
 
   });
 
-  if (env !== 'production') {
-    apiStub(app);
-  }
+  apiStub(app);
 
   app.get('/*', function(req, res){
     res.sendfile(__dirname + '/build/index.html');
@@ -201,8 +199,8 @@ gulp.task('html', function() {
 gulp.task('html-production', function() {
   return gulp.src(htmlFiles)
     .pipe(htmlreplace({
-        'css': 'yahara.min.css',
-        'js': 'yahara.min.js'
+        'css': '/yahara.min.css',
+        'js': '/yahara.min.js'
     }))
     .pipe(gulp.dest(dist_dir));
 });

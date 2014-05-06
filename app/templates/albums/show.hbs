@@ -24,11 +24,10 @@
       {{/y-block}}
     {{/if}}
     {{#y-block title="Download"}}
-      <p>
-      <img class="download-filetype-images" src="/assets/images/download-icon.png">MP3
-      <br><img class="download-filetype-images" src="/assets/images/download-icon.png">FLAC
-      <br><img class="download-filetype-images" src="/assets/images/download-icon.png">AAC
-      <br><img class="download-filetype-images" src="/assets/images/download-icon.png">ALAC</p>
+      <a href='#' {{action download 'mp3'}}><img class="download-filetype-images" src="/assets/images/download-icon.png">MP3</a>
+      <a href='#' {{action download 'flac'}}><img class="download-filetype-images" src="/assets/images/download-icon.png">FLAC</a>
+      <a href='#' {{action download 'aac'}}><img class="download-filetype-images" src="/assets/images/download-icon.png">AAC</a>
+      <a href='#' {{action download 'alac'}}><img class="download-filetype-images" src="/assets/images/download-icon.png">ALAC</a>
     {{/y-block}}
 
     {{#y-block title="Track List" expanded="true"}}

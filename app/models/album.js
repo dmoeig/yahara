@@ -18,8 +18,15 @@ Yahara.Album = Ember.Model.extend({
   }.property('tracks.@each'),
 
   artistSlug: function(){
-    return this.get('artist_url').match(/artists\/([a-z\-]+)/)[1]
-  }.property('artist_name')
+    return this.get('artist_url').match(/artist\/([a-z\-]+)/)[1];
+  }.property('artist_name'),
+
+  download: function(format){
+    var uri = ENV.HOST + "/download/" + this.get('album.id') + "/" + encodeURIComponent(this.get('title')) + "-" + format +".zip?token=" + localStorage.token;
+    ic.ajax.request(uri).then(function(resp){
+      window.location = resp.url;
+    });
+  }
 
 });
 

@@ -31,7 +31,7 @@ data.map(function(album){
   album.review = "OMG This is the best fake review of the best album evar!"
   album.created = moment().unix();
   album.album_art = "http://localhost:8000/assets/images/art/"+ next_album_id + ".jpg"
-  album.artist_url = "http://localhost:8000/artists/" + _s.slugify(album.artist_name)
+  album.artist_url = "http://localhost:8000/artist/" + _s.slugify(album.artist_name)
   album.slug = _s.slugify(album.title + " " + album.artist_name)
   album.tracks = album.tracks.map(function(track_title){
     var track = {};
@@ -66,6 +66,10 @@ module.exports = function(server) {
         return album.mprint.active === req.body.mprint
       }));
       res.json(response);
+    });
+
+    server.get('/download/:mprint/:filename', function(req, res) {
+      res.json({ url: "http://localhost:8000/assets/audio/song.mp3.zip" });
     });
 
     server.get('/collection', function(req, res) {
