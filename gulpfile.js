@@ -8,8 +8,7 @@ var jshint = require('gulp-jshint');
 var clean = require('gulp-clean');
 var sass = require('gulp-sass');
 var apiStub = require('./api-stub/server');
-var url = require('url')
-var proxy = require('proxy-middleware')
+var url = require('url');
 var util = require('gulp-util');
 var stylish = require('jshint-stylish');
 var sequence = require('run-sequence');
@@ -37,7 +36,7 @@ gulp.task('dist', function(callback) {
 });
 
 gulp.task('build', ['templates', 'javascript', 'css', 'html']);
-gulp.task('build-production', ['javascript-production','css-production', 'html-production']);
+gulp.task('build-production', ['javascript-app-production', 'javascript-vendor-production','css-production', 'html-production']);
 
 gulp.task('server', function () {
   var app = express();
@@ -140,8 +139,15 @@ gulp.task('javascript', ['jshint'], function() {
     .pipe(gulp.dest(build_dir));
 });
 
-gulp.task('javascript-production', function() {
-  return gulp.src(vendorJsFiles.concat(templateFiles).concat(appJsFiles))
+gulp.task('javascript-vendor-production', function() {
+  return gulp.src(vendorJsFiles)
+    .pipe(concat('vendor.min.js'))
+    .pipe(uglify())
+    .pipe(gulp.dest(dist_dir));
+});
+
+gulp.task('javascript-app-production', function() {
+  return gulp.src(templateFiles.concat(appJsFiles))
     .pipe(gulpif(/[.]hbs$/, handlebars({
       outputType: 'browser'
     })))
@@ -150,7 +156,7 @@ gulp.task('javascript-production', function() {
     .pipe(gulp.dest(dist_dir));
 });
 
-var templateFiles = 'app/templates/**/*.hbs';
+var templateFiles = ['app/templates/**/*.hbs'];
 
 gulp.task('templates', function(){
   return gulp.src(templateFiles)
@@ -200,7 +206,7 @@ gulp.task('html-production', function() {
   return gulp.src(htmlFiles)
     .pipe(htmlreplace({
         'css': '/yahara.min.css',
-        'js': '/yahara.min.js'
+        'js': ['/vendor.min.js','/yahara.min.js']
     }))
     .pipe(gulp.dest(dist_dir));
 });
