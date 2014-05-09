@@ -17,6 +17,7 @@ Yahara.Album = Ember.Model.extend({
     return this.get('tracks.firstObject');
   }.property('tracks.@each'),
 
+
   artistSlug: function(){
     return this.get('artist_url').match(/artist\/([a-z\-]+)/)[1];
   }.property('artist_name'),

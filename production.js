@@ -11,7 +11,7 @@ var password = process.env.PASSWORD || 'notset'
 app.use(express.logger());
 app.use(express.compress());
 app.use(express.basicAuth(user, password));
-app.use(express.static(__dirname + '/dist'));
+app.use(express.static(__dirname + '/dist', { maxAge: 86400000 })); //cache one day
 app.use(express.static(__dirname + '/public'));
 
 // TODO DRY this up from the gulpfile

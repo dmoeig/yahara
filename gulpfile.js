@@ -7,6 +7,7 @@ var handlebars = require('gulp-ember-handlebars');
 var jshint = require('gulp-jshint');
 var clean = require('gulp-clean');
 var sass = require('gulp-sass');
+var revall = require('gulp-rev-all');
 var apiStub = require('./api-stub/server');
 var url = require('url');
 var util = require('gulp-util');
@@ -19,24 +20,37 @@ var minifyCSS = require('gulp-minify-css');
 var uglify = require('gulp-uglify')
 var rename = require('gulp-rename');
 var markdown = require('markdown').markdown;
-var request = require('request')
+var request = require('request');
 var fs = require('fs');
 
 var env = process.env.NODE_ENV || "development"
-var production = false
 var build_dir = "build/"
 var dist_dir = "dist/"
+var temp_dir = "tmp/"
+var destination = build_dir
+
+var production = function (){
+  return env === "production"
+}
 
 gulp.task('default', function(callback) {
   return sequence('clean', 'build', 'server', 'watch', callback);
 });
 
 gulp.task('dist', function(callback) {
-  return sequence('clean-production', 'build-production', callback);
+  env = "production"
+  destination = temp_dir
+  return sequence('clean-dist', 'build-production','rev', callback);
 });
 
 gulp.task('build', ['templates', 'javascript', 'css', 'html']);
-gulp.task('build-production', ['javascript-app-production', 'javascript-vendor-production','css-production', 'html-production']);
+gulp.task('build-production', [ 'javascript-app','javascript-vendor','css','html']);
+
+gulp.task('rev', function() {
+  return gulp.src('tmp/**')
+    .pipe(revall({ ignore: ['.html'] }))
+    .pipe(gulp.dest(dist_dir))
+});
 
 gulp.task('server', function () {
   var app = express();
@@ -85,12 +99,14 @@ gulp.task('server', function () {
   lr.listen(35729);
 });
 
+cleanFiles = [build_dir, temp_dir]
+
 gulp.task('clean', function() {
-  return gulp.src(build_dir, {read: false})
+  return gulp.src(cleanFiles, {read: false})
     .pipe(clean());
 });
 
-gulp.task('clean-production', function() {
+gulp.task('clean-dist', function() {
   return gulp.src(dist_dir, {read: false})
     .pipe(clean());
 });
@@ -100,38 +116,9 @@ var cssFiles = 'app/styles/yahara.scss'
 gulp.task('css', function () {
   return gulp.src(cssFiles)
     .pipe(sass({errLogToConsole: true}))
-    .pipe(gulp.dest(build_dir));
+    .pipe(gulpif(production(), minifyCSS()))
+    .pipe(gulp.dest(destination));
 });
-
-gulp.task('css-production', function () {
-  return gulp.src(cssFiles)
-    .pipe(sass({errLogToConsole: true}))
-    .pipe(minifyCSS())
-    .pipe(rename('yahara.min.css'))
-    .pipe(gulp.dest(dist_dir));
-});
-
-var appJsFiles = [
-    'app/environments/' + env + '.js',
-    'app/app.js',
-    'app/router.js',
-    'app/adapters/*.js',
-    'app/components/*.js',
-    'app/models/*.js',
-    'app/controllers/**/*.js',
-    'app/views/*.js',
-    'app/helpers/*.js',
-    'app/routes/**/*.js'
-  ];
-
-var vendorJsFiles = [
-  "vendor/jquery/dist/jquery.js",
-  "vendor/soundmanager2/script/soundmanager2-nodebug.js",
-  "vendor/handlebars/handlebars.runtime.js",
-  "vendor/ember/ember.prod.js",
-  "vendor/ember-model/ember-model.js",
-  "vendor/ic-ajax/dist/globals/main.js"
-  ];
 
 gulp.task('javascript', ['jshint'], function() {
   return gulp.src(appJsFiles)
@@ -139,21 +126,43 @@ gulp.task('javascript', ['jshint'], function() {
     .pipe(gulp.dest(build_dir));
 });
 
-gulp.task('javascript-vendor-production', function() {
+gulp.task('javascript-vendor', function() {
+  var vendorJsFiles = [
+    "vendor/jquery/dist/jquery.js",
+    "vendor/soundmanager2/script/soundmanager2-nodebug.js",
+    "vendor/handlebars/handlebars.runtime.js",
+    "vendor/ember/ember.prod.js",
+    "vendor/ember-model/ember-model.js",
+    "vendor/ic-ajax/dist/globals/main.js"
+    ];
+    
   return gulp.src(vendorJsFiles)
-    .pipe(concat('vendor.min.js'))
+    .pipe(concat('vendor.js'))
     .pipe(uglify())
-    .pipe(gulp.dest(dist_dir));
+    .pipe(gulp.dest(temp_dir));
 });
 
-gulp.task('javascript-app-production', function() {
+gulp.task('javascript-app', function() {
+  var appJsFiles = [
+      'app/environments/' + env + '.js',
+      'app/app.js',
+      'app/router.js',
+      'app/adapters/*.js',
+      'app/components/*.js',
+      'app/models/*.js',
+      'app/controllers/**/*.js',
+      'app/views/*.js',
+      'app/helpers/*.js',
+      'app/routes/**/*.js'
+    ];
+
   return gulp.src(templateFiles.concat(appJsFiles))
     .pipe(gulpif(/[.]hbs$/, handlebars({
       outputType: 'browser'
     })))
-    .pipe(concat('yahara.min.js'))
+    .pipe(concat('yahara.js'))
     .pipe(uglify())
-    .pipe(gulp.dest(dist_dir));
+    .pipe(gulp.dest(temp_dir));
 });
 
 var templateFiles = ['app/templates/**/*.hbs'];
@@ -164,10 +173,10 @@ gulp.task('templates', function(){
       outputType: 'browser'
      }))
     .pipe(concat('templates.js'))
-    .pipe(gulp.dest('build/'));
+    .pipe(gulp.dest(destination));
 });
 
-jsHintFiles = ['app/**/*.js', '!app/app.js', '!app/environments/*.js']
+var jsHintFiles = ['app/**/*.js', '!app/app.js', '!app/environments/*.js']
 
 gulp.task('jshint', function() {
   return gulp.src(jsHintFiles)
@@ -199,16 +208,11 @@ var htmlFiles = 'app/index.html'
 
 gulp.task('html', function() {
   return gulp.src(htmlFiles)
-    .pipe(gulp.dest(build_dir));
-});
-
-gulp.task('html-production', function() {
-  return gulp.src(htmlFiles)
-    .pipe(htmlreplace({
-        'css': '/yahara.min.css',
-        'js': ['/vendor.min.js','/yahara.min.js']
-    }))
-    .pipe(gulp.dest(dist_dir));
+    .pipe(gulpif(production(), htmlreplace({
+        'css': '/yahara.css',
+        'js': ['/vendor.js','/yahara.js']
+    })))
+    .pipe(gulp.dest(destination));
 });
 
 gulp.task('watch', function () {
