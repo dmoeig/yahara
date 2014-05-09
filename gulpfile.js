@@ -120,8 +120,23 @@ gulp.task('css', function () {
     .pipe(gulp.dest(destination));
 });
 
+var appJsFiles = function(){
+  return [
+      'app/environments/' + env + '.js',
+      'app/app.js',
+      'app/router.js',
+      'app/adapters/*.js',
+      'app/components/*.js',
+      'app/models/*.js',
+      'app/controllers/**/*.js',
+      'app/views/*.js',
+      'app/helpers/*.js',
+      'app/routes/**/*.js'
+    ]
+}
+
 gulp.task('javascript', ['jshint'], function() {
-  return gulp.src(appJsFiles)
+  return gulp.src(appJsFiles())
     .pipe(concat('yahara.js'))
     .pipe(gulp.dest(build_dir));
 });
@@ -135,7 +150,7 @@ gulp.task('javascript-vendor', function() {
     "vendor/ember-model/ember-model.js",
     "vendor/ic-ajax/dist/globals/main.js"
     ];
-    
+
   return gulp.src(vendorJsFiles)
     .pipe(concat('vendor.js'))
     .pipe(uglify())
@@ -143,20 +158,7 @@ gulp.task('javascript-vendor', function() {
 });
 
 gulp.task('javascript-app', function() {
-  var appJsFiles = [
-      'app/environments/' + env + '.js',
-      'app/app.js',
-      'app/router.js',
-      'app/adapters/*.js',
-      'app/components/*.js',
-      'app/models/*.js',
-      'app/controllers/**/*.js',
-      'app/views/*.js',
-      'app/helpers/*.js',
-      'app/routes/**/*.js'
-    ];
-
-  return gulp.src(templateFiles.concat(appJsFiles))
+  return gulp.src(templateFiles.concat(appJsFiles()))
     .pipe(gulpif(/[.]hbs$/, handlebars({
       outputType: 'browser'
     })))
