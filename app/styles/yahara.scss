@@ -62,8 +62,10 @@
 
 // Catalog
 ul#catalog {
-  padding: 0px 0px;
-  margin: 0 -.625rem;
+  @media #{$small-only} { @include block-grid(2); }
+  @media #{$medium-only} { @include block-grid(4); }
+  @media #{$large-up} { @include block-grid(5); }
+
 
   .title {
     padding-top: 10px;
@@ -81,28 +83,6 @@ ul#catalog {
     font-size: .9em;
     list-style: none;
     float: left;
-
-    &:nth-of-type(5n+1){
-      clear:both;
-    }
-    @media #{$small-only} {
-      width: 50%;
-      &:nth-of-type(2n+1){
-        clear:both;
-      }
-    }
-    @media #{$medium-only} {
-      width: 25%;
-      &:nth-of-type(4n+1){
-        clear:both;
-      }
-    }
-    @media #{$large-up} {
-      width: 20%;
-      &:nth-of-type(5n+1){
-        clear:both;
-      }
-    }
   }
 }
 
