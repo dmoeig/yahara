@@ -5,7 +5,7 @@ var moment = require('moment');
 var _ = require('underscore');
 var _s = require('underscore.string');
 
-var data = yaml.safeLoad(fs.readFileSync('api-stub/data.yml', 'utf8'));
+var albums = yaml.safeLoad(fs.readFileSync('api-stub/albums.yml', 'utf8'));
 
 var duration = function(){
   return (120 + Math.floor(Math.random() * (240 - 120 + 1)))*1000;
@@ -16,7 +16,7 @@ var collection = []
 var new_uuid = hat.rack();
 var next_album_id = 0;
 
-data.map(function(album){
+albums.map(function(album){
   var next_track_position = 1;
   var uuid = new_uuid();
   next_album_id++;
@@ -44,6 +44,8 @@ data.map(function(album){
   });
 });
 
+var artist = yaml.safeLoad(fs.readFileSync('api-stub/artist.yml', 'utf8'));
+
 module.exports = function(server) {
 
   // Create an API namespace, so that the root does not
@@ -51,7 +53,11 @@ module.exports = function(server) {
   server.namespace('/api', function() {
 
     server.get('/catalog/yahara', function(req, res) {
-      res.json(data);
+      res.json(albums);
+    });
+
+    server.get('/artist/:slug', function(req, res) {
+      res.json(artist);
     });
 
     server.get('/stream/:mprint/:filename', function(req, res) {
@@ -62,7 +68,7 @@ module.exports = function(server) {
       if (req.body.token === null){
         res.status(401).json({"code":"InvalidCredentials"});
       }
-      response = collection.concat(_.find(data, function(album){
+      response = collection.concat(_.find(albums, function(album){
         return album.mprint.active === req.body.mprint
       }));
       res.json(response);
@@ -85,8 +91,6 @@ module.exports = function(server) {
       }
       res.json(collection);
     });
-
-
 
     server.post('/userforcard', function(req,res){
       if (req.body.cardnumber === "fail"){

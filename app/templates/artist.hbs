@@ -1,34 +1,11 @@
 <div id="artist">
   <div class='artist-header'>
-    PHOX
+    <img src="/assets/images/artist-banner.jpg"/>
+    <h1 class='artist-name'>{{name}}</h1>
   </div>
-  <div class='available-albums'>
-    {{#y-block title="Albums" expanded='true'}}
-      <p>Albums Available on YML</p>
-    {{/y-block}}
   <div class='info'>
-    {{#y-block title="Videos" expanded='true'}}
-      <p><iframe width="560" height="315" src="//www.youtube.com/embed/VnjfYrE7xYQ" frameborder="0" allowfullscreen></iframe></p>
-    {{/y-block}}
     {{#y-block title="Biography" expanded='true'}}
-      <p>Called Madison, Wisconsin's "musical success story of 2013", <span class="artist">PHOX</span> formed when <span class="artist">Zach Johnston</span> began writing songs while living in San Francisco. He worked with singer <span class="artist">Monica Martin</span> on getting the band, a group of friends that all grew up in Baraboo, together while playing a series of shows around Madison. </p>
-      <p> The band released their <a href="#">EP Confetti</a> in early 2013, for which they created a video component for each track. The rest of 2013 brought their success to the next level with a <a href="#">Daytrotter</a> session, postitive press, a spot at South by Southwest and a national tour opening for <span class="artist">Blitzen Trapper</span>. The band played <a href="#">Lollapalooza</a> as a last-minute addition in August 2013, drawing a large crowd despite their midday spot. In September 2013 <span class="artist">PHOX</span> opened for <span class="artist">The Lumineers</span> at Apple's iTunes Festival in London. The band is currently managed by Onto Entertainment and heading back to the studio to work on a full-length album.</p>
-      <p>- Pearl Pho at <span class="content-creator">The Isthmus</span></p>
-      <h3 class="subheading">Press</h3>
-      <p><a href="#">“Crazy like a PHOX: Buzzed-about band goes from Baraboo to London and beyond”</a> on <span class="content-creator">Madison.com</span></p>
-      <p><a href="#">“PHOX on the run: The Madison band sharpen their instincts on their first big tour”</a> on <span class="content-creator">The Daily Page</span></p>
-    {{/y-block}}
-
-    {{#y-block title="Also Recommended" expanded='true'}}
-      <p> **LIST OF ALBUMS**</p>
-    {{/y-block}}
-
-    {{#y-block title="Upcoming Shows" expanded='true'}}
-      <i class ="orange-icon ion-social-rss"></i>
-      <i class ="orange-icon ion-android-arrow-up-right"></i>
-      <p>MAR 04 Sacramento, CA, at Harlow’s
-      <br>MAR 05 Los Angeles, CA, at The Echo
-      <br>MAR 07 San Diego, CA, at Irenic</p>
+      {{bio}}
     {{/y-block}}
   </div>
 </div>

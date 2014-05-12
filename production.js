@@ -5,12 +5,12 @@ var fs = require('fs')
 
 var app = express();
 var port = process.env.PORT || 8000
-var user = process.env.HTTP_USER || 'yahara'
-var password = process.env.PASSWORD || 'notset'
+// var user = process.env.HTTP_USER || 'yahara'
+// var password = process.env.PASSWORD || 'notset'
 
 app.use(express.logger());
 app.use(express.compress());
-app.use(express.basicAuth(user, password));
+// app.use(express.basicAuth(user, password));
 app.use(express.static(__dirname + '/dist', { maxAge: 86400000 })); //cache one day
 app.use(express.static(__dirname + '/public'));
 

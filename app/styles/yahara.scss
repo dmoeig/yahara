@@ -65,7 +65,7 @@
 // Catalog
 ul#catalog {
   @media #{$small-only} { @include block-grid(2); }
-  @media #{$medium-only} { @include block-grid(3); }
+  @media #{$medium-only} { @include block-grid(4); }
   @media #{$large-up} { @include block-grid(5); }
 
   a.title {

@@ -1,7 +1,21 @@
-#artist{
+#artist {
   @include grid-row();
 
   .artist-header{
     @include grid-column(12);
+  }
+
+  img{
+    position:relative;
+  }
+
+  h1.artist-name {
+    font-size: 2em;
+    left: 0;
+    position:absolute;
+    text-align:center;
+    bottom: 0px;
+    width: 100%;
+    color: white;
   }
 }
