@@ -76,6 +76,14 @@ ul#catalog {
     padding-bottom: 100%;;
   }
 
+  img.art {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  }
+
   & > li {
     display: block;
     padding: 0 .625rem 1.25rem;
@@ -84,14 +92,6 @@ ul#catalog {
     list-style: none;
     float: left;
   }
-}
-
-img.art {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
 }
 
 .play-button {
