@@ -8,7 +8,7 @@ Yahara.CurrentUser = Ember.Object.extend({
   collection: Ember.A(),
 
   validPassword: function(){
-    return this.get('password').toLowerCase() === "withtheband"
+    return this.get('password').replace(/[^A-Za-z;]/g, "").toLowerCase() === "imwiththeband"
   }.property('password'),
 
   collection_ids: function(){
