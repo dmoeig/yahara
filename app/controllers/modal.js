@@ -15,16 +15,20 @@ Yahara.ModalController = Ember.ObjectController.extend({
     },
     submit: function() {
       var currentUser = this.get('currentUser');
-      ic.ajax.request({
-        type: "POST",
-        url: ENV.HOST + "/userforcard",
-        data: currentUser.getProperties('cardnumber')
-      }).then(function(data){
-        $('#modal').hide();
-        currentUser.signIn(data.private_info.token);
-      }, function(){
+      if (currentUser.get('validPassword')) {
+        ic.ajax.request({
+          type: "POST",
+          url: ENV.HOST + "/userforcard",
+          data: currentUser.getProperties('cardnumber')
+        }).then(function(data){
+          $('#modal').hide();
+          currentUser.signIn(data.private_info.token);
+        }, function(){
+          currentUser.set('error', true);
+        });
+      } else {
         currentUser.set('error', true);
-      });
+      }
     }
   }
 });

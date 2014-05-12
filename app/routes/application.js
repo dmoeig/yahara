@@ -27,14 +27,17 @@ Yahara.ApplicationRoute = Ember.Route.extend({
         else {
           player.send('play', track);
         }
-        // user.collect(track.get('album')).then(function(){
-        //   if (track.get('playing')) {
-        //     player.send('pause');
-        //   }
-        //   else {
-        //     player.send('play', track);
-        //   }
-        // });
+      }
+      else {
+        this.send('openModal');
+      }
+    },
+
+    download: function(format){
+      var user = this.controller.get('model');
+
+      if (user.get('authorized')){
+        this.modelFor('albums.show').download(format);
       }
       else {
         this.send('openModal');

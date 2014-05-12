@@ -1,10 +1,15 @@
 Yahara.CurrentUser = Ember.Object.extend({
   token: null,
   cardnumber: null,
+  password: "",
   authorized: Ember.computed.bool('token'),
   notAuthorized: Ember.computed.not('authorized'),
   error: false,
   collection: Ember.A(),
+
+  validPassword: function(){
+    return this.get('password').toLowerCase() === "withtheband"
+  }.property('password'),
 
   collection_ids: function(){
     return this.get('collection').map(function(album){
