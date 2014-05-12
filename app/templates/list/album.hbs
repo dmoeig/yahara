@@ -1,8 +1,10 @@
 <li class="album">
   {{#link-to 'albums.show' this classNames="album"}}
-    <img class='art' {{bind-attr src="art"}}>
+    <div class='art-wrapper'>
+      <img class='art' {{bind-attr src="art"}}>
+    </div>
     <div class="play-button" {{action "playPause" firstTrack}}><img src="/assets/images/play_button.png"></div>
-    {{title}}
+    <div class='title'>{{title}}</div>
   {{/link-to}}
   {{#link-to 'artist' album.artistSlug classNames="artist"}}
     {{artist_name}}

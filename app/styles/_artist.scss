@@ -3,6 +3,7 @@
 
   .artist-header{
     @include grid-column(12);
+    position:relative;
   }
 
   img{

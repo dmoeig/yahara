@@ -48,7 +48,6 @@
 //   "../../vendor/foundation/scss/foundation/components/offcanvas",
 //   "../../vendor/foundation/scss/foundation/components/visibility";
 
-
 @import "../../vendor/ionicons/scss/ionicons.scss";
 
 @import "fonts";
@@ -58,33 +57,61 @@
 @import "footer";
 @import "components";
 @import "player";
-@import "album/index";
 @import "album/show";
 @import "artist";
 
 // Catalog
 ul#catalog {
-  @media #{$small-only} { @include block-grid(2); }
-  @media #{$medium-only} { @include block-grid(4); }
-  @media #{$large-up} { @include block-grid(5); }
+  padding: 0px 0px;
+  margin: 0 -.625rem;
 
-  a.title {
-    @include clearfix;
+  .title {
+    padding-top: 10px;
+  }
+  .art-wrapper {
+    position: relative;
+    height: 0;
+    padding-bottom: 100%;;
   }
 
-  a.artist {
-    @include clearfix;
+  & > li {
+    display: block;
+    padding: 0 .625rem 1.25rem;
+    color: $orange;
+    font-size: .9em;
+    list-style: none;
+    float: left;
+
+    &:nth-of-type(5n+1){
+      clear:both;
+    }
+    @media #{$small-only} {
+      width: 50%;
+      &:nth-of-type(2n+1){
+        clear:both;
+      }
+    }
+    @media #{$medium-only} {
+      width: 25%;
+      &:nth-of-type(4n+1){
+        clear:both;
+      }
+    }
+    @media #{$large-up} {
+      width: 20%;
+      &:nth-of-type(5n+1){
+        clear:both;
+      }
+    }
   }
 }
 
-li.album {
-  color: $orange;
-  font-size: .9em;
-}
-
-.art img {
-  position: relative;
-  z-index: 999;
+img.art {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
 }
 
 .play-button {
@@ -108,10 +135,6 @@ li.album {
 
 a.album:hover .play-button, .meta-data:hover .play-button {
   display: block;
-}
-
-h3 {
-  color:$orange;
 }
 
 .artist {
