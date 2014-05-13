@@ -5,8 +5,7 @@
     <p>We'll need you to give us some more information before you can access that page</p>
     {{#if currentUser.error}}
       <div class="flash-login">
-        <i class ="flash-icon ion-alert"></i><p>Please enter a valid library ID
-        <br>(instructions on where to look for it?)</p>
+        <i class ="flash-icon ion-alert"></i><p>Please enter a valid library card number and password</p>
       </div>
     {{/if}}
     <p>{{input id="card-number" value=currentUser.cardnumber placeholder="Card Number"}}</p>
