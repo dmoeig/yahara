@@ -105,15 +105,24 @@ ul#catalog {
   cursor: pointer;
 }
 
-.meta-data {
-  .play-button {
-    float:left;
-    margin-top: 0px;
-    margin-left:-70px;
-  }
+.album-art-wrapper{
+  position: relative;
+  height: 170px;
+  float: left;
 }
 
-a.album:hover .play-button, .meta-data:hover .play-button {
+.show-play-button{
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  z-index: 500;
+  bottom: 0px;
+  right: 10px;
+  display: none;
+  cursor: pointer;
+}
+
+a.album:hover .play-button, .meta-data:hover .show-play-button {
   display: block;
 }
 

@@ -3,9 +3,11 @@
     <img {{bind-attr src="banner_image"}}/>
     <h1 class='artist-name'>{{name}}</h1>
   </div>
-  <div class='info'>
-    {{#y-block title="Biography" expanded='true'}}
-      {{bio}}
-    {{/y-block}}
+  <div class="row">
+    <div class="small-12 columns info">
+      {{#y-block title="Biography" expanded='true'}}
+        <p>{{{bio}}}</p>
+      {{/y-block}}
+    </div>
   </div>
 </div>

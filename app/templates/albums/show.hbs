@@ -1,6 +1,9 @@
 <div id="album">
   <div class="meta-data">
-    <img class='art' {{bind-attr src="art"}}>
+    <div class="album-art-wrapper">
+      <img class='art' {{bind-attr src="art"}}>
+      <div class="show-play-button" {{action "playPause" firstTrack}}><img src="/assets/images/play_button.png"></div>
+    </div>
     <div class="album-info-block">
       <h3 class="album">{{title}}</h3>
       {{#link-to 'artist' artistSlug classNames="artist"}}
@@ -13,7 +16,6 @@
         {{release_date}}
       </h4>
     </div>
-    <div class="play-button" {{action "playPause" firstTrack}}><img src="/assets/images/play_button.png"></div>
   </div>
   <div class='actions'>
     {{#if inCollection}}

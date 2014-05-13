@@ -13,6 +13,10 @@
     color: $grey;
   }
 
+  h3.album {
+    color: $orange;
+  }
+
   & > .meta-data {
     @include grid-column(12);
 
