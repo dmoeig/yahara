@@ -86,11 +86,23 @@ input#search {
   }
 }
 
+#mobile-alpha {
+  @media #{$medium-up} {
+    display: none;
+  }
+  background-color: white;
+  color: $grey;
+  text-align: center;
+  text-transform: uppercase;
+  overflow: hidden;
+  margin: 0px auto;
+  margin-bottom: 10px;
+}
+
 #mobile-nav {
   @media #{$medium-up} {
     display: none;
   }
-
   background-color: $blue;
   overflow: hidden;
   margin: 0px auto;
