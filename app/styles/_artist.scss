@@ -4,10 +4,12 @@
   .artist-header{
     @include grid-column(12);
     position:relative;
+    height: 550px;
   }
 
   img{
     position:relative;
+    width:100%;
   }
 
   h1.artist-name {
@@ -17,7 +19,7 @@
     left: 0;
     position:absolute;
     text-align:center;
-    bottom: 1em;
+    bottom: 20px;
     width: 100%;
     color: white;
   }
