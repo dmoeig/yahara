@@ -28,7 +28,7 @@ albums.map(function(album){
     predecessor: uuid
   }
 
-  album.review = 'OMG This is the best fake review of the best album evar! You can even put <a href="#">HTML</a> in here.</p> <p>- Steve Faukner at <a href="https://www.murfie.com/" class="content-creator">Murfie.com</a>'
+  album.review = '<p>OMG This is the best fake review of the best album evar! You can even put <a href="#">HTML</a> in here.</p> <p>- Steve Faukner at <a href="https://www.murfie.com/" class="content-creator">Murfie.com</a></p>'
   album.created = moment().unix();
   album.album_art = "http://localhost:8000/assets/images/art/"+ next_album_id + ".jpg"
   album.artist_url = "http://localhost:8000/artist/" + _s.slugify(album.artist_name)
