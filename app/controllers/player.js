@@ -1,8 +1,14 @@
 Yahara.PlayerController = Ember.ObjectController.extend({
 
   trackFinished: function(){
-    if (this.get('content.finished')){
-      this.send('play', this.get('content.nextTrack'));
+    var track = this.get('content');
+    if (track.get('finished')){
+      if (track.get('islastTrack')){
+        track.set('playing', false);
+        this.set('content', null);
+      } else {
+        this.send('play', this.get('content.nextTrack'));
+      }
     }
   }.observes('content.finished'),
 
