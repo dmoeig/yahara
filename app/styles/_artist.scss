@@ -1,6 +1,6 @@
 #artist-header {
   @include grid-row();
-  
+
   .artist-image-wrapper {
     position:relative;
     overflow: hidden;
@@ -17,6 +17,7 @@
     @media #{$large-up} { font-size: 5rem; }
     position:absolute;
     text-align:center;
+    width: 100%;
     bottom: 20px;
     color: white;
     text-shadow: 0 0 10px $dark-grey;
