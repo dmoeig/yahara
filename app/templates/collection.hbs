@@ -5,5 +5,8 @@
         {{render 'list/album' album}}
       {{/each}}
     </ul>
-  </div>
+    {{#if collectionEmpty}}
+      <p>You don't have anything in your collection yet! Head over to the <a href="/">catalog</a> and add some albums</p>
+    {{/if}}
+</div>
 </div>

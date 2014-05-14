@@ -144,7 +144,7 @@ gulp.task('javascript', ['jshint'], function() {
 gulp.task('javascript-vendor', function() {
   var vendorJsFiles = [
     "vendor/jquery/dist/jquery.js",
-    "vendor/soundmanager2/script/soundmanager2.js",
+    "vendor/soundmanager2/script/soundmanager2-nodebug.js",
     "vendor/handlebars/handlebars.runtime.js",
     "vendor/ember/ember.prod.js",
     "vendor/ember-model/ember-model.js",
@@ -198,7 +198,8 @@ gulp.task('jshint', function() {
         "soundManager",
         "ENV",
         "$",
-        "window"
+        "window",
+        "escape"
       ],
       "trailing": true,
       "undef": true
