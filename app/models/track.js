@@ -44,19 +44,17 @@ Yahara.Track = Ember.Model.extend({
 
   stop: function(){
     this.set('playing', false);
-    this.get('sound').stop();
-  },
-
-  resume: function(){
-    this.set('playing', true);
     // Adding a try here so that
     // if the player gets stuck in a broken state it
     // can get itself unstuck by playing a new track
     try {
-      this.get('sound').play();
-    } catch (e) {
+      this.get('sound').stop();
+    } catch (e) {}
+  },
 
-    }
+  resume: function(){
+    this.set('playing', true);
+    this.get('sound').play();
   },
 
   loadSound: function(){
