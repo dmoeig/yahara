@@ -4,8 +4,13 @@ banner_image: "http://localhost:8000/assets/images/artist-banner.jpg"
 youtube_url: "https://www.youtube.com/watch?v=O1nIhLnSsKM"
 social_media_urls:
   -
-    Facebook: "https://www.facebook.com/bachdancing"
+    name: "Country Music Television"
+    url: "http://www.cmt.com/artists/beth-kille/"
   -
-    Twitter: "https://twitter.com/dynabach"
+    name: "Facebook"
+    url: "https://www.facebook.com/bethkille1"
+  -
+    name: "Twitter"
+    url: "https://twitter.com/bethkille"
 website_url: "http://www.bachdancinganddynamite.org/index.php"
 slug: "bach-dancing-and-dynamite-society"

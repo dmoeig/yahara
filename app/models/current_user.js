@@ -18,6 +18,7 @@ Yahara.CurrentUser = Ember.Object.extend({
   }.property('collection.@each'),
 
   init: function() {
+    this._super();
     this.set('token', localStorage.token);
   },
 

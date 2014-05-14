@@ -1,13 +1,25 @@
-<div id="artist">
-  <div class='artist-header'>
+<div id="artist-header">
+  <div class='artist-image-wrapper'>
     <img {{bind-attr src="banner_image"}}/>
     <h1 class='artist-name'>{{name}}</h1>
   </div>
-  <div class="row">
-    <div class="small-12 columns info">
-      {{#y-block title="Biography" expanded='true'}}
-        <p>{{{bio}}}</p>
-      {{/y-block}}
-    </div>
+</div>
+<div id="artist-info">
+  <div id="left">
+    {{#y-block title="Youtube" expanded='true'}}
+      {{youtube youtube_url}}
+    {{/y-block}}
+    {{#y-block title="Links" expanded='true'}}
+      {{#each social_media_urls}}
+        <p><a {{bind-attr href=url}} target="_blank">{{name}}</a></p>
+      {{/each}}
+      <p><a {{bind-attr href=website_url}} target="_blank">Artist Website</a></p>
+    {{/y-block}}
+
+  </div>
+  <div id="right">
+    {{#y-block title="Biography" expanded='true'}}
+      <p>{{{bio}}}</p>
+    {{/y-block}}
   </div>
 </div>
