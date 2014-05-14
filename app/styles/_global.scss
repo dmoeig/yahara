@@ -23,6 +23,15 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 1em;
 }
 
+/*Static page header*/
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  font-size: 12px;
+}
+
 p, tr {
   color: $grey;
   font-size: .9em;
@@ -33,7 +42,6 @@ p, tr {
 
 hr {
   border:none;
-  margin-bottom: 1em;
   height: 2px;
   background-color: $lightest-grey;
 }
