@@ -27,6 +27,8 @@ Yahara.Track = Ember.Model.extend({
     });
   },
 
+  islastTrack: Ember.computed.none('nextTrack'),
+
   nextTrack: function(){
     return this.get('album.tracks').findBy('position', this.get('position') + 1);
   }.property('album'),
