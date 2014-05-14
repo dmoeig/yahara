@@ -8,7 +8,6 @@
   },
   "dependencies": {
     "express": "~3.4.8",
-    "markdown": "^0.5.0",
     "request": "^2.34.0",
     "mime": "^1.2.11",
     "gulp-if": "^1.1.0",

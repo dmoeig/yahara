@@ -19,7 +19,6 @@ var gulpif = require('gulp-if')
 var minifyCSS = require('gulp-minify-css');
 var uglify = require('gulp-uglify')
 var rename = require('gulp-rename');
-var markdown = require('markdown').markdown;
 var request = require('request');
 var fs = require('fs');
 
@@ -64,7 +63,7 @@ gulp.task('server', function () {
   app.get('/pages/:page', function(req, res){
     var pageName = req.params.page;
     var options = {
-      url: 'https://api.github.com/repos/southpolesteve/yahara/contents/app/pages/' + pageName + '.md',
+      url: 'https://api.github.com/repos/southpolesteve/yahara/contents/app/pages/' + pageName + '.html',
       headers: {
         'User-Agent': 'Yahara'
       }
@@ -73,15 +72,15 @@ gulp.task('server', function () {
     request(options, function (error, response, body) {
       if (!error && response.statusCode == 200) {
         content = new Buffer(JSON.parse(body).content, 'base64').toString('ascii')
-        res.send({'html': markdown.toHTML(content)})
+        res.send({'html': content})
       }
       else {
-        fs.readFile(__dirname +'/app/pages/'+ pageName +'.md', 'utf8', function (err, data) {
+        fs.readFile(__dirname +'/app/pages/'+ pageName +'.html', 'utf8', function (err, data) {
           if (err) {
               res.send(404)
           }
           else {
-            res.send({'html': markdown.toHTML(data)})
+            res.send({'html': data})
           }
         });
       }
