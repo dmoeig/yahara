@@ -1,10 +1,10 @@
 # About the Yahara Music Library
 
-## Discover, collect, and enjoy music from Madison’s music community. 
+## Discover, collect, and enjoy music from Madison's music community. 
 Madison has always been home to a dynamic music scene. The Yahara Music Library celebrates that fact by creating an online library of local music to share with the community. The diverse collection of music in Yahara includes established musicians and up and coming artists who play everything from rock, hip hop, classical, and more.  All South Central Library System patrons can stream music from the Yahara Music Library using any web browser or download albums in multiple formats to a variety of devices.   
 
 ## Musicians matter
-Madison Public Library established the Yahara Music Library not only to share local music but also to support local musicians. That’s why you’ll find more than just music in Yahara. Artist and album pages feature reviews, biographies, and information about upcoming shows, and links to the musicians’ websites, social media, and online stores. We hope that Yahara creates new fans and inspires listeners to support the artists who make the music.
+Madison Public Library established the Yahara Music Library not only to share local music but also to support local musicians. That’s why you’ll find more than just music in Yahara. Artist and album pages feature reviews, biographies, and information about upcoming shows, and links to the musicians' websites, social media, and online stores. We hope that Yahara creates new fans and inspires listeners to support the artists who make the music.
 
 ## About us
 The Yahara Music Library was a collaborative project between the Madison Public Library and Murfie, Inc. 
