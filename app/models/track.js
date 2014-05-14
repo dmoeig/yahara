@@ -7,7 +7,7 @@ Yahara.Track = Ember.Model.extend({
   album: Ember.belongsTo('Yahara.Album', {key: 'album_id'}),
 
   media_uri: function(){
-    return ENV.HOST + "/stream/" + this.get('album.id') + "/" + encodeURIComponent(this.get('filename')) + ".mp3?token=";
+    return ENV.HOST + "/stream/" + this.get('album.id') + "/" + escape(this.get('filename')) + ".mp3?token=";
   }.property('file_name'),
 
   playing: false,
