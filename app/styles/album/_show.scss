@@ -84,6 +84,7 @@
 
 .info {
   h3.header {
+      padding-left: 0px;
       color: $blue;
       background-color: white;
       @media #{$medium-up} {
