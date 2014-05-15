@@ -15,8 +15,9 @@
       {{#y-block title="Events" expanded='true'}}
         {{#if hasEvents}}
           {{#each event in songkick.resultsPage.results.event }}
-            <p><a {{bind-attr href=event.uri}}>{{event.displayName}}</a></p>
+            <p><a {{bind-attr href=event.uri }} target="_blank">{{event.displayName}}</a></p>
           {{/each}}
+          <p>Event information provided by <a href="http://www.songkick.com/" target="_blank">songkick.com</a></p>
         {{else}}
           <p>This artist has no upcoming events listed on songkick.com</p>
         {{/if}}
