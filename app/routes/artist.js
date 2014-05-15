@@ -7,7 +7,7 @@ Yahara.ArtistRoute = Ember.Route.extend( Yahara.ResetScroll, {
     this._super(controller, model);
     if (!Ember.isEmpty(model.songkick_artist_id)){
       ic.ajax.request(ENV.HOST+"/songkick/"+model.songkick_artist_id).then(function(resp){
-        controller.set('songkick', resp);
+        controller.set('songkick', JSON.parse(resp));
       });
     }
   }
