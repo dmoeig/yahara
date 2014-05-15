@@ -12,7 +12,7 @@ Yahara.ApplicationRoute = Ember.Route.extend({
       model.user.loadCollection();
     }
     controller.set('content', model.user);
-    controller.set('albums', model.user);
+    controller.set('albums', model.albums);
   },
 
   actions: {
@@ -55,6 +55,10 @@ Yahara.ApplicationRoute = Ember.Route.extend({
     signOut: function() {
       this.controller.get('model').signOut();
       this.transitionTo('application.index');
+    },
+
+    goHome: function(){
+      this.controllerFor('search').set('searchString', "")
     },
 
     collect: function(album){

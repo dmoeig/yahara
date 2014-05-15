@@ -4,7 +4,7 @@
       <p>No results found. Please try searching for something different</p>
     {{else}}
       <ul id='catalog'>
-        {{#each album in filteredContent}}
+        {{#each album in filteredAlbums}}
           {{render 'list/album' album}}
         {{/each}}
       </ul>

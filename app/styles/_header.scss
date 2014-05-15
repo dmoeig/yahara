@@ -9,6 +9,9 @@
 }
 
 #logo {
+  img {
+    cursor: pointer;
+  }
   @include grid-column(6);
   @media #{$small-only} {
     @include grid-column(12);
