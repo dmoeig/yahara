@@ -21,8 +21,7 @@ Yahara.Track = Ember.Model.extend({
 
   play: function (){
     var track = this;
-    track.loadSound().then(function() {
-      track.get('sound').play();
+    track.playSound().then(function() {
       track.set('playing', true);
     });
   },
@@ -57,11 +56,12 @@ Yahara.Track = Ember.Model.extend({
     this.get('sound').play();
   },
 
-  loadSound: function(){
+  playSound: function(){
     var track = this;
     return Ember.$.ajax(track.get('media_uri') + localStorage.token).then(function(data){
       track.set('sound', soundManager.createSound({
         url: data.url,
+        autoPlay: true,
         whileplaying: function(){
           track.updatePosition();
         },
