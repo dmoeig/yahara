@@ -1,0 +1,77 @@
+resultsPage: 
+  status: "ok"
+  results:
+    event:
+      -
+        type: "Concert"
+        ageRestriction: null
+        status: "ok"
+        displayName: "Sage Francis with B. Dolan and F. Stokes at High Noon Saloon (June 6, 2014)"
+        start:
+          time: "22:00:00"
+          date: "2014-06-06"
+          datetime: "2014-06-06T22:00:00-0600"
+        location:
+          city: "Madison, WI, US"
+          lat: 43.0797373
+          lng: -89.3764856
+        popularity: 0.023023
+        uri: "http://www.songkick.com/concerts/19962998-sage-francis-at-high-noon-saloon?utm_source=27133&utm_medium=partner"
+        id: 19962998
+        performance:
+          -
+            billingIndex: 1
+            billing: "headline"
+            displayName: "Sage Francis"
+            id: 39678198
+            artist:
+              displayName: "Sage Francis"
+              identifier:
+                -
+                  mbid: "c8fc1732-d191-4a29-a33a-410f98eff13b"
+                  href: "http://api.songkick.com/api/3.0/artists/mbid:c8fc1732-d191-4a29-a33a-410f98eff13b.json"
+              uri: "http://www.songkick.com/artists/40408-sage-francis?utm_source=27133&utm_medium=partner"
+              id: 40408
+          -
+            billingIndex: 2
+            billing: "support"
+            displayName: "B. Dolan"
+            id: 39678203
+            artist:
+              displayName: "B. Dolan"
+              identifier:
+                -
+                  mbid: "65b041f4-3cef-4d8a-80cc-22ad62e10fff"
+                  href: "http://api.songkick.com/api/3.0/artists/mbid:65b041f4-3cef-4d8a-80cc-22ad62e10fff.json"
+              uri: "http://www.songkick.com/artists/2334385-b-dolan?utm_source=27133&utm_medium=partner"
+              id: 2334385
+          -
+            billingIndex: 3
+            billing: "support"
+            displayName: "F. Stokes"
+            id: 40911118
+            artist:
+              displayName: "F. Stokes"
+              identifier:
+                -
+                  mbid: "c89a0fbe-6546-49df-8047-078936494a85"
+                  href: "http://api.songkick.com/api/3.0/artists/mbid:c89a0fbe-6546-49df-8047-078936494a85.json"
+              uri: "http://www.songkick.com/artists/2745186-f-stokes?utm_source=27133&utm_medium=partner"
+              id: 2745186
+        venue:
+          metroArea:
+            displayName: "Madison"
+            country:
+              displayName: "US"
+            uri: "http://www.songkick.com/metro_areas/8265-us-madison?utm_source=27133&utm_medium=partner"
+            id: 8265
+            state:
+              displayName: "WI"
+          displayName: "High Noon Saloon"
+          lat: 43.0797373
+          lng: -89.3764856
+          uri: "http://www.songkick.com/venues/2946-high-noon-saloon?utm_source=27133&utm_medium=partner"
+          id: 2946
+  perPage: 50
+  page: 1
+  totalEntries: 1

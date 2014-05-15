@@ -11,13 +11,23 @@
     {{#y-block title="Youtube" expanded='true'}}
       {{youtube youtube_url}}
     {{/y-block}}
+    {{#if hasSongkick}}
+      {{#y-block title="Events" expanded='true'}}
+        {{#if hasEvents}}
+          {{#each event in songkick.resultsPage.results.event }}
+            <p><a {{bind-attr href=event.uri}}>{{event.displayName}}</a></p>
+          {{/each}}
+        {{else}}
+          <p>This artist has no upcoming events listed on songkick.com</p>
+        {{/if}}
+      {{/y-block}}
+    {{/if}}
     {{#y-block title="Links" expanded='true'}}
       {{#each social_media_urls}}
         <p><a {{bind-attr href=url}} target="_blank">{{name}}</a></p>
       {{/each}}
       <p><a {{bind-attr href=website_url}} target="_blank">Artist Website</a></p>
     {{/y-block}}
-
   </div>
   <div id="right">
     {{#y-block title="Biography" expanded='true'}}

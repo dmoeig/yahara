@@ -2,6 +2,7 @@ bio: "One spring day in 1992, Stephanie Jutt and Jeffrey Sykes asked each other 
 name: "Bach Dancing and Dynamite Society"
 banner_image: "http://localhost:8000/assets/images/artist-banner.jpg"
 youtube_url: "https://www.youtube.com/watch?v=O1nIhLnSsKM"
+songkick_artist_id: "asdqwe21q"
 social_media_urls:
   -
     name: "Country Music Television"
