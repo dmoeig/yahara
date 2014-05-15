@@ -1,4 +1,4 @@
-Yahara.CollectionRoute = Ember.Route.extend({
+Yahara.CollectionRoute = Ember.Route.extend( Yahara.ResetScroll, {
   beforeModel: function() {
     if (this.controllerFor('application').get('notAuthorized')){
       this.transitionTo('application');

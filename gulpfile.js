@@ -123,6 +123,7 @@ var appJsFiles = function(){
   return [
       'app/environments/' + env + '.js',
       'app/app.js',
+      'app/mixins/*.js',
       'app/router.js',
       'app/adapters/*.js',
       'app/components/*.js',
