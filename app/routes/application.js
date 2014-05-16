@@ -58,7 +58,8 @@ Yahara.ApplicationRoute = Ember.Route.extend({
     },
 
     goHome: function(){
-      this.controllerFor('search').set('searchString', "")
+      this.controllerFor('search').set('searchString', "");
+      this.transitionTo('/');
     },
 
     collect: function(album){
