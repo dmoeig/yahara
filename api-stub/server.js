@@ -66,7 +66,7 @@ module.exports = function(server) {
     });
 
     server.get('/stream/:mprint/:filename', function(req, res) {
-      res.json({ url: "http://localhost:8000/assets/audio/song.mp3" });
+      res.json({ url: "/assets/audio/song.mp3" });
     });
 
     server.post('/collection', function(req, res) {

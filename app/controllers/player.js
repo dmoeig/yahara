@@ -31,6 +31,11 @@ Yahara.PlayerController = Ember.ObjectController.extend({
         if (this.get('content') !== null) {
           this.get('content').stop();
         }
+        var sound = soundManager.createSound({
+          url: "/assets/audio/point1sec.mp3",
+        });
+        sound.play();
+
         this.set('content', track);
         this.get('content').play();
       }
