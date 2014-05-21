@@ -1,0 +1,43 @@
+[{
+  "fields": [
+    [
+      "006",
+      "m q h"
+    ],
+    [
+      "007",
+      "sz zunnnnnzneu"
+    ],
+    [
+      "250",
+      "a",
+      "[Downloadable music]"
+    ],
+    [
+      "500",
+      " ",
+      "a",
+      "Downloadable audio file."
+    ],
+    [
+      "500",
+      " ",
+      "a",
+      "Title from title details screen."
+    ],
+    [
+      "505",
+      "00",
+      "t",
+      "Veiled Undertow",
+      "t",
+      "Grandma",
+      "t",
+      "Child Of The Snow",
+      "t",
+      "November",
+      "t",
+      "Well Tempered"
+    ]
+  ]
+}]

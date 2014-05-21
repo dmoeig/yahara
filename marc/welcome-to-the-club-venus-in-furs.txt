@@ -1,0 +1,7 @@
+            
+006   m q h
+007   sz zunnnnnzneu
+250 a $[Downloadable music]
+500   $a Downloadable audio file.
+500   $a Title from title details screen.
+505 00 $t Altars of Ego $t Surf $t The Keeper $t Caustic Wave $t Pen Trading $t Vagina Cookies $t Crimson Tide $t Roy Orbison is Rolling in His Grave $t Macy's Stacey $t Disco is Dead $t Sleeping Pretty Chia Pet $t Wild Tropical Jungle Turkey
