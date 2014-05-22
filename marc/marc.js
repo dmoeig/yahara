@@ -13,8 +13,8 @@ request('https://yahara-api.herokuapp.com/catalog/yahara', function (error, resp
   JSON.parse(body).forEach(function(album){
     var record = new marc.Record();
 
-    record.append(['006', '  ', 'm q h'])
-    record.append(['007', '  ', 'sz zunnnnnzneu'])
+    record.append(['006', 'm q h'])
+    record.append(['007', 'sz zunnnnnzneu'])
     record.append(['100', '1 ', 'a', album.artist_name])
     record.append(['245', '10', 'a', album.title, 'c', album.artist_name ])
     record.append(['250', '  ', 'a','[Downloadable music]'])
