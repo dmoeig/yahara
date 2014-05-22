@@ -1,7 +1,0 @@
-            
-006   m q h
-007   sz zunnnnnzneu
-250 a $[Downloadable music]
-500   $a Downloadable audio file.
-500   $a Title from title details screen.
-505 00 $t Halp! $t Ate Brains a Week $t Brain $t I Wanna Eat Your Hand $t She Dead $t I'm Eating Through You $t Dead Prudence $t Hey Food

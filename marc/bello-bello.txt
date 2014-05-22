@@ -1,7 +1,0 @@
-            
-006   m q h
-007   sz zunnnnnzneu
-250 a $[Downloadable music]
-500   $a Downloadable audio file.
-500   $a Title from title details screen.
-505 00 $t Show Me The Way $t Lift You Up $t More Than That to Me $t Disappear $t Where Would You Be $t Out Loud $t Long Way Home $t Steel Wool $t Don't Tell Me You Love Me $t I Don't Want It

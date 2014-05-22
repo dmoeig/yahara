@@ -1,7 +1,0 @@
-            
-006   m q h
-007   sz zunnnnnzneu
-250 a $[Downloadable music]
-500   $a Downloadable audio file.
-500   $a Title from title details screen.
-505 00 $t Sonata in E-flat Major, Op. 120, No. 2: I. Allegro amabile $t Sonata in E-flat Major, Op. 120, No. 2: II. Allegro appassionato $t Sonata in E-flat Major, Op. 120, No. 2: III. Andante con moto $t Sonata in F Minor, Op. 120, No. 1: I. Allegro appassionato $t Sonata in F Minor, Op. 120, No. 1: II. Andante un poco adagio $t Sonata in F Minor, Op. 120, No. 1: III. Allegretto grazioso $t Sonata in F Minor, Op. 120, No. 1: IV. Vivace $t Sonata in A Major, Op. 100: I. Allegro amabile $t Sonata in A Major, Op. 100: II. Andante tranquillo $t Sonata in A Major, Op. 100: III. Allegretto grazioso (quasi andante)

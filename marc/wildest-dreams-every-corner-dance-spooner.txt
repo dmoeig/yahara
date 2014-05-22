@@ -1,7 +1,0 @@
-            
-006   m q h
-007   sz zunnnnnzneu
-250 a $[Downloadable music]
-500   $a Downloadable audio file.
-500   $a Title from title details screen.
-505 00 $t Sacred Ground $t This Town's on Fire $t Borderline $t Eyes of the World $t Again and Again (Looks Like Rain) $t Brave New Heart $t The Rainy Days $t Woman Out of Time $t Wildest Dreams $t Endless Miles $t Will You Remember Me? $t Temptations $t Member of the Family $t Jackie $t Every Corner Dance $t Cruel School $t Poor Harold $t Oo My My $t The Way the Stories Go
