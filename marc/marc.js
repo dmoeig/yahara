@@ -22,6 +22,7 @@ request('https://yahara-api.herokuapp.com/catalog/yahara', function (error, resp
     record.append(['500', '  ', 'a', 'Downloadable audio file.']);
     record.append(['500', '  ', 'a', 'Title from digitaly encoded metadata.']);
     record.append(['538', '  ', 'a', 'Mode of access: World Wide Web.']);
+    record.append(['599', '  ', 'a', 'YAHARA MUSIC LIBRARY']);
     record.append(['856', '40', 'u', 'http://www.yaharamusic.org/album/'+album.slug]);
 
     var tracks = ['505', '00']
