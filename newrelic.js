@@ -8,7 +8,7 @@ exports.config = {
   /**
    * Array of application names.
    */
-  app_name : ['Yahara Staging'],
+  app_name : ['Yahara'],
   /**
    * Your New Relic license key.
    */
