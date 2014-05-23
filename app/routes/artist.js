@@ -10,7 +10,7 @@ Yahara.ArtistRoute = Ember.Route.extend( Yahara.ResetScroll, {
         controller.set('songkick', JSON.parse(resp));
       });
     } else {
-      controller.set('songkick', null)
+      controller.set('songkick', null);
     }
   }
 });
