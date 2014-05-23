@@ -5,11 +5,10 @@
     <p>We'll need you to give us some more information to access that.</p>
     {{#if currentUser.error}}
       <div class="flash-login">
-        <i class ="flash-icon ion-alert"></i><p>Please enter a valid library card number and password</p>
+        <i class ="flash-icon ion-alert"></i><p>Please enter a valid library card number</p>
       </div>
     {{/if}}
     <p>{{input id="card-number" value=currentUser.cardnumber placeholder="Card Number"}}</p>
-    <p>{{input id="password" value=currentUser.password placeholder="Password"}}</p>
     <button class='login' {{action submit}}>Submit</button>
     <a class="close-reveal-modal" {{action 'close'}}>×</a>
   </div>
