@@ -2,15 +2,14 @@ var newrelic = require('newrelic');
 
 var express = require('express');
 var request = require('request');
-var prerender = require('prerender-node')
 
 var app = express();
 var port = process.env.PORT || 8000;
 var pageCache = {};
 
+app.use(require('prerender-node').set('prerenderToken', 'process.env.PRERENDER_TOKEN'));
 app.use(express.logger());
 app.use(express.compress());
-app.use(prerender.set('prerenderToken', process.env.PRERENDER_TOKEN));
 app.use(express.static(__dirname + '/dist', { maxAge: 86400000 })); //cache one day
 app.use(express.static(__dirname + '/public'));
 
