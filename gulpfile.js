@@ -243,7 +243,7 @@ gulp.task('watch', function () {
 
 gulp.task('sitemap', function() {
   var urlConfig = {
-    baseUrl: 'http://yahara.org/',
+    baseUrl: 'http://www.yaharamusic.org/',
     siteMapPath: 'dist/sitemap.xml',
     urls: [
       {
@@ -272,7 +272,7 @@ gulp.task('sitemap', function() {
         bodyJSON = JSON.parse(body);
 
         for (var i = 0; i < bodyJSON.length; i++) {
-          urlConfig.urls.push({ url: "http://www.yaharamusic.org/" + klass[0] + '/' + bodyJSON[i].slug, siteMap: {} });
+          urlConfig.urls.push({ url: klass[0] + '/' + bodyJSON[i].slug, siteMap: {} });
         };
       } else {
         console.log("Error querying api", error);
