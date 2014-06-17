@@ -40,7 +40,7 @@ gulp.task('default', function(callback) {
 gulp.task('dist', function(callback) {
   env = "production"
   destination = temp_dir
-  return sequence('clean-dist', 'build-production','rev', callback);
+  return sequence('clean-dist', 'build-production', 'sitemap', 'rev', callback);
 });
 
 gulp.task('build', ['templates', 'javascript', 'css', 'html']);
