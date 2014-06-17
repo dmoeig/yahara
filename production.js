@@ -37,4 +37,8 @@ app.get('/*', function(req, res){
   res.sendfile(__dirname + '/dist/index.html');
 });
 
+app.get('/sitemap.xml', function(req, res) {
+  res.sendfile(__dirname + '/dist/sitemap.xml');
+});
+
 app.listen(port);
