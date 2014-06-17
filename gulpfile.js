@@ -22,7 +22,6 @@ var rename = require('gulp-rename');
 var request = require('request');
 var fs = require('fs');
 var Judo = require('judo');
-var async = require('async');
 
 var env = process.env.NODE_ENV || "development"
 var build_dir = "build/"
