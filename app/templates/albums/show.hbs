@@ -67,7 +67,7 @@
       {{else}}
         {{#each link in purchase_links}}
           <p>
-            <a target="_blank" {{bind-attr href="link.url"}}>{{link.name}}</a> -{{#each format in link.formats}} {{format}}, {{/each}}
+            <a target="_blank" {{bind-attr href="link.url"}}>{{link.name}}</a> -{{#each format in link.formats}} {{format}}{{/each}}
           </p>
         {{/each}}
       {{/if}}
