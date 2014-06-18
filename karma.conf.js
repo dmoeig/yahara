@@ -17,11 +17,12 @@ module.exports = function(config) {
     files: [
           "vendor/jquery/dist/jquery.min.js",
           "vendor/handlebars/handlebars.js",
-          "vendor/ember/ember.js",
           "vendor/jquery-placeholder/jquery.placeholder.js",
+          "vendor/soundmanager2/script/soundmanager2.js",
+          "vendor/ember/ember.js",
           "app/app.js",
-          "public/tests.js",
-          "app/templates/*.hbs"
+          "app/templates/*.hbs",
+          "public/tests.js"
         ],
 
 
