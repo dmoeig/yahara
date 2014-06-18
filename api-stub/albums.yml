@@ -176,26 +176,20 @@
     - Experimental
     - Gypsy-Rock
   purchase_links:
-    - 
+    -
       name: Artist Website
       url: http://example.com/williamzvillain
-      formats: 
-        - CD
+      formats: CD
       location: Web
     -
       name: Murfie
       url: http://murfie.com/legit-album
-      formats:
-        - CD
-        - Download
-        - Stream
+      formats: CD, Download, Stream
       location: Web
     -
       name: Bandcamp
       url: http://bandcamp.com/william-z-villain
-      formats:
-        - Download
-        - Stream
+      formats: Download, Stream
       location: Web
 -
   artist_name: Pushmi-Pullyu
