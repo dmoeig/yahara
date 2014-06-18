@@ -1,5 +1,8 @@
 module("Yahara");
 
+Yahara.setupForTesting();
+Yahara.injectTestHelpers();
+
 test("Yahara", function(){
   ok(Yahara instanceof Ember.Application, "The Yahara app is an Ember application")
 });
@@ -11,10 +14,12 @@ module("Search Features", {
   }
 })
 
+
 test("searching for a title", function(){
   visit("/")
     .fillIn("input#search", "mike")
     .andThen(function() {
+      equal(find("input#search")[0].value, "mike");
       equal(currentURL(), '/album/mike-zirkel-the-album-the-gomers', "Transitioned to the album page")
       equal(find("h3.album").text().trim(), "Mike Zirkel the Album", "The correct album is showing");
   });

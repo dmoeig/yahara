@@ -21,6 +21,8 @@ module.exports = function(config) {
           "vendor/soundmanager2/script/soundmanager2.js",
           "vendor/ember/ember.js",
           "app/app.js",
+          "app/helpers/*.js",
+          "app/router.js",
           "app/templates/*.hbs",
           "public/tests.js"
         ],
@@ -48,7 +50,7 @@ module.exports = function(config) {
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
+    reporters: ['dots'],
 
 
     // web server port
