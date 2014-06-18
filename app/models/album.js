@@ -10,6 +10,7 @@ Yahara.Album = Ember.Model.extend({
   review: Ember.attr(),
   artist_url: Ember.attr(),
   slug: Ember.attr(),
+  purchase_links: Ember.attr(),
 
   art: Ember.computed.alias('album_art'),
 
@@ -31,7 +32,9 @@ Yahara.Album = Ember.Model.extend({
 
   altText: function() {
     return "Album art for " + this.get('title') + " by " + this.get('artist_name');
-  }.property('title', 'artist_name')
+  }.property('title', 'artist_name'),
+
+  noPurchaseLinks: Ember.computed.empty('purchase_links')
 
 });
 
