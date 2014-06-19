@@ -2,8 +2,8 @@ language: node_js
 node_js:
   - "0.10"
 
-# before_script:
-	# - nohup ./node_modules/.bin/gulp beforetest
-	# - sleep 5
+before_script:
+	- nohup ./node_modules/.bin/gulp beforetest
+	- sleep 5
 
-# script: phantomjs phantomtest.js http://localhost:8000/tests.html  # not npm test cuz travis has phantomjs preinstalled
+script: phantomjs phantomtest.js http://localhost:8000/tests.html  # not npm test cuz travis has phantomjs preinstalled
