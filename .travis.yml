@@ -2,6 +2,10 @@ language: node_js
 node_js:
   - 0.10
 
+install: npm install
+
+script: npm test
+
 # before_script:
 	# - nohup ./node_modules/.bin/gulp beforetest
 	# - sleep 5
