@@ -1,29 +1,7 @@
 module("Yahara");
 
-Yahara.setupForTesting();
-Yahara.injectTestHelpers();
-
 test("Yahara", function(){
   ok(Yahara instanceof Ember.Application, "The Yahara app is an Ember application")
-});
-
-test("Does andThen Work", function() {
-  var works = false;
-  visit("/about")
-    .then(function() {
-      works = true;
-    });
-  andThen(function() {
-    equal(works, true, "It works!");
-  });
-});
-
-test("Does visit actually change the URL", function() {
-  visit("/");
-  visit("/album/portico-softly-dear")
-  andThen(function() {
-    equal(currentURL(), "/album/portico-softly-dear", "We are on a special page");
-  });
 });
 
 module("Search Features", {

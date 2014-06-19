@@ -27,6 +27,7 @@
     "gulp-karma": "0.0.2",
     "gulp-minify-css": "^0.3.1",
     "gulp-rename": "^1.2.0",
+    "gulp-rev-all": "^0.2.0",
     "gulp-sass": "~0.7.1",
     "gulp-uglify": "^0.2.1",
     "gulp-util": "~2.2.14",
@@ -44,18 +45,18 @@
     "karma-qunit": "^0.1.1",
     "karma-requirejs": "^0.2.1",
     "karma-script-launcher": "^0.1.0",
+    "marcjs": "^0.1.6",
     "moment": "~2.5.1",
+    "phantomjs": "^1.9.7-9",
     "requirejs": "^2.1.11",
     "run-sequence": "~0.3.6",
     "tiny-lr": "0.0.5",
     "underscore": "^1.6.0",
-    "underscore.string": "^2.3.3",
-    "gulp-rev-all": "^0.2.0",
-    "marcjs": "^0.1.6"
+    "underscore.string": "^2.3.3"
   },
   "license": "All Rights Reserved",
   "scripts": {
     "start": "node production.js",
-    "test": "./node_modules/.bin/karma start --single-run --browsers PhantomJS"
+    "test": "./node_modules/.bin/phantomjs phantomtest.js http://localhost:8000/tests.html"
   }
 }

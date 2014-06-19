@@ -1,4 +1,5 @@
 var system = require('system');
+// Example from https://raw.githubusercontent.com/ariya/phantomjs/master/examples/run-qunit.js
 
 /**
  * Wait until the test condition is true or a timeout occurs. Useful for waiting
@@ -13,7 +14,7 @@ var system = require('system');
  * @param timeOutMillis the max amount of time to wait. If not specified, 3 sec is used.
  */
 function waitFor(testFx, onReady, timeOutMillis) {
-  var maxtimeOutMillis = timeOutMillis ? timeOutMillis : 30001, //< Default Max Timout is 3s
+  var maxtimeOutMillis = timeOutMillis ? timeOutMillis : 30001, //< Default Max Timout is 30s
     start = new Date().getTime(),
     condition = false,
     interval = setInterval(function() {
