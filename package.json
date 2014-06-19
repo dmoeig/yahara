@@ -57,6 +57,7 @@
   "license": "All Rights Reserved",
   "scripts": {
     "start": "node production.js",
-    "test": "./node_modules/.bin/phantomjs phantomtest.js http://localhost:8000/tests.html"
+    "test": "./node_modules/.bin/karma start"
+    // "test": "./node_modules/.bin/phantomjs phantomtest.js http://localhost:8000/tests.html"
   }
 }
