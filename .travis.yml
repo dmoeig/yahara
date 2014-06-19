@@ -2,9 +2,6 @@ language: node_js
 node_js:
 - "0.10"
 
-before_install:
-- git config --global url."https://".insteadOf git://  # travis doesn't like touching git so this is a workaround
-
 install:
 - npm install
 - ./node_modules/.bin/bower install

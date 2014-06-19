@@ -14,7 +14,7 @@ var system = require('system');
  * @param timeOutMillis the max amount of time to wait. If not specified, 3 sec is used.
  */
 function waitFor(testFx, onReady, timeOutMillis) {
-  var maxtimeOutMillis = timeOutMillis ? timeOutMillis : 30001, //< Default Max Timout is 30s
+  var maxtimeOutMillis = timeOutMillis ? timeOutMillis : 50001, //< Default Max Timout is 30s
     start = new Date().getTime(),
     condition = false,
     interval = setInterval(function() {
