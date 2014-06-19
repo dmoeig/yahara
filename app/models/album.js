@@ -30,6 +30,10 @@ Yahara.Album = Ember.Model.extend({
     });
   },
 
+  altText: function() {
+    return "Album art for " + this.get('title') + " by " + this.get('artist_name');
+  }.property('title', 'artist_name'),
+
   noPurchaseLinks: Ember.computed.empty('purchase_links')
 
 });

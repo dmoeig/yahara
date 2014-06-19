@@ -3,7 +3,7 @@
     <div class="previous-track">
       {{#if previousTrack }}
         <div class="album">
-          <img class='art' {{bind-attr src="previousTrack.album.art"}}>
+          <img class='art' {{bind-attr src="previousTrack.album.art" alt="previousTrack.album.altText" }}>
           <div class='title'>{{previousTrack.album.title}}</div>
           <div class='artist'>{{previousTrack.album.artist_name}}</div>
           {{previousTrack.title}}
@@ -14,7 +14,7 @@
     </div>
     <div class="current-track">
       <div class="album">
-        <img class='art' {{bind-attr src="album.art"}}>
+        <img class='art' {{bind-attr src="album.art" alt="album.altText" }}>
         <div class='title'>{{album.title}}</div>
         <div class='artist'>{{album.artist_name}}</div>
         {{title}}
@@ -39,7 +39,7 @@
     <div class="next-track">
       {{#if nextTrack }}
         <div class="album">
-          <img class='art' {{bind-attr src="nextTrack.album.art"}}>
+          <img class='art' {{bind-attr src="nextTrack.album.art" alt="nextTrack.album.altText" }}>
           <div class='title'>{{nextTrack.album.title}}</div>
           <div class='artist'>{{nextTrack.album.artist_name}}</div>
           {{nextTrack.title}}
