@@ -35,7 +35,6 @@
     "jshint-stylish": "~0.1.5",
     "marcjs": "^0.1.6",
     "moment": "~2.5.1",
-    "phantomjs": "^1.9.7-9",
     "requirejs": "^2.1.11",
     "run-sequence": "~0.3.6",
     "tiny-lr": "0.0.5",
