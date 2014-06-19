@@ -36,6 +36,10 @@ gulp.task('default', function(callback) {
   return sequence('clean', 'build', 'server', 'watch', callback);
 });
 
+gulp.task('beforetest', function(callback) {
+  return sequence('clean', 'build', 'server', callback);
+});
+
 gulp.task('dist', function(callback) {
   env = "production"
   destination = temp_dir
@@ -51,7 +55,7 @@ gulp.task('rev', function() {
     .pipe(gulp.dest(dist_dir))
 });
 
-gulp.task('server', function () {
+gulp.task('server', function() {
   var app = express();
 
   app.use('/vendor', express.static(__dirname + '/vendor'));
