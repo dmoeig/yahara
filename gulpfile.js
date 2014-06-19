@@ -36,6 +36,10 @@ gulp.task('default', function(callback) {
   return sequence('clean', 'build', 'server', 'watch', callback);
 });
 
+gulp.task('beforetest', function(callback) {
+  return sequence('clean', 'build', 'server', callback);
+});
+
 gulp.task('dist', function(callback) {
   env = "production"
   destination = temp_dir
