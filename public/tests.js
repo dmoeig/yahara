@@ -7,13 +7,31 @@ test("Yahara", function(){
   ok(Yahara instanceof Ember.Application, "The Yahara app is an Ember application")
 });
 
+test("Does andThen Work", function() {
+  var works = false;
+  visit("/about")
+    .then(function() {
+      works = true;
+    });
+  andThen(function() {
+    equal(works, true, "It works!");
+  });
+});
+
+test("Does visit actually change the URL", function() {
+  visit("/");
+  visit("/album/portico-softly-dear")
+  andThen(function() {
+    equal(currentURL(), "/album/portico-softly-dear", "We are on a special page");
+  });
+});
+
 module("Search Features", {
   setup: function() {
     localStorage.clear();
     Yahara.reset();
   }
 })
-
 
 test("searching for a title", function(){
   visit("/")
@@ -22,7 +40,7 @@ test("searching for a title", function(){
       equal(find("input#search")[0].value, "mike");
       equal(currentURL(), '/album/mike-zirkel-the-album-the-gomers', "Transitioned to the album page")
       equal(find("h3.album").text().trim(), "Mike Zirkel the Album", "The correct album is showing");
-  });
+    });
 });
 
 test("searching for an artist", function(){

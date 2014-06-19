@@ -51,7 +51,7 @@ gulp.task('rev', function() {
     .pipe(gulp.dest(dist_dir))
 });
 
-gulp.task('server', function () {
+gulp.task('server', function() {
   var app = express();
 
   app.use('/vendor', express.static(__dirname + '/vendor'));

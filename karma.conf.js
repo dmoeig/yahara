@@ -1,6 +1,10 @@
 // Karma configuration
 // Generated on Sat Apr 26 2014 12:42:38 GMT+0200 (CEST)
 
+
+// Reason why these tests fail are because the node server isn't started
+// this means that any calls to the api are simply 404 and loading some dependencies
+// also fail.
 module.exports = function(config) {
   config.set({
 
@@ -36,7 +40,8 @@ module.exports = function(config) {
     plugins: [
             'karma-qunit',
             'karma-ember-preprocessor',
-            'karma-phantomjs-launcher'
+            'karma-phantomjs-launcher',
+            'karma-chrome-launcher'
     ],
 
 
@@ -50,11 +55,11 @@ module.exports = function(config) {
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['dots'],
+    reporters: ['progress'],
 
 
     // web server port
-    port: 9876,
+    port: 8000,
 
 
     // enable / disable colors in the output (reporters and logs)
@@ -72,11 +77,11 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['PhantomJS'],
+    browsers: ['PhantomJS', 'Chrome'],
 
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: true
+    singleRun: false
   });
 };
