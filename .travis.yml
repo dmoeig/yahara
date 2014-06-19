@@ -4,10 +4,11 @@ node_js:
 
 before_install:
 - echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+- cat ~/.ssh/config
 
 install:
 - npm install
-- ./node_modules/.bin/bower install
+- ./node_modules/.bin/bower install -f --allow-root
 
 before_script:
 - nohup ./node_modules/.bin/gulp beforetest &
