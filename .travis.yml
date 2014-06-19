@@ -8,7 +8,7 @@ before_install:
 
 install:
 - npm install
-- ./node_modules/.bin/bower install -f --allow-root
+# - ./node_modules/.bin/bower install
 
 before_script:
 - nohup ./node_modules/.bin/gulp beforetest &
