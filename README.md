@@ -16,6 +16,10 @@ Making local music super awesome since 2014 :)
 1. run `gulp`
 2. visit http://localhost:8000 in a browser
 
+## Testing
+1. run `gulp beforetest` this will start the server
+2. run `npm test`
+
 ## Deployment
 1. run `gulp dist`
 2. commit changes

@@ -1,7 +1,7 @@
 <div id="album">
   <div class="meta-data">
     <div class="album-art-wrapper">
-      <img class='art' {{bind-attr src="art"}}>
+      <img class='art' {{bind-attr src="art" alt="altText" }}>
       <div class="show-play-button" {{action "playPause" firstTrack}}><img src="/assets/images/play_button.png"></div>
     </div>
     <div class="album-info-block">
@@ -51,18 +51,26 @@
     {{/y-block}}
 
     {{#y-block title="Options to Purchase"}}
-      <p>
-        <a href="http://www.b-sidemadison.com/" target="_blank">B-Side Records</a> - CD, Vinyl
-      </p>
-      <p>
-        <a href="http://www.madcitymusic.net/" target="_blank">MadCity Music Exchange</a> - CD, Vinyl
-      </p>
-      <p>
-        <a href="https://www.murfie.com/" target="_blank">Murfie</a> - CD, Vinyl, Download, Stream
-      </p>
-      <p>
-        <a href="http://www.strictlydiscs.com/" target="_blank">Strictly Discs</a> - CD, Vinyl
-      </p>
+      {{#if noPurchaseLinks}}
+        <p>
+          <a href="http://www.b-sidemadison.com/" target="_blank">B-Side Records</a> - CD, Vinyl
+        </p>
+        <p>
+          <a href="http://www.madcitymusic.net/" target="_blank">MadCity Music Exchange</a> - CD, Vinyl
+        </p>
+        <p>
+          <a href="https://www.murfie.com/" target="_blank">Murfie</a> - CD, Vinyl, Download, Stream
+        </p>
+        <p>
+          <a href="http://www.strictlydiscs.com/" target="_blank">Strictly Discs</a> - CD, Vinyl
+        </p>
+      {{else}}
+        {{#each link in purchase_links}}
+          <p>
+            <a target="_blank" {{bind-attr href="link.url"}}>{{link.name}}</a> - {{link.formats}}
+          </p>
+        {{/each}}
+      {{/if}}
     {{/y-block}}
   </div>
   <div class='info'>
