@@ -33,6 +33,7 @@
     "hat": "0.0.3",
     "js-yaml": "~3.0.1",
     "jshint-stylish": "~0.1.5",
+    "judo": "0.2.1",
     "marcjs": "^0.1.6",
     "moment": "~2.5.1",
     "requirejs": "^2.1.11",
