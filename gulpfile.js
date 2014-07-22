@@ -265,28 +265,24 @@ gulp.task('sitemap', function() {
     ]
   }
 
-  var urls = []; // query api and then construct url from the slugs
   var api = "https://yahara-api.herokuapp.com/";
-  var klasses = [["album", "catalog/yahara"], ["artist", "artist"]];
-  klasses.map(function(klass) {
-    var url = api + klass[1];
 
-    request(url, function(error, response, body) {
-      if (!error && response.statusCode == 200) {
-        bodyJSON = JSON.parse(body);
+  request(api + "catalog/yahara", function(error, response, body) {
+    if (!error && response.statusCode == 200) {
+      bodyJSON = JSON.parse(body);
 
-        for (var i = 0; i < bodyJSON.length; i++) {
-          urlConfig.urls.push({ url: klass[0] + '/' + bodyJSON[i].slug, siteMap: {} });
-        };
-      } else {
-        console.log("Error querying api", error);
-      }
-      judo = new Judo();
-      judo.updateSiteMap(urlConfig, function(err) {
-        if (err) {
-          console.log("Error generating sitemap", err);
-        };
-      });
-    })
-  });
+      for (var i = 0; i < bodyJSON.length; i++) {
+        urlConfig.urls.push({ url: 'album/' + bodyJSON[i].slug, siteMap: {} });
+        urlConfig.urls.push({ url: bodyJSON[i].artist_url.substring(api.length), siteMap: {} });
+      };
+    } else {
+      console.log("Error querying api", error);
+    }
+    judo = new Judo();
+    judo.updateSiteMap(urlConfig, function(err) {
+      if (err) {
+        console.log("Error generating sitemap", err);
+      };
+    });
+  })
 });
