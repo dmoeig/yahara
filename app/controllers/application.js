@@ -1,4 +1,4 @@
-Yahara.ApplicationController = Ember.ObjectController.extend({
+Yahara.ApplicationController = Ember.ObjectController.extend(Yahara.GoogleAnalytics, {
   searchString: null,
   albums: Ember.A(),
 
