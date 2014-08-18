@@ -209,7 +209,8 @@ gulp.task('jshint', function() {
         "ENV",
         "$",
         "window",
-        "escape"
+        "escape",
+        "ga"
       ],
       "trailing": true,
       "undef": true
