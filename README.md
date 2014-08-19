@@ -5,10 +5,10 @@ Making local music super awesome since 2014 :)
 
 ### Setup
 1. Make sure node is installed 
-    (`brew install node` on OSX, 
-    on Ubuntu: 
-      'sudo apt-get install python-software-properties python g++ make'
-      'sudo add-apt-repository -y ppa:chris-lea/node.js'
+    (`brew install node` on OSX,  
+      on Ubuntu:  
+      'sudo apt-get install python-software-properties python g++ make'  
+      'sudo add-apt-repository -y ppa:chris-lea/node.js'  
       'sudo apt-get update')
 2. Install grunt command line utility `npm install -g gulp` or 'sudo npm install -g gulp'
 3. Install bower command line utility `npm install -g bower`
