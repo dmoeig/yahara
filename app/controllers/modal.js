@@ -15,6 +15,7 @@ Yahara.ModalController = Ember.ObjectController.extend({
     },
     submit: function() {
       var currentUser = this.get('currentUser');
+      ga('send','event','Log In', 'click', 'Submit', 1);
       ic.ajax.request({
         type: "POST",
         url: ENV.HOST + "/userforcard",
