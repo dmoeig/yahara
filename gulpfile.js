@@ -139,7 +139,7 @@ var appJsFiles = function(){
       'app/components/*.js',
       'app/models/*.js',
       'app/controllers/**/*.js',
-      'app/views/*.js',
+      'app/views/**/*.js',
       'app/helpers/*.js',
       'app/routes/**/*.js'
     ]
