@@ -8,6 +8,13 @@ Yahara.AlbumsShowController = Ember.ObjectController.extend({
   actions: {
     download: function(download){
       ga('send','event','Download', 'click', download, 1);
+    },
+    playPause: function(firstTrack){
+      ga('send','event','Streaming','play',firstTrack,1);
+    },
+    purchase: function(purchase){
+      ga('send','event','Options to Purchase','click',purchase,1);
+      console.log(purchase);
     }
   }
 
