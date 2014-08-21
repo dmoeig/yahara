@@ -6,11 +6,11 @@ Yahara.AlbumsShowController = Ember.ObjectController.extend({
   }.property('controllers.application.model.collection.@each', 'model.mprint.origin'),
 
   actions: {
-    download: function(download){
-      ga('send','event','Download', 'click', download, 1);
-    },
-    playPause: function(firstTrack){
-      ga('send','event','Streaming','play',firstTrack,1);
+    // download: function(download){
+    //   ga('send','event','Download', 'click', download, 1);
+    // },
+    // playPause: function(firstTrack){
+    //   ga('send','event','Streaming','play',firstTrack,1);
     // },
     // purchase: function(purchase){
     //   ga('send','event','Options to Purchase','click',purchase,1);
@@ -18,7 +18,7 @@ Yahara.AlbumsShowController = Ember.ObjectController.extend({
     //   redirect: function(purchase) {
     //     window.location.replace(purchase);
     //   }
-    }
+    // }
   }
 
 });
