@@ -69,7 +69,7 @@ gulp.task('server', function() {
   app.get('/pages/:page', function(req, res){
     var pageName = req.params.page;
     var options = {
-      url: 'https://api.github.com/repos/squareleaf/yahara/contents/app/pages/' + pageName + '.html',
+      url: 'https://api.github.com/repos/therabble/yahara/contents/app/pages/' + pageName + '.html',
       headers: {
         'User-Agent': 'Yahara'
       }
