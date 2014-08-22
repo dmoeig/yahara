@@ -4,7 +4,7 @@ Yahara.GoogleAnalytics = Ember.Mixin.create({
       Ember.run.next(function() {
         var loc = window.location,
             page = loc.hash ? loc.hash.substring(1) : loc.pathname + loc.search;
-        window.ga('send', 'pageview', page);
+        ga('send', 'pageview', page);
       });
     }
   }.observes('currentPath')
