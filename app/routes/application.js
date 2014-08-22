@@ -17,6 +17,7 @@ Yahara.ApplicationRoute = Ember.Route.extend({
 
   actions: {
     playPause: function (track){
+      ga('send','event','Streaming','play',track,1);
       var player = this.controllerFor('player');
       var user = this.controller.get('model');
 
