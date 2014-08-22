@@ -24,7 +24,7 @@ Yahara.Album = Ember.Model.extend({
   }.property('artist_name'),
 
   download: function(format){
-    ga('send','event','Download', 'click', download, 1);
+    ga('send','event','Download', 'click', format, 1);
     var uri = ENV.HOST + "/download/" + this.get('id') + "/" + encodeURIComponent(this.get('slug')) + "-" + format +".zip?token=" + localStorage.token;
     ic.ajax.request(uri).then(function(resp){
       window.location = resp.url;
