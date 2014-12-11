@@ -6,6 +6,7 @@ Yahara.Router.map(function() {
   this.route('catalog');
   this.route('collection');
   this.route('profile');
+  this.route('events');
   this.route('page', { path: '/:page'} );
 });
 

@@ -7,6 +7,7 @@ var _s = require('underscore.string');
 
 var albums = yaml.safeLoad(fs.readFileSync('api-stub/albums.yml', 'utf8'));
 var songkick = yaml.safeLoad(fs.readFileSync('api-stub/songkick.yml', 'utf8'));
+var events = yaml.safeLoad(fs.readFileSync('api-stub/events.yml', 'utf8'));
 
 var duration = function(){
   return (120 + Math.floor(Math.random() * (240 - 120 + 1)))*1000;
@@ -56,6 +57,10 @@ module.exports = function(server) {
     server.get('/catalog/yahara', function(req, res) {
       res.json(albums);
     });
+
+    server.get('/events', function(req, res) {
+      res.json(events);
+    })
 
     server.get('/artist/:slug', function(req, res) {
       res.json(artist);
